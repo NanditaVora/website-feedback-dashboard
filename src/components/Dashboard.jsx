@@ -14,10 +14,11 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
           </h2>
           <div>
             {data.map((program) => (
-              <div 
+              <button
                 key={program.id}
                 className={`nav-item ${selectedProgramId === program.id ? 'active' : ''}`}
                 onClick={() => setSelectedProgramId(program.id)}
+                style={{ width: '100%', background: 'none', border: 'none', textAlign: 'left', font: 'inherit', cursor: 'pointer' }}
               >
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                   <span style={{ fontWeight: '500', fontSize: '0.95rem', lineHeight: '1.2' }}>{program.name || program.filename}</span>
@@ -25,12 +26,17 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                     <span className="badge">{program.issues.length} Issues</span>
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
 
         {/* Main Content */}
+        {!selectedProgram && (
+          <div className="glass-panel" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
+            <p style={{ color: 'var(--text-secondary)' }}>Select a program from the sidebar to view its issues.</p>
+          </div>
+        )}
         {selectedProgram && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div className="glass-panel">
@@ -69,7 +75,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                 </thead>
                 <tbody>
                   {selectedProgram.issues.map((issue, idx) => (
-                    <tr key={idx}>
+                    <tr key={`${issue['Section Heading']}-${issue['Sub-Section Heading']}-${idx}`}>
                       <td>
                         <div style={{ fontWeight: '500', marginBottom: '0.25rem' }}>{issue['Section Heading']}</div>
                         <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{issue['Sub-Section Heading']}</div>

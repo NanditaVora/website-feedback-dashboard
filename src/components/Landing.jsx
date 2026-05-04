@@ -34,7 +34,7 @@ const Landing = ({ navigateToProgram, data }) => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
         <div className="glass-panel animate-fade-in delay-100" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <div style={{ background: 'rgba(99, 102, 241, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
-            <FileSpreadsheet size={32} className="text-gradient" />
+            <FileSpreadsheet size={32} color="var(--accent-color)" />
           </div>
           <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.5rem' }}>{totalPrograms} Programs</h3>
           <p style={{ color: 'var(--text-secondary)' }}>Analyzed and aggregated from raw data sources.</p>
@@ -48,7 +48,7 @@ const Landing = ({ navigateToProgram, data }) => {
           <p style={{ color: 'var(--text-secondary)' }}>Detailed feedback requiring review and fixes.</p>
         </div>
 
-        <div className="glass-panel animate-fade-in delay-300" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+        <div className="glass-panel animate-fade-in delay-400" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <div style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
             <Activity size={32} color="var(--success)" />
           </div>
