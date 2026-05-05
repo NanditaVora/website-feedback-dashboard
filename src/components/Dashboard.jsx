@@ -9,7 +9,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
 
   const getTagColor = (section) => {
     const sec = (section || '').toLowerCase();
-    if (sec.includes('overview') || sec.includes('intro')) return 'tag-blue';
+    if (sec.includes('overview') || sec.includes('intro') || sec.includes('hero') || sec.includes('landing')) return 'tag-blue';
     if (sec.includes('curriculum') || sec.includes('module') || sec.includes('lesson')) return 'tag-purple';
     if (sec.includes('project') || sec.includes('assignment') || sec.includes('capstone')) return 'tag-pink';
     if (sec.includes('quiz') || sec.includes('assessment')) return 'tag-orange';
@@ -47,8 +47,12 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     <div className="container animate-fade-in" style={{ padding: '2rem', position: 'relative' }}>
       <div className="dashboard-layout">
         {/* Sidebar */}
-        <div className={`sidebar-container ${isSidebarOpen ? '' : 'collapsed'}`} style={{ width: isSidebarOpen ? '280px' : '0px', opacity: isSidebarOpen ? 1 : 0 }}>
-          <div className="glass-panel" style={{ height: 'fit-content' }}>
+        <div className={`sidebar-container ${isSidebarOpen ? '' : 'collapsed'}`} style={{ 
+          width: isSidebarOpen ? '280px' : '0px', 
+          opacity: isSidebarOpen ? 1 : 0,
+          marginRight: isSidebarOpen ? '2rem' : '0px'
+        }}>
+          <div className="glass-panel" style={{ height: 'fit-content', whiteSpace: 'nowrap' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Programs</h2>
             </div>
