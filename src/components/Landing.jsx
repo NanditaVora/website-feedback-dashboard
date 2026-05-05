@@ -6,6 +6,14 @@ const Landing = ({ navigateToProgram, data }) => {
   const totalPrograms = data.length;
   const totalIssues = data.reduce((acc, curr) => acc + curr.issues.length, 0);
 
+  const isFixed = (issue) => {
+    const s = (issue['Status'] || '').toLowerCase();
+    return s.includes('complete') || s.includes('done') || s.includes('fixed');
+  };
+
+  const totalFixed = data.reduce((acc, p) => acc + p.issues.filter(isFixed).length, 0);
+  const totalOpen = totalIssues - totalFixed;
+
   // Prepare chart data
   const chartData = data.map(program => ({
     name: program.name.length > 30 ? program.name.substring(0, 30) + '...' : program.name,
@@ -43,29 +51,37 @@ const Landing = ({ navigateToProgram, data }) => {
       </div>
 
       {/* KPI Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
         <div className="glass-panel animate-fade-in delay-100" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <div style={{ background: 'rgba(99, 102, 241, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
             <FileSpreadsheet size={32} color="var(--accent-color)" />
           </div>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.5rem' }}>{totalPrograms} Programs</h3>
-          <p style={{ color: 'var(--text-secondary)' }}>Analyzed and aggregated from raw data sources.</p>
+          <h3 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.25rem' }}>{totalPrograms}</h3>
+          <p style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>Programs</p>
         </div>
         
         <div className="glass-panel animate-fade-in delay-200" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+          <div style={{ background: 'rgba(148, 163, 184, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
+            <Activity size={32} color="var(--text-secondary)" />
+          </div>
+          <h3 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.25rem' }}>{totalIssues}</h3>
+          <p style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>Total Issues</p>
+        </div>
+
+        <div className="glass-panel animate-fade-in delay-300" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: 'rgba(239,68,68,0.05)', borderColor: 'rgba(239,68,68,0.2)' }}>
           <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
             <AlertTriangle size={32} color="var(--danger)" />
           </div>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.5rem' }}>{totalIssues} Issues Found</h3>
-          <p style={{ color: 'var(--text-secondary)' }}>Detailed feedback requiring review and fixes.</p>
+          <h3 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.25rem', color: 'var(--danger)' }}>{totalOpen}</h3>
+          <p style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>Open</p>
         </div>
 
-        <div className="glass-panel animate-fade-in delay-400" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+        <div className="glass-panel animate-fade-in delay-400" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: 'rgba(16,185,129,0.05)', borderColor: 'rgba(16,185,129,0.2)' }}>
           <div style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
             <Activity size={32} color="var(--success)" />
           </div>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.5rem' }}>Interactive UI</h3>
-          <p style={{ color: 'var(--text-secondary)' }}>Easily navigate through gaps and proposed fixes.</p>
+          <h3 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.25rem', color: 'var(--success)' }}>{totalFixed}</h3>
+          <p style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>Fixed</p>
         </div>
       </div>
 
