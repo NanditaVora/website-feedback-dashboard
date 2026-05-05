@@ -32,7 +32,7 @@ const Landing = ({ navigateToProgram, data }) => {
     <div className="container animate-fade-in" style={{ padding: '2rem 2rem 4rem 2rem' }}>
       <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem auto' }}>
         <h1 style={{ fontSize: '3.5rem', fontWeight: '800', marginBottom: '1.5rem', lineHeight: '1.1' }}>
-          FSE <span className="text-gradient">Product Page</span> Feedback
+          Product Page <span className="text-gradient">Insights</span>
         </h1>
         <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
           Comprehensive overview of identified gaps, issues, and suggested fixes across our educational programs.

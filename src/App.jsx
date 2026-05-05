@@ -30,7 +30,7 @@ function App() {
             <BarChart3 size={24} color="white" />
           </div>
           <h1 style={{ fontSize: '1.25rem', fontWeight: '700' }} className="text-gradient">
-            FSE Product Page Feedback
+            Product Page Insights
           </h1>
         </div>
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
