@@ -221,68 +221,76 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
       {selectedIssue && (
         <>
           <div 
-            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 40, backdropFilter: 'blur(4px)' }} 
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', zIndex: 40, backdropFilter: 'blur(8px)' }} 
             onClick={() => setSelectedIssue(null)}
           />
           <div 
-            ref={panelRef}
-            className="glass"
             style={{ 
-              position: 'fixed', top: 0, right: 0, bottom: 0, width: '100%', maxWidth: '500px', 
-              zIndex: 50, borderRight: 'none', borderRadius: '16px 0 0 16px',
-              padding: '2rem', overflowY: 'auto',
-              boxShadow: '-10px 0 30px rgba(0,0,0,0.5)',
-              transform: 'translateX(0)', transition: 'transform 0.3s ease-in-out'
+              position: 'fixed', top: '50%', left: '50%', transform: 'translate(10%, -50%)', 
+              width: '100%', maxWidth: '600px', maxHeight: '85vh',
+              zIndex: 50, overflowY: 'auto'
             }}
           >
-            <button 
-              style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }}
-              onClick={() => setSelectedIssue(null)}
+            <div 
+              ref={panelRef}
+              className="glass"
+              style={{ 
+                padding: '2.5rem', 
+                borderRadius: '24px',
+                background: 'rgba(30, 41, 59, 0.95)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+              }}
             >
-              <X size={24} />
-            </button>
-            <div style={{ marginBottom: '2rem' }}>
-              <span className={`section-tag ${getTagColor(selectedIssue['Section Heading'])}`} style={{ marginBottom: '0.5rem' }}>
-                {selectedIssue['Section Heading']}
-              </span>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.5rem', paddingRight: '2rem' }}>Issue Details</h2>
-            </div>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div>
-                <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Sub-Section</h4>
-                <p style={{ fontSize: '1.1rem', fontWeight: '500' }}>{selectedIssue['Sub-Section Heading']}</p>
+              <button 
+                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'rgba(255,255,255,0.05)', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}
+                onClick={() => setSelectedIssue(null)}
+              >
+                <X size={24} />
+              </button>
+              <div style={{ marginBottom: '2rem' }}>
+                <span className={`section-tag ${getTagColor(selectedIssue['Section Heading'])}`} style={{ marginBottom: '0.75rem' }}>
+                  {selectedIssue['Section Heading']}
+                </span>
+                <h2 style={{ fontSize: '1.75rem', fontWeight: '700', marginTop: '0.5rem', color: '#ffffff' }}>Issue Details</h2>
               </div>
-
-              {selectedIssue['Content'] && (
-                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)' }}>
-                  <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Content Reference</h4>
-                  <p style={{ whiteSpace: 'pre-wrap' }}>{selectedIssue['Content']}</p>
-                </div>
-              )}
-
-              {selectedIssue['Gap / Issue'] && (
-                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.05)', borderColor: 'rgba(239, 68, 68, 0.2)' }}>
-                  <h4 style={{ color: 'var(--danger)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <AlertCircle size={14} /> Gap / Issue
-                  </h4>
-                  <p style={{ whiteSpace: 'pre-wrap' }}>{selectedIssue['Gap / Issue']}</p>
-                </div>
-              )}
-
-              {selectedIssue['Fix Suggested'] && (
-                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(16, 185, 129, 0.05)', borderColor: 'rgba(16, 185, 129, 0.2)' }}>
-                  <h4 style={{ color: 'var(--success)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Suggested Fix</h4>
-                  <p style={{ whiteSpace: 'pre-wrap' }}>{selectedIssue['Fix Suggested']}</p>
-                </div>
-              )}
               
-              {selectedIssue['Remarks'] && selectedIssue['Remarks'] !== 'nan' && (
-                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)' }}>
-                  <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Remarks</h4>
-                  <p style={{ whiteSpace: 'pre-wrap' }}>{selectedIssue['Remarks']}</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div>
+                  <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Sub-Section</h4>
+                  <p style={{ fontSize: '1.1rem', fontWeight: '500' }}>{selectedIssue['Sub-Section Heading']}</p>
                 </div>
-              )}
+
+                {selectedIssue['Content'] && (
+                  <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(255,255,255,0.02)' }}>
+                    <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Content Reference</h4>
+                    <p style={{ whiteSpace: 'pre-wrap', lineHeight: '1.6' }}>{selectedIssue['Content']}</p>
+                  </div>
+                )}
+
+                {selectedIssue['Gap / Issue'] && (
+                  <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(239, 68, 68, 0.05)', borderColor: 'rgba(239, 68, 68, 0.2)' }}>
+                    <h4 style={{ color: 'var(--danger)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <AlertCircle size={14} /> Gap / Issue
+                    </h4>
+                    <p style={{ whiteSpace: 'pre-wrap', lineHeight: '1.6' }}>{selectedIssue['Gap / Issue']}</p>
+                  </div>
+                )}
+
+                {selectedIssue['Fix Suggested'] && (
+                  <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(16, 185, 129, 0.05)', borderColor: 'rgba(16, 185, 129, 0.2)' }}>
+                    <h4 style={{ color: 'var(--success)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Suggested Fix</h4>
+                    <p style={{ whiteSpace: 'pre-wrap', lineHeight: '1.6' }}>{selectedIssue['Fix Suggested']}</p>
+                  </div>
+                )}
+                
+                {selectedIssue['Remarks'] && selectedIssue['Remarks'] !== 'nan' && (
+                  <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(255,255,255,0.02)' }}>
+                    <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Remarks</h4>
+                    <p style={{ whiteSpace: 'pre-wrap', lineHeight: '1.6' }}>{selectedIssue['Remarks']}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </>
