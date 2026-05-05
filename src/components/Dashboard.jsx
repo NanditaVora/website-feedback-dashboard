@@ -56,6 +56,25 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     return <span className="status-badge status-open"><AlertTriangle size={12} /> Open</span>;
   };
 
+  const isFixed = (issue) => {
+    const s = (issue['Status'] || '').toLowerCase();
+    return s.includes('complete') || s.includes('done') || s.includes('fixed');
+  };
+
+  const getProgStats = (program) => {
+    const total = program.issues.length;
+    const fixed = program.issues.filter(isFixed).length;
+    return { total, fixed, open: total - fixed };
+  };
+
+  const globalStats = data.reduce((acc, p) => {
+    const s = getProgStats(p);
+    acc.total += s.total;
+    acc.fixed += s.fixed;
+    acc.open += s.open;
+    return acc;
+  }, { total: 0, fixed: 0, open: 0 });
+
   const filteredIssues = selectedProgram ? selectedProgram.issues.filter(issue => {
     const searchLower = searchTerm.toLowerCase();
     return (
@@ -94,20 +113,46 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
           marginRight: isSidebarOpen ? '2rem' : '0px'
         }}>
           <div className="glass-panel" style={{ height: 'fit-content' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Programs</h2>
             </div>
+
+            {/* Combined Stats */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.5rem', marginBottom: '1.25rem', padding: '0.75rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--text-primary)' }}>{globalStats.total}</div>
+                <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Total</div>
+              </div>
+              <div style={{ textAlign: 'center', borderLeft: '1px solid rgba(255,255,255,0.08)', borderRight: '1px solid rgba(255,255,255,0.08)' }}>
+                <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--danger)' }}>{globalStats.open}</div>
+                <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Open</div>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--success)' }}>{globalStats.fixed}</div>
+                <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Fixed</div>
+              </div>
+            </div>
+
             <div>
-            {data.map((program) => (
+            {data.map((program) => {
+              const ps = getProgStats(program);
+              return (
               <button
                 key={program.id}
                 className={`nav-item ${selectedProgramId === program.id ? 'active' : ''}`}
                 onClick={() => { setSelectedProgramId(program.id); setSearchTerm(''); setSelectedIssue(null); }}
               >
-                <span style={{ lineHeight: '1.2', flex: 1, paddingRight: '0.5rem' }}>{program.name || program.filename}</span>
-                <span className="badge" style={{ flexShrink: 0, marginTop: '2px' }}>{program.issues.length}</span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ lineHeight: '1.2', paddingRight: '0.5rem', marginBottom: '0.35rem' }}>{program.name || program.filename}</div>
+                  <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
+                    <span style={{ fontSize: '0.65rem', background: 'rgba(239,68,68,0.15)', color: '#fca5a5', padding: '0.1rem 0.4rem', borderRadius: '99px' }}>{ps.open} open</span>
+                    <span style={{ fontSize: '0.65rem', background: 'rgba(16,185,129,0.15)', color: '#6ee7b7', padding: '0.1rem 0.4rem', borderRadius: '99px' }}>{ps.fixed} fixed</span>
+                  </div>
+                </div>
+                <span className="badge" style={{ flexShrink: 0, marginTop: '2px' }}>{ps.total}</span>
               </button>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
@@ -141,15 +186,26 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                   )}
                   </div>
                 </div>
-                <div className="glass-panel" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0, alignSelf: 'flex-start' }}>
-                  <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '0.75rem', borderRadius: '50%' }}>
-                    <AlertCircle size={24} color="var(--danger)" />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '1.5rem', fontWeight: '700' }}>{selectedProgram.issues.length}</div>
-                    <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Total Issues</div>
-                  </div>
-                </div>
+                {/* Program-level stat pills */}
+                {(() => {
+                  const ps = getProgStats(selectedProgram);
+                  return (
+                    <div style={{ display: 'flex', gap: '0.75rem', flexShrink: 0, alignSelf: 'flex-start', flexWrap: 'wrap' }}>
+                      <div className="glass-panel" style={{ padding: '0.75rem 1.25rem', textAlign: 'center', minWidth: '80px' }}>
+                        <div style={{ fontSize: '1.5rem', fontWeight: '700' }}>{ps.total}</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Total</div>
+                      </div>
+                      <div className="glass-panel" style={{ padding: '0.75rem 1.25rem', textAlign: 'center', minWidth: '80px', background: 'rgba(239,68,68,0.07)', borderColor: 'rgba(239,68,68,0.2)' }}>
+                        <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--danger)' }}>{ps.open}</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Open</div>
+                      </div>
+                      <div className="glass-panel" style={{ padding: '0.75rem 1.25rem', textAlign: 'center', minWidth: '80px', background: 'rgba(16,185,129,0.07)', borderColor: 'rgba(16,185,129,0.2)' }}>
+                        <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--success)' }}>{ps.fixed}</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Fixed</div>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
 
