@@ -96,13 +96,13 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
         {selectedProgram && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div className="glass-panel">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="btn btn-secondary" style={{ padding: '0.5rem', marginTop: '0.25rem' }} title="Toggle Sidebar">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '2rem' }}>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', flex: 1, minWidth: 0 }}>
+                  <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="btn btn-secondary" style={{ padding: '0.5rem', marginTop: '0.25rem', flexShrink: 0 }} title="Toggle Sidebar">
                     {isSidebarOpen ? <ChevronLeft size={20} /> : <Menu size={20} />}
                   </button>
-                  <div>
-                    <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem' }}>{selectedProgram.name}</h1>
+                  <div style={{ minWidth: 0 }}>
+                    <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem', wordBreak: 'break-word' }}>{selectedProgram.name}</h1>
                   {selectedProgram.url && (
                     <a href={selectedProgram.url} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none' }}>
                       View Course <ExternalLink size={16} />
@@ -110,15 +110,13 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                   )}
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div className="glass-panel" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '0.75rem', borderRadius: '50%' }}>
-                      <AlertCircle size={24} color="var(--danger)" />
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '1.5rem', fontWeight: '700' }}>{selectedProgram.issues.length}</div>
-                      <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Total Issues</div>
-                    </div>
+                <div className="glass-panel" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0, alignSelf: 'flex-start' }}>
+                  <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '0.75rem', borderRadius: '50%' }}>
+                    <AlertCircle size={24} color="var(--danger)" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '1.5rem', fontWeight: '700' }}>{selectedProgram.issues.length}</div>
+                    <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Total Issues</div>
                   </div>
                 </div>
               </div>

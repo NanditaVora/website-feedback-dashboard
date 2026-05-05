@@ -223,8 +223,8 @@ body {
 
 .nav-item.active {
   background: linear-gradient(135deg, #6366f1, #a855f7);
-  color: #ffffff; /* Pure white text for clarity */
-  font-weight: 800;
+  color: #ffffff;
+  font-weight: 500; /* Reverted from bold */
   border-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
 }
