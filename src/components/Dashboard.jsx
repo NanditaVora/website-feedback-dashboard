@@ -10,7 +10,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const getTagColor = (section) => {
     const sec = (section || '').toLowerCase();
     if (sec.includes('overview') || sec.includes('landing')) return 'tag-blue';
-    if (sec.includes('hero')) return 'tag-indigo';
+    if (sec.includes('hero')) return 'tag-amber';
     if (sec.includes('curriculum')) return 'tag-purple';
     if (sec.includes('module')) return 'tag-violet';
     if (sec.includes('lesson')) return 'tag-fuchsia';
