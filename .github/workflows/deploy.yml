@@ -32,6 +32,16 @@ jobs:
           node-version: 20
           cache: 'npm'
           
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          
+      - name: Process Excel Data
+        run: |
+          pip install pandas openpyxl
+          python process_data.py
+          
       - name: Install dependencies
         run: npm ci
         
