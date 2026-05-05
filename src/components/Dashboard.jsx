@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
-import { ExternalLink, List, AlertCircle, Search, Download, X, ChevronLeft, Menu } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ExternalLink, AlertCircle, Search, Download, X, ChevronLeft, Menu } from 'lucide-react';
 
 const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const selectedProgram = data.find(p => p.id === selectedProgramId);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedIssue, setSelectedIssue] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const panelRef = useRef(null);
+
+  useEffect(() => {
+    if (selectedIssue && panelRef.current) {
+      panelRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedIssue]);
 
   const getTagColor = (section) => {
     const sec = (section || '').toLowerCase();
@@ -167,7 +174,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                         key={`${issue['Section Heading']}-${issue['Sub-Section Heading']}-${idx}`}
                         onClick={() => setSelectedIssue(issue)}
                         style={{ cursor: 'pointer' }}
-                        className="clickable-row"
+                        className={`clickable-row ${selectedIssue === issue ? 'active-row' : ''}`}
                       >
                         <td>
                           <div style={{ marginBottom: '0.5rem' }}>
@@ -218,6 +225,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
             onClick={() => setSelectedIssue(null)}
           />
           <div 
+            ref={panelRef}
             className="glass"
             style={{ 
               position: 'fixed', top: 0, right: 0, bottom: 0, width: '100%', maxWidth: '500px', 
@@ -233,18 +241,22 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
             >
               <X size={24} />
             </button>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.5rem', paddingRight: '2rem' }}>Issue Details</h2>
+            <div style={{ marginBottom: '2rem' }}>
+              <span className={`section-tag ${getTagColor(selectedIssue['Section Heading'])}`} style={{ marginBottom: '0.5rem' }}>
+                {selectedIssue['Section Heading']}
+              </span>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.5rem', paddingRight: '2rem' }}>Issue Details</h2>
+            </div>
             
-            <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div>
-                <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Section</h4>
-                <p style={{ fontSize: '1.1rem', fontWeight: '500' }}>{selectedIssue['Section Heading']}</p>
-                <p style={{ color: 'var(--text-secondary)' }}>{selectedIssue['Sub-Section Heading']}</p>
+                <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Sub-Section</h4>
+                <p style={{ fontSize: '1.1rem', fontWeight: '500' }}>{selectedIssue['Sub-Section Heading']}</p>
               </div>
 
               {selectedIssue['Content'] && (
                 <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)' }}>
-                  <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Content</h4>
+                  <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Content Reference</h4>
                   <p style={{ whiteSpace: 'pre-wrap' }}>{selectedIssue['Content']}</p>
                 </div>
               )}

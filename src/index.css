@@ -280,16 +280,22 @@ td {
   vertical-align: top;
 }
 
-tbody tr {
-  transition: background 0.2s ease;
+tbody tr.active-row {
+  background: rgba(56, 189, 248, 0.15);
+  border-left: 4px solid var(--accent-color);
 }
 
-tbody tr:hover {
-  background: rgba(255, 255, 255, 0.02);
+tbody tr.active-row td {
+  color: #ffffff;
 }
 
-.text-gradient {
-  background: linear-gradient(to right, #818cf8, #c084fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-preview {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clickable-row:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
