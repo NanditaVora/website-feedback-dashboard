@@ -73,8 +73,6 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
 
         {/* Main Content */}
         <div className="main-container">
-
-        {/* Main Content */}
         {!selectedProgram && (
           <div className="glass-panel" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', position: 'relative' }}>
             {!isSidebarOpen && (
@@ -100,6 +98,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                       View Course <ExternalLink size={16} />
                     </a>
                   )}
+                  </div>
                 </div>
                 <div style={{ display: 'flex', gap: '1rem' }}>
                   <div className="glass-panel" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
