@@ -1,16 +1,16 @@
 :root {
-  --bg-color: #0f111a;
-  --bg-gradient: radial-gradient(circle at 50% -20%, #2a2d3e 0%, #0f111a 80%);
+  --bg-color: #020617;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #020617 100%);
   --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --accent-color: #818cf8;
-  --accent-hover: #a5b4fc;
-  --glass-bg: rgba(30, 33, 43, 0.6);
+  --text-secondary: #94a3b8;
+  --accent-color: #8b5cf6;
+  --accent-hover: #a78bfa;
+  --glass-bg: rgba(15, 23, 42, 0.7);
   --glass-border: rgba(255, 255, 255, 0.12);
-  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --success: #34d399;
-  --warning: #fbbf24;
-  --danger: #f87171;
+  --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --success: #22c55e;
+  --warning: #eab308;
+  --danger: #f43f5e;
 }
 
 :root[data-theme='light'] {
@@ -179,12 +179,12 @@ body {
   text-transform: uppercase;
 }
 
-.tag-blue { background: rgba(59, 130, 246, 0.25); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.5); }
-.tag-purple { background: rgba(168, 85, 247, 0.25); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.5); }
-.tag-pink { background: rgba(236, 72, 153, 0.25); color: #f9a8d4; border: 1px solid rgba(236, 72, 153, 0.5); }
-.tag-green { background: rgba(16, 185, 129, 0.25); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.5); }
-.tag-orange { background: rgba(249, 115, 22, 0.25); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.5); }
-.tag-default { background: rgba(148, 163, 184, 0.25); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.5); }
+.tag-blue { background: rgba(59, 130, 246, 0.3); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.5); box-shadow: 0 0 12px rgba(59, 130, 246, 0.2); }
+.tag-purple { background: rgba(168, 85, 247, 0.3); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.5); box-shadow: 0 0 12px rgba(168, 85, 247, 0.2); }
+.tag-pink { background: rgba(236, 72, 153, 0.3); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.5); box-shadow: 0 0 12px rgba(236, 72, 153, 0.2); }
+.tag-green { background: rgba(16, 185, 129, 0.3); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.5); box-shadow: 0 0 12px rgba(16, 185, 129, 0.2); }
+.tag-orange { background: rgba(249, 115, 22, 0.3); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.5); box-shadow: 0 0 12px rgba(249, 115, 22, 0.2); }
+.tag-default { background: rgba(148, 163, 184, 0.3); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.5); }
 
 :root[data-theme='light'] .tag-blue { color: #2563eb; }
 :root[data-theme='light'] .tag-purple { color: #9333ea; }
