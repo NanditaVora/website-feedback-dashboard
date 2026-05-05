@@ -1,50 +1,63 @@
 import os
 import time
 import subprocess
+import shutil
 from datetime import datetime
 
 # Configuration
-WATCH_DIR = 'feedback-reports'
-CHECK_INTERVAL = 5 # Check every 5 seconds
-GIT_COMMANDS = [
-    ['git', 'add', '.'],
-    ['git', 'commit', '-m', 'auto: sync feedback reports'],
-    ['git', 'push', 'origin', 'main']
-]
+# WE WATCH THE EXTERNAL FOLDER
+WATCH_DIR = r'C:\Users\nandita.vora\OneDrive - NIIT Limited\NIIT-AI Powered FSE - General\Design Docs\FSE-v6\Website-Feedback'
+# WE COPY TO THE INTERNAL PROJECT FOLDER FOR GITHUB
+INTERNAL_REPO_DIR = 'feedback-reports'
+CHECK_INTERVAL = 5 
 
 def get_last_modified():
-    """Get the latest modification time of any xlsx file in the directory."""
+    """Get the latest modification time of any xlsx file in the external directory."""
+    if not os.path.exists(WATCH_DIR):
+        return 0
     files = [os.path.join(WATCH_DIR, f) for f in os.listdir(WATCH_DIR) if f.endswith('.xlsx')]
     if not files:
         return 0
     return max(os.path.getmtime(f) for f in files)
 
 def sync_to_github():
-    """Run git commands to push changes."""
-    print(f"[{datetime.now().strftime('%H:%M:%S')}] Detected changes! Syncing to Dashboard...")
+    """Copy files from external folder to repo and push."""
+    print(f"[{datetime.now().strftime('%H:%M:%S')}] Detected changes in Website-Feedback! Syncing...")
+    
     try:
-        # Step 1: Add
+        # Step 1: Ensure internal folder exists
+        if not os.path.exists(INTERNAL_REPO_DIR):
+            os.makedirs(INTERNAL_REPO_DIR)
+            
+        # Step 2: Copy all xlsx files from external to internal
+        files = [f for f in os.listdir(WATCH_DIR) if f.endswith('.xlsx')]
+        for f in files:
+            src = os.path.join(WATCH_DIR, f)
+            dst = os.path.join(INTERNAL_REPO_DIR, f)
+            shutil.copy2(src, dst)
+        
+        # Step 3: Git Sync
         subprocess.run(['git', 'add', '.'], check=True, capture_output=True)
-        # Step 2: Commit
-        result = subprocess.run(['git', 'commit', '-m', f"auto: sync reports {datetime.now().strftime('%Y-%m-%d %H:%M')}"], capture_output=True, text=True)
+        result = subprocess.run(['git', 'commit', '-m', f"auto: sync reports from external folder {datetime.now().strftime('%Y-%m-%d %H:%M')}"], capture_output=True, text=True)
+        
         if "nothing to commit" in result.stdout:
-            print("Already in sync.")
+            print("No new changes to upload.")
             return
-        # Step 3: Push
-        print("Pushing to GitHub...")
+            
+        print("Pushing to GitHub Dashboard...")
         subprocess.run(['git', 'push', 'origin', 'main'], check=True, capture_output=True)
-        print("Done! Your dashboard will update in ~2 minutes.")
+        print("Success! Your dashboard will update in ~2 minutes.")
+        
     except Exception as e:
         print(f"Error during sync: {e}")
-        print("Tip: Make sure you have closed your Excel file.")
+        print("Tip: Make sure you have closed your Excel file and that the path is correct.")
 
 def main():
     print("-----------------------------------------")
-    print("  FSE Dashboard Auto-Sync Started!")
+    print("  FSE Dashboard External Auto-Sync!")
     print("-----------------------------------------")
-    print(f"Watching folder: {WATCH_DIR}")
-    print("I will automatically update your dashboard whenever you save an Excel file.")
-    print("Press Ctrl+C to stop the sync.")
+    print(f"WATCHING: {WATCH_DIR}")
+    print(f"SYNCING TO: {INTERNAL_REPO_DIR}")
     print("-----------------------------------------")
     
     last_mod = get_last_modified()
@@ -53,8 +66,7 @@ def main():
         while True:
             current_mod = get_last_modified()
             if current_mod > last_mod:
-                # Wait a few seconds for Excel to release the file lock
-                time.sleep(3)
+                time.sleep(3) # Wait for Excel lock
                 sync_to_github()
                 last_mod = current_mod
             
