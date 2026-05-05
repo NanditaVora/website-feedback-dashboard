@@ -11,6 +11,8 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     const sec = (section || '').toLowerCase();
     if (sec.includes('hero')) return 'tag-rose';
     if (sec.includes('overview') || sec.includes('landing')) return 'tag-green';
+    if (sec.includes('tools')) return 'tag-teal';
+    if (sec.includes('learning')) return 'tag-amber';
     if (sec.includes('curriculum')) return 'tag-purple';
     if (sec.includes('module')) return 'tag-violet';
     if (sec.includes('lesson')) return 'tag-fuchsia';
@@ -18,9 +20,9 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     if (sec.includes('assignment')) return 'tag-blue';
     if (sec.includes('capstone')) return 'tag-red';
     if (sec.includes('quiz')) return 'tag-orange';
-    if (sec.includes('assessment')) return 'tag-amber';
+    if (sec.includes('assessment')) return 'tag-indigo';
     if (sec.includes('video')) return 'tag-emerald';
-    if (sec.includes('material')) return 'tag-teal';
+    if (sec.includes('material')) return 'tag-cyan';
     if (sec.includes('intro')) return 'tag-cyan';
     return 'tag-default';
   };
