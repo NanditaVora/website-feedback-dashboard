@@ -1,8 +1,20 @@
-import React from 'react';
-import { ExternalLink, List, AlertCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { ExternalLink, List, AlertCircle, Search } from 'lucide-react';
 
 const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const selectedProgram = data.find(p => p.id === selectedProgramId);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredIssues = selectedProgram ? selectedProgram.issues.filter(issue => {
+    const searchLower = searchTerm.toLowerCase();
+    return (
+      (issue['Content'] || '').toLowerCase().includes(searchLower) ||
+      (issue['Gap / Issue'] || '').toLowerCase().includes(searchLower) ||
+      (issue['Section Heading'] || '').toLowerCase().includes(searchLower) ||
+      (issue['Sub-Section Heading'] || '').toLowerCase().includes(searchLower) ||
+      (issue['Fix Suggested'] || '').toLowerCase().includes(searchLower)
+    );
+  }) : [];
 
   return (
     <div className="container animate-fade-in" style={{ padding: '2rem' }}>
@@ -17,7 +29,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
               <button
                 key={program.id}
                 className={`nav-item ${selectedProgramId === program.id ? 'active' : ''}`}
-                onClick={() => setSelectedProgramId(program.id)}
+                onClick={() => { setSelectedProgramId(program.id); setSearchTerm(''); }}
                 style={{ width: '100%', background: 'none', border: 'none', textAlign: 'left', font: 'inherit', cursor: 'pointer' }}
               >
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
@@ -63,44 +75,74 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
               </div>
             </div>
 
-            <div className="table-container">
-              <table>
-                <thead>
-                  <tr>
-                    <th style={{ width: '15%' }}>Section</th>
-                    <th style={{ width: '25%' }}>Content</th>
-                    <th style={{ width: '30%' }}>Gap / Issue</th>
-                    <th style={{ width: '30%' }}>Suggested Fix</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {selectedProgram.issues.map((issue, idx) => (
-                    <tr key={`${issue['Section Heading']}-${issue['Sub-Section Heading']}-${idx}`}>
-                      <td>
-                        <div style={{ fontWeight: '500', marginBottom: '0.25rem' }}>{issue['Section Heading']}</div>
-                        <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{issue['Sub-Section Heading']}</div>
-                      </td>
-                      <td>{issue['Content']}</td>
-                      <td>
-                        {issue['Gap / Issue'] ? (
-                           <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
-                             <AlertCircle size={16} color="var(--warning)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                             <span>{issue['Gap / Issue']}</span>
-                           </div>
-                        ) : '-'}
-                      </td>
-                      <td>{issue['Fix Suggested'] || '-'}</td>
-                    </tr>
-                  ))}
-                  {selectedProgram.issues.length === 0 && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h2 style={{ fontSize: '1.25rem', fontWeight: '600' }}>Feedback Details</h2>
+                <div style={{ position: 'relative', width: '300px' }}>
+                  <Search size={18} color="var(--text-secondary)" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
+                  <input 
+                    type="text" 
+                    placeholder="Search issues, sections, content..." 
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    style={{ 
+                      width: '100%', 
+                      padding: '0.75rem 1rem 0.75rem 2.5rem', 
+                      borderRadius: '8px', 
+                      background: 'var(--glass-bg)', 
+                      border: '1px solid var(--glass-border)', 
+                      color: 'var(--text-primary)',
+                      fontFamily: 'inherit',
+                      outline: 'none'
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="table-container">
+                <table>
+                  <thead>
                     <tr>
-                      <td colSpan="4" style={{ textAlign: 'center', padding: '3rem' }}>
-                        No issues found for this program.
-                      </td>
+                      <th style={{ width: '15%' }}>Section</th>
+                      <th style={{ width: '25%' }}>Content</th>
+                      <th style={{ width: '30%' }}>Gap / Issue</th>
+                      <th style={{ width: '30%' }}>Suggested Fix</th>
                     </tr>
-                  )}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {filteredIssues.map((issue, idx) => (
+                      <tr key={`${issue['Section Heading']}-${issue['Sub-Section Heading']}-${idx}`}>
+                        <td>
+                          <div style={{ fontWeight: '500', marginBottom: '0.25rem' }}>{issue['Section Heading']}</div>
+                          <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{issue['Sub-Section Heading']}</div>
+                        </td>
+                        <td>{issue['Content']}</td>
+                        <td>
+                          {issue['Gap / Issue'] ? (
+                             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                               <AlertCircle size={16} color="var(--warning)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                               <span>{issue['Gap / Issue']}</span>
+                             </div>
+                          ) : '-'}
+                        </td>
+                        <td>{issue['Fix Suggested'] || '-'}</td>
+                      </tr>
+                    ))}
+                    {filteredIssues.length === 0 && (
+                      <tr>
+                        <td colSpan="4" style={{ textAlign: 'center', padding: '3rem' }}>
+                          <p style={{ color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>No matching issues found.</p>
+                          {searchTerm && (
+                            <button className="btn btn-secondary" onClick={() => setSearchTerm('')} style={{ fontSize: '0.875rem', padding: '0.5rem 1rem' }}>
+                              Clear Search
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         )}
