@@ -3,6 +3,8 @@ import glob
 import json
 import os
 import sys
+import shutil
+import tempfile
 
 def process_files(input_dir=None):
     base = os.path.dirname(os.path.abspath(__file__))
@@ -19,9 +21,15 @@ def process_files(input_dir=None):
         if os.path.basename(f).startswith('~$'):
             continue
             
+        temp_path = None
         try:
-            # Read everything
-            df = pd.read_excel(f, header=None)
+            # CREATE A TEMP COPY to read even if open in Excel
+            fd, temp_path = tempfile.mkstemp(suffix='.xlsx')
+            os.close(fd)
+            shutil.copy2(f, temp_path)
+            
+            # Read from the copy
+            df = pd.read_excel(temp_path, header=None)
             
             # Robust extraction of Name and URL
             # Default to filename if we can't find a name inside
@@ -106,6 +114,12 @@ def process_files(input_dir=None):
         except Exception as e:
             errors.append(f"{os.path.basename(f)}: {e}")
             print(f"Error processing {f}: {e}")
+        finally:
+            if temp_path and os.path.exists(temp_path):
+                try:
+                    os.remove(temp_path)
+                except:
+                    pass
 
     os.makedirs(os.path.join(base, 'src'), exist_ok=True)
     with open(os.path.join(base, 'src', 'data.json'), 'w', encoding='utf-8') as outfile:
