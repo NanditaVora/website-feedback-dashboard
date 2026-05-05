@@ -24,34 +24,32 @@ def process_files(input_dir=None):
             df = pd.read_excel(f, header=None)
             
             # Robust extraction of Name and URL
-            program_name = "Unknown"
+            # Default to filename if we can't find a name inside
+            program_name = os.path.basename(f).replace('.xlsx', '').replace('_', ' ')
             program_url = ""
             
             if len(df) > 0:
-                # Try to find "Program Name:" label
-                for r in range(min(5, len(df))):
+                # Try to find "Program Name:" label in the first 20 rows
+                for r in range(min(20, len(df))):
                     row_vals = [str(v).lower() for v in df.iloc[r]]
                     if any("program name" in v for v in row_vals):
-                        # The value is usually in the next cell
                         for c in range(len(df.columns)-1):
                             if "program name" in str(df.iloc[r, c]).lower():
-                                program_name = str(df.iloc[r, c+1]).strip()
+                                val = str(df.iloc[r, c+1]).strip()
+                                if val.lower() != 'nan' and val:
+                                    program_name = val
                                 break
                     if any("program url" in v for v in row_vals):
                         for c in range(len(df.columns)-1):
                             if "program url" in str(df.iloc[r, c]).lower():
-                                program_url = str(df.iloc[r, c+1]).strip()
+                                val = str(df.iloc[r, c+1]).strip()
+                                if val.lower() != 'nan' and val:
+                                    program_url = val
                                 break
 
-            # If not found by label, fall back to fixed positions
-            if program_name == "Unknown" and len(df.columns) > 1:
-                program_name = str(df.iloc[0, 1]).strip() if pd.notna(df.iloc[0, 1]) else "Unknown"
-            
-            issues = []
-
-            # Find the header row (usually contains "Section Heading")
+            # Find the header row (usually contains "Section Heading") in the first 20 rows
             header_idx = 2 # Default
-            for r in range(min(10, len(df))):
+            for r in range(min(20, len(df))):
                 row_vals = [str(v).lower() for v in df.iloc[r]]
                 if any("section heading" in v for v in row_vals):
                     header_idx = r
@@ -70,8 +68,17 @@ def process_files(input_dir=None):
 
                     issue_dict = {}
                     for col in cols:
-                        val = row[col]
-                        issue_dict[col] = str(val).strip() if pd.notna(val) else ""
+                        # Only process columns we actually have in the row
+                        if col in row:
+                            val = row[col]
+                            # CRITICAL: Strip 'nan' strings and handle empty cells
+                            str_val = str(val).strip()
+                            if str_val.lower() == 'nan' or pd.isna(val):
+                                issue_dict[col] = ""
+                            else:
+                                issue_dict[col] = str_val
+                        else:
+                            issue_dict[col] = ""
                     
                     # Standardize Status and Remarks for the UI
                     status_key = col_map.get('status', 'Status')
