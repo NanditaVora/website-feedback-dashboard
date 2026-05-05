@@ -5,7 +5,7 @@ import os
 
 def process_files():
     base = os.path.dirname(os.path.abspath(__file__))
-    files = glob.glob(os.path.join(base, '*.xlsx'))
+    files = glob.glob(os.path.join(base, 'feedback-reports', '*.xlsx'))
     all_programs = []
     errors = []
 
