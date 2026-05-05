@@ -145,8 +145,8 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ lineHeight: '1.2', paddingRight: '0.5rem', marginBottom: '0.35rem' }}>{program.name || program.filename}</div>
                   <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.65rem', background: 'rgba(239,68,68,0.15)', color: '#fca5a5', padding: '0.1rem 0.4rem', borderRadius: '99px' }}>{ps.open} open</span>
-                    <span style={{ fontSize: '0.65rem', background: 'rgba(16,185,129,0.15)', color: '#6ee7b7', padding: '0.1rem 0.4rem', borderRadius: '99px' }}>{ps.fixed} fixed</span>
+                    <span className="stat-pill stat-pill-open">{ps.open} open</span>
+                    <span className="stat-pill stat-pill-fixed">{ps.fixed} fixed</span>
                   </div>
                 </div>
                 <span className="badge" style={{ flexShrink: 0, marginTop: '2px' }}>{ps.total}</span>
