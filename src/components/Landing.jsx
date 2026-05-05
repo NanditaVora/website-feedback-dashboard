@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Activity, FileSpreadsheet, AlertTriangle } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, PieChart, Pie } from 'recharts';
 
 const Landing = ({ navigateToProgram, data }) => {
   const totalPrograms = data.length;
@@ -13,8 +13,20 @@ const Landing = ({ navigateToProgram, data }) => {
     id: program.id
   })).sort((a, b) => b.issues - a.issues);
 
-  // Modern vibrant colors for the bars
-  const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#f59e0b', '#10b981'];
+  // Prepare Pie Chart data
+  const sectionCounts = {};
+  data.forEach(program => {
+    program.issues.forEach(issue => {
+      const section = issue['Section Heading'] || 'Other';
+      sectionCounts[section] = (sectionCounts[section] || 0) + 1;
+    });
+  });
+  const pieData = Object.entries(sectionCounts)
+    .map(([name, value]) => ({ name, value }))
+    .sort((a, b) => b.value - a.value);
+
+  // Modern vibrant colors for the bars and pie slices
+  const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#f59e0b', '#10b981', '#3b82f6', '#14b8a6', '#84cc16'];
 
   return (
     <div className="container animate-fade-in" style={{ padding: '2rem 2rem 4rem 2rem' }}>
@@ -58,52 +70,90 @@ const Landing = ({ navigateToProgram, data }) => {
       </div>
 
       {/* Interactive Graphical Dashboard */}
-      <div className="glass-panel animate-fade-in delay-300" style={{ padding: '2rem' }}>
-        <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: '700' }}>Issues per Program</h2>
-          <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Click a bar to view details</span>
-        </div>
-        <div style={{ width: '100%', height: '400px' }}>
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={chartData}
-              layout="vertical"
-              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" horizontal={false} />
-              <XAxis type="number" stroke="var(--text-secondary)" tick={{ fill: 'var(--text-secondary)' }} />
-              <YAxis 
-                type="category" 
-                dataKey="name" 
-                width={200} 
-                stroke="var(--text-secondary)" 
-                tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} 
-              />
-              <Tooltip 
-                cursor={{ fill: 'rgba(255,255,255,0.05)' }}
-                contentStyle={{ 
-                  backgroundColor: 'rgba(15, 17, 26, 0.9)', 
-                  border: '1px solid var(--glass-border)',
-                  borderRadius: '8px',
-                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
-                }}
-                itemStyle={{ color: 'var(--text-primary)' }}
-              />
-              <Bar 
-                dataKey="issues" 
-                name="Total Issues"
-                radius={[0, 4, 4, 0]}
-                onClick={(data) => {
-                  if (data && data.id) navigateToProgram(data.id);
-                }}
-                style={{ cursor: 'pointer' }}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))', gap: '2rem' }}>
+        <div className="glass-panel animate-fade-in delay-300" style={{ padding: '2rem' }}>
+          <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: '700' }}>Issues per Program</h2>
+            <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Click a bar to view details</span>
+          </div>
+          <div style={{ width: '100%', height: '400px' }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={chartData}
+                layout="vertical"
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
-                {chartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" horizontal={false} />
+                <XAxis type="number" stroke="var(--text-secondary)" tick={{ fill: 'var(--text-secondary)' }} />
+                <YAxis 
+                  type="category" 
+                  dataKey="name" 
+                  width={200} 
+                  stroke="var(--text-secondary)" 
+                  tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} 
+                />
+                <Tooltip 
+                  cursor={{ fill: 'rgba(255,255,255,0.05)' }}
+                  contentStyle={{ 
+                    backgroundColor: 'rgba(15, 17, 26, 0.9)', 
+                    border: '1px solid var(--glass-border)',
+                    borderRadius: '8px',
+                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                  }}
+                  itemStyle={{ color: 'var(--text-primary)' }}
+                />
+                <Bar 
+                  dataKey="issues" 
+                  name="Total Issues"
+                  radius={[0, 4, 4, 0]}
+                  onClick={(data) => {
+                    if (data && data.id) navigateToProgram(data.id);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {chartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        <div className="glass-panel animate-fade-in delay-400" style={{ padding: '2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: '700' }}>Issues by Section</h2>
+            <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Distribution across all courses</span>
+          </div>
+          <div style={{ width: '100%', height: '400px' }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={pieData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={80}
+                  outerRadius={140}
+                  paddingAngle={5}
+                  dataKey="value"
+                  stroke="none"
+                >
+                  {pieData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'rgba(15, 17, 26, 0.9)', 
+                    border: '1px solid var(--glass-border)',
+                    borderRadius: '8px',
+                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                  }}
+                  itemStyle={{ color: 'var(--text-primary)' }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </div>
