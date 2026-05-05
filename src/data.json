@@ -1320,5 +1320,163 @@
         "Remarks": ""
       }
     ]
+  },
+  {
+    "id": "Java_Object_Oriented_Programming",
+    "filename": "Java_Object_Oriented_Programming.xlsx",
+    "name": "Java: Object-Oriented Programming",
+    "url": "https://beta.niit.com/india/course/java-object-oriented-programming",
+    "issues": [
+      {
+        "Sr No": "1",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Stat - Practical Exercises",
+        "Content": "10\nHands on assignments",
+        "Gap / Issue": "It Says 10 but there are some sprints that have multiple exercise.",
+        "Fix Suggested": "10+",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "2",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 1- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 1- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "3",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 1- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 1- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "4",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 2- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 1- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "5",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 2- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 1- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "6",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 2- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 2- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "7",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 3- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 2- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "8",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 3- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 2- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "9",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 3- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 2- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "10",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 4- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 3- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "11",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 4- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 3- 4 hours",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "12",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "",
+        "Gap / Issue": "assessment and project is missing without which we cannot show 4 weeks in the schedule",
+        "Fix Suggested": "Under Curriculum Add:\n\"11. Project \u2013 Build Solution (Week 3) \u2013 8 Hours\nApply all skills to build a complete application\nBuild and refine a Java application by applying core programming concepts such as logic building, methods, and clean coding practices to create a functional solution.\n\nACTIVITY\nProject development using IntelliJ; Version control using Git (commit and push code)\n\n12. Course-End Assessment (Week 4)- 4 Hours\nValidate knowledge and skills gained\nAssess understanding of core Java concepts and the ability to apply them effectively through structured assessment.\n\nACTIVITY\nConcept-based assignments and evaluation\n\n13. Project Presentation (Week 4)-8Hours\nShowcase the final working application\nDemonstrate the completed project by explaining the logic, approach, and key decisions taken during development.\n\nACTIVITY\nPresenting project implementation; Explaining code flow and decisions",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "13",
+        "Section Heading": "Tools & Technologies",
+        "Sub-Section Heading": "Extra tools present",
+        "Content": "Java,SQL,ChatGPT,GIT",
+        "Gap / Issue": "SQL and ChatGPT are not covered but are present in the list",
+        "Fix Suggested": "Display only Java and GIT",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "14",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Capstone Project",
+        "Content": "",
+        "Gap / Issue": "Project Titles are missing can be included with a small discription",
+        "Fix Suggested": "\"Add six project cards:\n1. DonateConnect \u2013 A Community Donation and Distribution System Connect donors with NGOs to redistribute usable items like clothes, books, and electronics to people in need.\n2. EcoRide \u2013 A Simple Ride-Sharing System\tBuild a ride-sharing system connecting drivers and riders with booking, validation, and capacity management features.\n3. EventEase \u2013 Simple Event & Venue Management System\tCreate an event management system for organizing venues, scheduling events, and enabling attendee discovery and registration.\n4. FarmConnect \u2013 A Farmer-to-Market Supply Chain\tDesign a farmer-to-buyer marketplace for listing, ordering, and tracking fresh produce with inventory management.\n5. GreenPay \u2013 A Smart Waste Collection & Reward System\tDevelop a waste collection platform rewarding citizens with cashback for responsible disposal and sustainable waste management.\n6. PetPal \u2013 Adoption Management for Pet Shelters\tBuild a pet shelter system for listing animals, managing adoption applications, and matching pets with adopters.\n\"",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "15",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Capstone Project",
+        "Content": "Java, VSCode, ChatGPT,Gemini and GitLab",
+        "Gap / Issue": "AI Tools needs to be removed",
+        "Fix Suggested": "Replace with Java,VS Code,GitLab",
+        "Status": "Open",
+        "Remarks": ""
+      }
+    ]
   }
 ]
