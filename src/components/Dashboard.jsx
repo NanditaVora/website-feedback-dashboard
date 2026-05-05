@@ -235,11 +235,19 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
       </div>
 
       {/* Floating Side Card */}
-      {selectedIssue && (
+      {selectedIssue && (() => {
+        const MARGIN = 16; // px gap from top and bottom of viewport
+        const viewportHeight = window.innerHeight;
+        // Clamp top so card never starts below bottom of viewport
+        const clampedTop = Math.min(panelTop, viewportHeight - 200);
+        // Max height = from clamped top to bottom of viewport minus margin
+        const dynamicMaxHeight = viewportHeight - clampedTop - MARGIN;
+
+        return (
         <div 
           style={{ 
             position: 'fixed', 
-            top: `${panelTop}px`, 
+            top: `${clampedTop}px`, 
             right: '2rem', 
             width: '100%', 
             maxWidth: '500px', 
@@ -256,7 +264,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
               border: '1px solid rgba(255, 255, 255, 0.2)',
               background: 'rgba(15, 23, 42, 0.98)',
-              maxHeight: '80vh',
+              maxHeight: `${dynamicMaxHeight}px`,
               overflowY: 'auto'
             }}
           >
@@ -319,7 +327,8 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
             </div>
           </div>
         </div>
-      )}
+        );
+      })()}
 
       {/* Backdrop */}
       {selectedIssue && (
