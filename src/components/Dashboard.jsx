@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ExternalLink, AlertCircle, Search, Download, X, ChevronLeft, Menu } from 'lucide-react';
+import { ExternalLink, AlertCircle, Search, Download, X, ChevronLeft, Menu, CheckCircle, Clock, AlertTriangle } from 'lucide-react';
 
 const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const selectedProgram = data.find(p => p.id === selectedProgramId);
@@ -17,13 +17,10 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
 
   const handleIssueClick = (issue, e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    // Use the viewport-relative top position
     const cardHeight = 450; 
     let top = rect.top - 100;
-    
     const minTop = 20;
     const maxTop = window.innerHeight - cardHeight - 20;
-    
     setPanelTop(Math.max(minTop, Math.min(top, maxTop)));
     setSelectedIssue(issue);
   };
@@ -48,6 +45,17 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     return 'tag-default';
   };
 
+  const getStatusBadge = (status) => {
+    const s = (status || 'Open').toLowerCase();
+    if (s.includes('complete') || s.includes('done') || s.includes('fixed')) {
+      return <span className="status-badge status-completed"><CheckCircle size={12} /> Fixed</span>;
+    }
+    if (s.includes('progress')) {
+      return <span className="status-badge status-progress"><Clock size={12} /> In Progress</span>;
+    }
+    return <span className="status-badge status-open"><AlertTriangle size={12} /> Open</span>;
+  };
+
   const filteredIssues = selectedProgram ? selectedProgram.issues.filter(issue => {
     const searchLower = searchTerm.toLowerCase();
     return (
@@ -55,7 +63,9 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
       (issue['Gap / Issue'] || '').toLowerCase().includes(searchLower) ||
       (issue['Section Heading'] || '').toLowerCase().includes(searchLower) ||
       (issue['Sub-Section Heading'] || '').toLowerCase().includes(searchLower) ||
-      (issue['Fix Suggested'] || '').toLowerCase().includes(searchLower)
+      (issue['Fix Suggested'] || '').toLowerCase().includes(searchLower) ||
+      (issue['Status'] || '').toLowerCase().includes(searchLower) ||
+      (issue['Remarks'] || '').toLowerCase().includes(searchLower)
     );
   }) : [];
 
@@ -76,10 +86,6 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
 
   return (
     <div className="container" style={{ padding: '2rem' }}>
-      {/* 
-        CRITICAL FIX: The floating card MUST be a direct child of a container 
-        WITHOUT any transform/animation to ensure position: fixed works relative to viewport.
-      */}
       <div className="dashboard-layout animate-fade-in">
         {/* Sidebar */}
         <div className={`sidebar-container ${isSidebarOpen ? '' : 'collapsed'}`} style={{ 
@@ -149,13 +155,13 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-                <h2 style={{ fontSize: '1.25rem', fontWeight: '600' }}>Feedback Details</h2>
+                <h2 style={{ fontSize: '1.25rem', fontWeight: '600' }}>Product Page Feedback</h2>
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
                   <div style={{ position: 'relative', width: '300px' }}>
                     <Search size={18} color="var(--text-secondary)" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
                     <input 
                       type="text" 
-                      placeholder="Search issues, sections, content..." 
+                      placeholder="Search issues, status, remarks..." 
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                       style={{ 
@@ -180,40 +186,45 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                 <table>
                   <thead>
                     <tr>
+                      <th style={{ width: '12%' }}>Status</th>
                       <th style={{ width: '15%' }}>Section</th>
-                      <th style={{ width: '25%' }}>Content</th>
-                      <th style={{ width: '30%' }}>Gap / Issue</th>
-                      <th style={{ width: '30%' }}>Suggested Fix</th>
+                      <th style={{ width: '23%' }}>Content</th>
+                      <th style={{ width: '25%' }}>Gap / Issue</th>
+                      <th style={{ width: '25%' }}>Suggested Fix</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredIssues.map((issue, idx) => (
-                      <tr 
-                        key={`${issue['Section Heading']}-${issue['Sub-Section Heading']}-${idx}`}
-                        onClick={(e) => handleIssueClick(issue, e)}
-                        style={{ cursor: 'pointer' }}
-                        className={`clickable-row ${selectedIssue === issue ? 'active-row' : ''}`}
-                      >
-                        <td>
-                          <div style={{ marginBottom: '0.5rem' }}>
-                            <span className={`section-tag ${getTagColor(issue['Section Heading'])}`}>
-                              {issue['Section Heading'] || 'General'}
-                            </span>
-                          </div>
-                          <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '500' }}>{issue['Sub-Section Heading']}</div>
-                        </td>
-                        <td className="text-preview">{issue['Content'] ? (issue['Content'].length > 50 ? issue['Content'].substring(0, 50) + '...' : issue['Content']) : '-'}</td>
-                        <td className="text-preview">
-                          {issue['Gap / Issue'] ? (
-                             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
-                               <AlertCircle size={16} color="var(--warning)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                               <span>{issue['Gap / Issue'].length > 50 ? issue['Gap / Issue'].substring(0, 50) + '...' : issue['Gap / Issue']}</span>
-                             </div>
-                          ) : '-'}
-                        </td>
-                        <td className="text-preview">{issue['Fix Suggested'] ? (issue['Fix Suggested'].length > 50 ? issue['Fix Suggested'].substring(0, 50) + '...' : issue['Fix Suggested']) : '-'}</td>
-                      </tr>
-                    ))}
+                    {filteredIssues.map((issue, idx) => {
+                      const isCompleted = (issue['Status'] || '').toLowerCase().includes('complete') || (issue['Status'] || '').toLowerCase().includes('fixed');
+                      return (
+                        <tr 
+                          key={`${issue['Section Heading']}-${issue['Sub-Section Heading']}-${idx}`}
+                          onClick={(e) => handleIssueClick(issue, e)}
+                          style={{ cursor: 'pointer' }}
+                          className={`clickable-row ${selectedIssue === issue ? 'active-row' : ''} ${isCompleted ? 'row-completed' : ''}`}
+                        >
+                          <td>{getStatusBadge(issue['Status'])}</td>
+                          <td>
+                            <div style={{ marginBottom: '0.5rem' }}>
+                              <span className={`section-tag ${getTagColor(issue['Section Heading'])}`}>
+                                {issue['Section Heading'] || 'General'}
+                              </span>
+                            </div>
+                            <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '500' }}>{issue['Sub-Section Heading']}</div>
+                          </td>
+                          <td className="text-preview">{issue['Content'] ? (issue['Content'].length > 40 ? issue['Content'].substring(0, 40) + '...' : issue['Content']) : '-'}</td>
+                          <td className="text-preview">
+                            {issue['Gap / Issue'] ? (
+                               <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                                 <AlertCircle size={14} color="var(--warning)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                                 <span>{issue['Gap / Issue'].length > 40 ? issue['Gap / Issue'].substring(0, 40) + '...' : issue['Gap / Issue']}</span>
+                               </div>
+                            ) : '-'}
+                          </td>
+                          <td className="text-preview">{issue['Fix Suggested'] ? (issue['Fix Suggested'].length > 40 ? issue['Fix Suggested'].substring(0, 40) + '...' : issue['Fix Suggested']) : '-'}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
@@ -223,7 +234,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
         </div>
       </div>
 
-      {/* Floating Side Card - PLACED OUTSIDE ANIMATED DIV */}
+      {/* Floating Side Card */}
       {selectedIssue && (
         <div 
           style={{ 
@@ -256,11 +267,16 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
               <X size={20} />
             </button>
             
-            <div style={{ marginBottom: '1.5rem' }}>
-              <span className={`section-tag ${getTagColor(selectedIssue['Section Heading'])}`} style={{ marginBottom: '0.5rem' }}>
-                {selectedIssue['Section Heading']}
-              </span>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.5rem', color: '#ffffff' }}>Issue Details</h2>
+            <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div>
+                <span className={`section-tag ${getTagColor(selectedIssue['Section Heading'])}`} style={{ marginBottom: '0.5rem' }}>
+                  {selectedIssue['Section Heading']}
+                </span>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.5rem', color: '#ffffff' }}>Issue Details</h2>
+              </div>
+              <div style={{ marginTop: '0.5rem' }}>
+                {getStatusBadge(selectedIssue['Status'])}
+              </div>
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
@@ -291,6 +307,15 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                   <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: '#6ee7b7' }}>{selectedIssue['Fix Suggested']}</p>
                 </div>
               )}
+
+              <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(56, 189, 248, 0.05)', border: '1px solid rgba(56, 189, 248, 0.2)' }}>
+                <h4 style={{ color: 'var(--accent-color)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Developer Remarks</h4>
+                <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: '#f1f5f9' }}>
+                  {selectedIssue['Remarks'] && selectedIssue['Remarks'] !== 'nan' 
+                    ? selectedIssue['Remarks'] 
+                    : "No remarks added yet. Add a 'Remarks' column to your Excel to show progress notes here."}
+                </p>
+              </div>
             </div>
           </div>
         </div>
