@@ -17,12 +17,16 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
 
   const handleIssueClick = (issue, e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    // Calculate top position to align with row, but keep within viewport bounds
-    const viewportHeight = window.innerHeight;
-    const panelHeight = 500; // Estimated height
-    const calculatedTop = Math.max(20, Math.min(rect.top - 50, viewportHeight - panelHeight - 20));
+    // Use the viewport-relative top position
+    // We want the card to center its arrow on the row
+    const cardHeight = 400; // Expected height
+    let top = rect.top - 50; 
     
-    setPanelTop(calculatedTop);
+    // Bounds checking
+    const minTop = 20;
+    const maxTop = window.innerHeight - 450;
+    
+    setPanelTop(Math.max(minTop, Math.min(top, maxTop)));
     setSelectedIssue(issue);
   };
 
