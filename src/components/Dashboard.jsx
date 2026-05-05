@@ -70,8 +70,9 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Main Content */}
+      {/* Main Content */}
         <div className="main-container">
         {!selectedProgram && (
           <div className="glass-panel" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', position: 'relative' }}>
