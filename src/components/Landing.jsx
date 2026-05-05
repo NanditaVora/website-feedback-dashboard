@@ -14,6 +14,9 @@ const Landing = ({ navigateToProgram, data }) => {
   const totalFixed = data.reduce((acc, p) => acc + p.issues.filter(isFixed).length, 0);
   const totalOpen = totalIssues - totalFixed;
 
+  // Colors for programs and sections
+  const colors = ['#38bdf8', '#818cf8', '#c084fc', '#f472b6', '#fb7185', '#fbbf24', '#34d399', '#2dd4bf', '#a3e635'];
+
   // Bar chart: unique color per program for Open, green for Fixed
   const chartData = data.map((program, index) => {
     const fixed = program.issues.filter(isFixed).length;
@@ -39,8 +42,6 @@ const Landing = ({ navigateToProgram, data }) => {
     .map(([name, value]) => ({ name, value }))
     .sort((a, b) => b.value - a.value);
 
-  // Modern vibrant colors for the bars and pie slices
-  const colors = ['#38bdf8', '#818cf8', '#c084fc', '#f472b6', '#fb7185', '#fbbf24', '#34d399', '#2dd4bf', '#a3e635'];
 
   return (
     <div className="container animate-fade-in" style={{ padding: '2rem 2rem 4rem 2rem' }}>
