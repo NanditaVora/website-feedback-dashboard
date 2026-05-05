@@ -26,7 +26,7 @@ const Landing = ({ navigateToProgram, data }) => {
     .sort((a, b) => b.value - a.value);
 
   // Modern vibrant colors for the bars and pie slices
-  const colors = ['#8b5cf6', '#ec4899', '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#06b6d4', '#d946ef', '#84cc16'];
+  const colors = ['#38bdf8', '#818cf8', '#c084fc', '#f472b6', '#fb7185', '#fbbf24', '#34d399', '#2dd4bf', '#a3e635'];
 
   return (
     <div className="container animate-fade-in" style={{ padding: '2rem 2rem 4rem 2rem' }}>
