@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
-import { ExternalLink, List, AlertCircle, Search, Download, X } from 'lucide-react';
+import { ExternalLink, List, AlertCircle, Search, Download, X, ChevronLeft, Menu } from 'lucide-react';
 
 const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const selectedProgram = data.find(p => p.id === selectedProgramId);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedIssue, setSelectedIssue] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const getTagColor = (section) => {
+    const sec = (section || '').toLowerCase();
+    if (sec.includes('overview') || sec.includes('intro')) return 'tag-blue';
+    if (sec.includes('curriculum') || sec.includes('module') || sec.includes('lesson')) return 'tag-purple';
+    if (sec.includes('project') || sec.includes('assignment') || sec.includes('capstone')) return 'tag-pink';
+    if (sec.includes('quiz') || sec.includes('assessment')) return 'tag-orange';
+    if (sec.includes('video') || sec.includes('content') || sec.includes('material')) return 'tag-green';
+    return 'tag-default';
+  };
 
   const filteredIssues = selectedProgram ? selectedProgram.issues.filter(issue => {
     const searchLower = searchTerm.toLowerCase();
@@ -34,13 +45,14 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
 
   return (
     <div className="container animate-fade-in" style={{ padding: '2rem', position: 'relative' }}>
-      <div className="dashboard-grid">
+      <div className="dashboard-layout">
         {/* Sidebar */}
-        <div className="glass-panel" style={{ height: 'fit-content' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>
-            Programs
-          </h2>
-          <div>
+        <div className={`sidebar-container ${isSidebarOpen ? '' : 'collapsed'}`} style={{ width: isSidebarOpen ? '280px' : '0px', opacity: isSidebarOpen ? 1 : 0 }}>
+          <div className="glass-panel" style={{ height: 'fit-content' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h2 style={{ fontSize: '1.25rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Programs</h2>
+            </div>
+            <div>
             {data.map((program) => (
               <button
                 key={program.id}
@@ -60,8 +72,16 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
         </div>
 
         {/* Main Content */}
+        <div className="main-container">
+
+        {/* Main Content */}
         {!selectedProgram && (
-          <div className="glass-panel" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
+          <div className="glass-panel" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', position: 'relative' }}>
+            {!isSidebarOpen && (
+              <button onClick={() => setIsSidebarOpen(true)} className="btn btn-secondary" style={{ position: 'absolute', top: '1rem', left: '1rem', padding: '0.5rem' }}>
+                <Menu size={20} />
+              </button>
+            )}
             <p style={{ color: 'var(--text-secondary)' }}>Select a program from the sidebar to view its issues.</p>
           </div>
         )}
@@ -69,8 +89,12 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div className="glass-panel">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
-                <div>
-                  <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem' }}>{selectedProgram.name}</h1>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="btn btn-secondary" style={{ padding: '0.5rem', marginTop: '0.25rem' }} title="Toggle Sidebar">
+                    {isSidebarOpen ? <ChevronLeft size={20} /> : <Menu size={20} />}
+                  </button>
+                  <div>
+                    <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem' }}>{selectedProgram.name}</h1>
                   {selectedProgram.url && (
                     <a href={selectedProgram.url} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none' }}>
                       View Course <ExternalLink size={16} />
@@ -139,19 +163,23 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                         className="clickable-row"
                       >
                         <td>
-                          <div style={{ fontWeight: '500', marginBottom: '0.25rem' }}>{issue['Section Heading']}</div>
-                          <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{issue['Sub-Section Heading']}</div>
+                          <div style={{ marginBottom: '0.5rem' }}>
+                            <span className={`section-tag ${getTagColor(issue['Section Heading'])}`}>
+                              {issue['Section Heading'] || 'General'}
+                            </span>
+                          </div>
+                          <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '500' }}>{issue['Sub-Section Heading']}</div>
                         </td>
-                        <td>{issue['Content'] ? (issue['Content'].length > 100 ? issue['Content'].substring(0, 100) + '...' : issue['Content']) : '-'}</td>
-                        <td>
+                        <td className="text-preview">{issue['Content'] ? (issue['Content'].length > 50 ? issue['Content'].substring(0, 50) + '...' : issue['Content']) : '-'}</td>
+                        <td className="text-preview">
                           {issue['Gap / Issue'] ? (
                              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
                                <AlertCircle size={16} color="var(--warning)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                               <span>{issue['Gap / Issue'].length > 100 ? issue['Gap / Issue'].substring(0, 100) + '...' : issue['Gap / Issue']}</span>
+                               <span>{issue['Gap / Issue'].length > 50 ? issue['Gap / Issue'].substring(0, 50) + '...' : issue['Gap / Issue']}</span>
                              </div>
                           ) : '-'}
                         </td>
-                        <td>{issue['Fix Suggested'] ? (issue['Fix Suggested'].length > 100 ? issue['Fix Suggested'].substring(0, 100) + '...' : issue['Fix Suggested']) : '-'}</td>
+                        <td className="text-preview">{issue['Fix Suggested'] ? (issue['Fix Suggested'].length > 50 ? issue['Fix Suggested'].substring(0, 50) + '...' : issue['Fix Suggested']) : '-'}</td>
                       </tr>
                     ))}
                     {filteredIssues.length === 0 && (
@@ -172,6 +200,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
             </div>
           </div>
         )}
+        </div>
       </div>
 
       {/* Slide-out Panel */}
