@@ -382,10 +382,15 @@ tbody tr.active-row td {
   color: #15803d;
 }
 
-/* Ensure selected pills turn white */
-.nav-item.active .stat-pill-open,
+/* Ensure selected pills maintain their color but with high contrast */
+.nav-item.active .stat-pill-open {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fca5a5; /* Bright red */
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
 .nav-item.active .stat-pill-fixed {
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  color: #6ee7b7; /* Bright green */
+  border-color: rgba(255, 255, 255, 0.3);
 }
