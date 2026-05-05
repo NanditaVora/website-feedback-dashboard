@@ -317,15 +317,23 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
             style={{ 
               borderRadius: '20px',
               padding: '2rem', 
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              background: 'rgba(15, 23, 42, 0.98)',
               maxHeight: `${dynamicMaxHeight}px`,
               overflowY: 'auto'
             }}
           >
             <button 
-              style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', background: 'rgba(255,255,255,0.05)', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.4rem', borderRadius: '50%', display: 'flex' }}
+              style={{ 
+                position: 'absolute', 
+                top: '1.25rem', 
+                right: '1.25rem', 
+                background: 'var(--panel-bg)', 
+                border: 'none', 
+                color: 'var(--text-secondary)', 
+                cursor: 'pointer', 
+                padding: '0.4rem', 
+                borderRadius: '50%', 
+                display: 'flex' 
+              }}
               onClick={() => setSelectedIssue(null)}
             >
               <X size={20} />
@@ -336,7 +344,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                 <span className={`section-tag ${getTagColor(selectedIssue['Section Heading'])}`} style={{ marginBottom: '0.5rem' }}>
                   {selectedIssue['Section Heading']}
                 </span>
-                <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.5rem', color: '#ffffff' }}>Issue Details</h2>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.5rem', color: 'var(--text-primary)' }}>Issue Details</h2>
               </div>
               <div style={{ marginTop: '0.5rem' }}>
                 {getStatusBadge(selectedIssue['Status'])}
@@ -346,35 +354,35 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div>
                 <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem' }}>Sub-Section</h4>
-                <p style={{ fontSize: '1.1rem', fontWeight: '500', color: '#f1f5f9' }}>{selectedIssue['Sub-Section Heading']}</p>
+                <p style={{ fontSize: '1.1rem', fontWeight: '600', color: 'var(--text-primary)' }}>{selectedIssue['Sub-Section Heading']}</p>
               </div>
 
               {selectedIssue['Content'] && (
-                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <div className="glass-panel" style={{ padding: '1rem' }}>
                   <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Content Reference</h4>
-                  <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: '#cbd5e1' }}>{selectedIssue['Content']}</p>
+                  <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--text-primary)' }}>{selectedIssue['Content']}</p>
                 </div>
               )}
 
               {selectedIssue['Gap / Issue'] && (
-                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.05)', borderColor: 'rgba(239, 68, 68, 0.2)' }}>
+                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.08)', borderColor: 'rgba(239, 68, 68, 0.3)' }}>
                   <h4 style={{ color: 'var(--danger)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <AlertCircle size={14} /> Gap / Issue
                   </h4>
-                  <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: '#fca5a5' }}>{selectedIssue['Gap / Issue']}</p>
+                  <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--text-primary)', fontWeight: '500' }}>{selectedIssue['Gap / Issue']}</p>
                 </div>
               )}
 
               {selectedIssue['Fix Suggested'] && (
-                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(16, 185, 129, 0.05)', borderColor: 'rgba(16, 185, 129, 0.2)' }}>
+                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(16, 185, 129, 0.08)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
                   <h4 style={{ color: 'var(--success)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Suggested Fix</h4>
-                  <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: '#6ee7b7' }}>{selectedIssue['Fix Suggested']}</p>
+                  <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--text-primary)', fontWeight: '500' }}>{selectedIssue['Fix Suggested']}</p>
                 </div>
               )}
 
-              <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(56, 189, 248, 0.05)', border: '1px solid rgba(56, 189, 248, 0.2)' }}>
+              <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(56, 189, 248, 0.08)', borderColor: 'rgba(56, 189, 248, 0.3)' }}>
                 <h4 style={{ color: 'var(--accent-color)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Developer Remarks</h4>
-                <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: '#f1f5f9' }}>
+                <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--text-primary)' }}>
                   {selectedIssue['Remarks'] && selectedIssue['Remarks'] !== 'nan' 
                     ? selectedIssue['Remarks'] 
                     : "No remarks added yet. Add a 'Remarks' column to your Excel to show progress notes here."}
