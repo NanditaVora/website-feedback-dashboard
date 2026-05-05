@@ -198,6 +198,7 @@ body {
 
 .nav-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
   margin-bottom: 0.5rem;
@@ -209,6 +210,8 @@ body {
   border: 1px solid transparent;
   white-space: normal; /* Allow wrapping */
   word-break: break-word;
+  text-align: left;
+  width: 100%;
 }
 
 .nav-item:hover {

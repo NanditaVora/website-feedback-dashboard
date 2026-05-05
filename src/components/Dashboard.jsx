@@ -72,12 +72,9 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                 key={program.id}
                 className={`nav-item ${selectedProgramId === program.id ? 'active' : ''}`}
                 onClick={() => { setSelectedProgramId(program.id); setSearchTerm(''); setSelectedIssue(null); }}
-                style={{ width: '100%', background: 'none', border: 'none', textAlign: 'left', font: 'inherit', cursor: 'pointer' }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', gap: '1rem' }}>
-                  <span style={{ fontWeight: '500', fontSize: '0.95rem', lineHeight: '1.2', flex: 1 }}>{program.name || program.filename}</span>
-                  <span className="badge" style={{ flexShrink: 0 }}>{program.issues.length}</span>
-                </div>
+                <span style={{ lineHeight: '1.2', flex: 1, paddingRight: '0.5rem' }}>{program.name || program.filename}</span>
+                <span className="badge">{program.issues.length}</span>
               </button>
             ))}
           </div>
