@@ -47,6 +47,8 @@ def process_files(input_dir=None):
                                     program_url = val
                                 break
 
+            issues = []
+
             # Find the header row (usually contains "Section Heading") in the first 20 rows
             header_idx = 2 # Default
             for r in range(min(20, len(df))):
