@@ -304,18 +304,3 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
 };
 
 export default Dashboard;
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        )}
-        </div>
-      </div>
-
-      {/* Details Box (Aligned with Row) */}
-    </div>
-  );
-};
-
-export default Dashboard;
