@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
 import data from './data.json';
-import { BarChart3 } from 'lucide-react';
+import { BarChart3, Sun, Moon } from 'lucide-react';
 
 function App() {
   const [view, setView] = useState('landing');
   const [selectedProgramId, setSelectedProgramId] = useState(data[0]?.id || null);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  }, [isDarkMode]);
 
   const navigateToProgram = (id) => {
     if (id) setSelectedProgramId(id);
@@ -24,7 +33,26 @@ function App() {
             FSE Feedback
           </h1>
         </div>
-        <div>
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <button 
+            onClick={() => setIsDarkMode(!isDarkMode)} 
+            style={{ 
+              background: 'rgba(255,255,255,0.05)', 
+              border: '1px solid var(--glass-border)', 
+              color: 'var(--text-primary)', 
+              padding: '0.5rem', 
+              borderRadius: '50%', 
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.3s ease'
+            }}
+            title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          
           {view === 'landing' ? (
             <button className="btn btn-primary" onClick={() => setView('dashboard')}>
               Go to Dashboard

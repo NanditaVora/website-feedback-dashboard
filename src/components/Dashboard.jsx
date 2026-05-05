@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { ExternalLink, List, AlertCircle, Search } from 'lucide-react';
+import { ExternalLink, List, AlertCircle, Search, Download, X } from 'lucide-react';
 
 const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const selectedProgram = data.find(p => p.id === selectedProgramId);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedIssue, setSelectedIssue] = useState(null);
 
   const filteredIssues = selectedProgram ? selectedProgram.issues.filter(issue => {
     const searchLower = searchTerm.toLowerCase();
@@ -16,8 +17,23 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     );
   }) : [];
 
+  const exportToCSV = () => {
+    if (!filteredIssues.length) return;
+    const headers = Object.keys(filteredIssues[0]).join(',');
+    const rows = filteredIssues.map(issue => 
+      Object.values(issue).map(val => `"${String(val).replace(/"/g, '""')}"`).join(',')
+    ).join('\n');
+    const csvContent = "data:text/csv;charset=utf-8," + encodeURIComponent(headers + "\n" + rows);
+    const link = document.createElement("a");
+    link.setAttribute("href", csvContent);
+    link.setAttribute("download", `${selectedProgram.name.replace(/[^a-zA-Z0-9]/g, '_')}_issues.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <div className="container animate-fade-in" style={{ padding: '2rem' }}>
+    <div className="container animate-fade-in" style={{ padding: '2rem', position: 'relative' }}>
       <div className="dashboard-grid">
         {/* Sidebar */}
         <div className="glass-panel" style={{ height: 'fit-content' }}>
@@ -29,7 +45,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
               <button
                 key={program.id}
                 className={`nav-item ${selectedProgramId === program.id ? 'active' : ''}`}
-                onClick={() => { setSelectedProgramId(program.id); setSearchTerm(''); }}
+                onClick={() => { setSelectedProgramId(program.id); setSearchTerm(''); setSelectedIssue(null); }}
                 style={{ width: '100%', background: 'none', border: 'none', textAlign: 'left', font: 'inherit', cursor: 'pointer' }}
               >
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
@@ -76,26 +92,31 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                 <h2 style={{ fontSize: '1.25rem', fontWeight: '600' }}>Feedback Details</h2>
-                <div style={{ position: 'relative', width: '300px' }}>
-                  <Search size={18} color="var(--text-secondary)" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
-                  <input 
-                    type="text" 
-                    placeholder="Search issues, sections, content..." 
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    style={{ 
-                      width: '100%', 
-                      padding: '0.75rem 1rem 0.75rem 2.5rem', 
-                      borderRadius: '8px', 
-                      background: 'var(--glass-bg)', 
-                      border: '1px solid var(--glass-border)', 
-                      color: 'var(--text-primary)',
-                      fontFamily: 'inherit',
-                      outline: 'none'
-                    }}
-                  />
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                  <div style={{ position: 'relative', width: '300px' }}>
+                    <Search size={18} color="var(--text-secondary)" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
+                    <input 
+                      type="text" 
+                      placeholder="Search issues, sections, content..." 
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      style={{ 
+                        width: '100%', 
+                        padding: '0.75rem 1rem 0.75rem 2.5rem', 
+                        borderRadius: '8px', 
+                        background: 'var(--glass-bg)', 
+                        border: '1px solid var(--glass-border)', 
+                        color: 'var(--text-primary)',
+                        fontFamily: 'inherit',
+                        outline: 'none'
+                      }}
+                    />
+                  </div>
+                  <button className="btn btn-secondary" onClick={exportToCSV} disabled={!filteredIssues.length} style={{ padding: '0.75rem' }} title="Export as CSV">
+                    <Download size={20} />
+                  </button>
                 </div>
               </div>
 
@@ -111,21 +132,26 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                   </thead>
                   <tbody>
                     {filteredIssues.map((issue, idx) => (
-                      <tr key={`${issue['Section Heading']}-${issue['Sub-Section Heading']}-${idx}`}>
+                      <tr 
+                        key={`${issue['Section Heading']}-${issue['Sub-Section Heading']}-${idx}`}
+                        onClick={() => setSelectedIssue(issue)}
+                        style={{ cursor: 'pointer' }}
+                        className="clickable-row"
+                      >
                         <td>
                           <div style={{ fontWeight: '500', marginBottom: '0.25rem' }}>{issue['Section Heading']}</div>
                           <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{issue['Sub-Section Heading']}</div>
                         </td>
-                        <td>{issue['Content']}</td>
+                        <td>{issue['Content'] ? (issue['Content'].length > 100 ? issue['Content'].substring(0, 100) + '...' : issue['Content']) : '-'}</td>
                         <td>
                           {issue['Gap / Issue'] ? (
                              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
                                <AlertCircle size={16} color="var(--warning)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                               <span>{issue['Gap / Issue']}</span>
+                               <span>{issue['Gap / Issue'].length > 100 ? issue['Gap / Issue'].substring(0, 100) + '...' : issue['Gap / Issue']}</span>
                              </div>
                           ) : '-'}
                         </td>
-                        <td>{issue['Fix Suggested'] || '-'}</td>
+                        <td>{issue['Fix Suggested'] ? (issue['Fix Suggested'].length > 100 ? issue['Fix Suggested'].substring(0, 100) + '...' : issue['Fix Suggested']) : '-'}</td>
                       </tr>
                     ))}
                     {filteredIssues.length === 0 && (
@@ -147,6 +173,72 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
           </div>
         )}
       </div>
+
+      {/* Slide-out Panel */}
+      {selectedIssue && (
+        <>
+          <div 
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 40, backdropFilter: 'blur(4px)' }} 
+            onClick={() => setSelectedIssue(null)}
+          />
+          <div 
+            className="glass"
+            style={{ 
+              position: 'fixed', top: 0, right: 0, bottom: 0, width: '100%', maxWidth: '500px', 
+              zIndex: 50, borderRight: 'none', borderRadius: '16px 0 0 16px',
+              padding: '2rem', overflowY: 'auto',
+              boxShadow: '-10px 0 30px rgba(0,0,0,0.5)',
+              transform: 'translateX(0)', transition: 'transform 0.3s ease-in-out'
+            }}
+          >
+            <button 
+              style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }}
+              onClick={() => setSelectedIssue(null)}
+            >
+              <X size={24} />
+            </button>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.5rem', paddingRight: '2rem' }}>Issue Details</h2>
+            
+            <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div>
+                <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Section</h4>
+                <p style={{ fontSize: '1.1rem', fontWeight: '500' }}>{selectedIssue['Section Heading']}</p>
+                <p style={{ color: 'var(--text-secondary)' }}>{selectedIssue['Sub-Section Heading']}</p>
+              </div>
+
+              {selectedIssue['Content'] && (
+                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)' }}>
+                  <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Content</h4>
+                  <p style={{ whiteSpace: 'pre-wrap' }}>{selectedIssue['Content']}</p>
+                </div>
+              )}
+
+              {selectedIssue['Gap / Issue'] && (
+                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.05)', borderColor: 'rgba(239, 68, 68, 0.2)' }}>
+                  <h4 style={{ color: 'var(--danger)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <AlertCircle size={14} /> Gap / Issue
+                  </h4>
+                  <p style={{ whiteSpace: 'pre-wrap' }}>{selectedIssue['Gap / Issue']}</p>
+                </div>
+              )}
+
+              {selectedIssue['Fix Suggested'] && (
+                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(16, 185, 129, 0.05)', borderColor: 'rgba(16, 185, 129, 0.2)' }}>
+                  <h4 style={{ color: 'var(--success)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Suggested Fix</h4>
+                  <p style={{ whiteSpace: 'pre-wrap' }}>{selectedIssue['Fix Suggested']}</p>
+                </div>
+              )}
+              
+              {selectedIssue['Remarks'] && selectedIssue['Remarks'] !== 'nan' && (
+                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)' }}>
+                  <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Remarks</h4>
+                  <p style={{ whiteSpace: 'pre-wrap' }}>{selectedIssue['Remarks']}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
