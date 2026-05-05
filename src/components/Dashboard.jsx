@@ -130,7 +130,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                     <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem', wordBreak: 'break-word' }}>{selectedProgram.name}</h1>
                   {selectedProgram.url && (
                     <a href={selectedProgram.url} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none' }}>
-                      View Course <ExternalLink size={16} />
+                      View Product Page <ExternalLink size={16} />
                     </a>
                   )}
                   </div>
