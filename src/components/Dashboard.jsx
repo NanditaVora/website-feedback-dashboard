@@ -11,8 +11,8 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     const sec = (section || '').toLowerCase();
     if (sec.includes('hero')) return 'tag-rose';
     if (sec.includes('overview') || sec.includes('landing')) return 'tag-green';
-    if (sec.includes('tools')) return 'tag-teal';
-    if (sec.includes('learning')) return 'tag-amber';
+    if (sec.includes('tools') || sec.includes('tech')) return 'tag-teal';
+    if (sec.includes('learning') || sec.includes('outcome')) return 'tag-amber';
     if (sec.includes('curriculum')) return 'tag-purple';
     if (sec.includes('module')) return 'tag-violet';
     if (sec.includes('lesson')) return 'tag-fuchsia';
