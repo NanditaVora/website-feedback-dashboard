@@ -1,1 +1,914 @@
-[]
+[
+  {
+    "id": "Building_Agentic_AI_Systems",
+    "filename": "Building_Agentic_AI_Systems.xlsx",
+    "name": "Building Agentic AI Systems",
+    "url": "https://beta.niit.com/india/course/building-agentic-ai-systems",
+    "issues": [
+      {
+        "Sr No": "1",
+        "Section Heading": "Hero",
+        "Sub-Section Heading": "Tagline",
+        "Content": "Create and present practical AI projects - from chatbots to agent teams",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with: 'Agents for Every Ambition \u2013 a premium learning initiative by NIIT, building job-ready AI leaders with industry-driven training, real-world expertise, and in-demand artificial intelligence skills.'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "2",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Stat - Projects",
+        "Content": "5+ Projects",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with: '15+ Projects'",
+        "Status": "Completed",
+        "Remarks": "suggestion is implemented and fixed"
+      },
+      {
+        "Sr No": "3",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 5 (Capstone)",
+        "Content": "Not present on page",
+        "Gap / Issue": "The Capstone course is entirely missing from the Curriculum section. The product note defines a 5-course specialization (4 core + AI408 Capstone). The hero shows 25 Weeks but the curriculum lists only 4 courses ending Week 16 \u2014 the 9-week gap is the missing Capstone.",
+        "Fix Suggested": "Add the fifth course: 'Capstone Project \u2014 Engineer an Autonomous Agentic AI System (SLO-Bound) \u2014 60 Hours' with three bullets:\n\u2022 SLO-Driven Agentic System Design\nDesign real-world, scalable agentic systems with clear architecture and decision frameworks.\n\u2022 Autonomous Systems in Action\nBuild and iterate intelligent agents using RAG, tools, and multi-agent workflows.\n\u2022 Production-Ready Delivery\nValidate with observability, security, and performance testing, ending in a final demo and runbook.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "4",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Title",
+        "Content": "Python for Reliable AI Embedded Applications",
+        "Gap / Issue": "Incorrect Title",
+        "Fix Suggested": "Rename to: 'Python for AI-Embedded Applications'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "5",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Activity Label",
+        "Content": "Module Activity",
+        "Gap / Issue": "",
+        "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "6",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 2 \u2014 Summary Bullets",
+        "Content": "Conversational Agent Development Fundamentals \u2014 Building agents with LLM fundamentals, no-code chatbots, LangChain, prompt engineering, and structured outputs. Advanced Agent Workflows & Capabilities \u2014 Enhancing agent capabilities using tools, memory, and multi-step LCEL workflows. Agent UI, Security & Observability \u2014 Designing UI, security, and observability with Streamlit/React frontends, Auth0 authentication, and Langfuse-based agent monitoring.",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with:\n\u2022 Conversational Agent Foundations\nBuild your first AI chatbot with no-code tools, then graduate to calling LLM APIs through LangChain with safe wrappers, prompt management and tool calling so the agent can take real actions.\n\u2022 Multi-Step Agent Workflows & Memory\nDesign multi-step LCEL chains, add short-term memory for multi-turn conversations and a React-based chat front-end so the agent feels conversational and helpful inside an existing web app.\n\u2022 Auth and Observability\nSecure the agent with user authentication and authorization, observe its behaviour with Langfuse traces and quality checks, and ship a working conversational chat bot on cloud (Azure Foundry).",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "7",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 2 \u2014 Activity Label",
+        "Content": "Module Activity",
+        "Gap / Issue": "",
+        "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "8",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Sprint Sequence",
+        "Content": "Reliable Python Application Development \u2192 LLM Integration & Data Optimization \u2192 GenAI for Documentation & Testing",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with:\nCore Python & Data Foundations\nBuild strong fundamentals with Python structures, functions, modular code, and structured data models.\n\nAPI Development & LLM Integration\nDevelop robust REST APIs, handle I/O and validation, and integrate LLM APIs into applications.\n\nTesting, Real-Time Systems & AI Acceleration\nEnsure reliability with testing, enable real-time communication, and leverage GenAI for code, docs, and optimization.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "9",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 \u2014 Bullet Count",
+        "Content": "End-to-End RAG System Development; Secure Access & Data Protection; External System Integration with MCP; Tool Connectivity, Memory & Handoff",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with below content:\nEnd-to-End RAG Pipeline\nBuild ingestion, chunking, embedding, and hybrid retrieval with grounded, citation-backed responses.\n\nSecure & Tool-Integrated Retrieval\nApply guardrails, PII protection, and integrate MCP tools to connect real backend systems.\n\nMemory, Handoff & SLO Validation\nEnable memory and human handoff, and validate performance against accuracy and latency SLOs.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "10",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 \u2014 Activity Label",
+        "Content": "Module Activity",
+        "Gap / Issue": "",
+        "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "11",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 4 \u2014 Activity Label",
+        "Content": "Module Activity",
+        "Gap / Issue": "",
+        "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "12",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course Week Ranges",
+        "Content": "Course 1: Weeks 1\u20134 (60h); Course 2: Weeks 5\u20138 (60h); Course 3: Weeks 9\u201312 (60h); Course 4: Weeks 13\u201316 (60h). Capstone not shown.",
+        "Gap / Issue": "Week ranges shown stop at Week 16 but the hero advertises 25 Weeks \u2014 a 9-week gap is unaccounted for because the Capstone course is missing from the curriculum. Even at the 19-week pace (4 days/week, 16 hrs/week), the Capstone adds the final stretch to ~Week 19, so neither pace is consistent on the page.",
+        "Fix Suggested": "Add Capstone after Course 4 with its own week range and 60 hours: at the 25-week pace 'Course 5 (Capstone): Weeks 21\u201325 \u2014 60 hours'.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "13",
+        "Section Heading": "Tools & Technologies",
+        "Sub-Section Heading": "Missing Tools",
+        "Content": "Listed on page: Python, LangChain, Langfuse, LlamaIndex, LangGraph, CrewAI, Azure, Guardrails AI, FastAPI, OpenAI, Gemini, React, Langflow, PostgreSQL.",
+        "Gap / Issue": "Tools called out in the product note are missing from the page.",
+        "Fix Suggested": "Add: 'Pydantic, pytest, MCP, OpenTelemetry, Auth0 / JWT, Postgres + pgvector, AWS'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "14",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Section vs Description",
+        "Content": "Page lists 6 project cards (Code Review, Customer Support, Candidate Assessment, Customer & Competitor Analysis, Investment Recommendations, Sales Enablement). Product note lists 3 primary capstone use cases plus 2 additional use cases (5 total).",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace the entire content with the below one:\n1. Wellbeing Coach \u2013 Your Personalized 5-Minute Mental Booster\n\nAn AI-powered application that understands user input and context to deliver personalized wellness activities, providing quick and effective interventions through intelligent recommendations and adaptive responses.\nTags: PYTHON, FASTAPI, API DEVELOPMENT, LLM INTEGRATION, ASYNC, TESTING\n\n2. Real Estate Assistant \u2013 AI-Powered Home Search Companion\n\nA conversational AI agent that helps users discover, compare, and evaluate homes through personalized, context-aware interactions, integrating tools, memory, and workflows to deliver relevant property insights.\nTags: GENAI, CONVERSATIONAL AI, AGENT WORKFLOWS, TOOL CALLING, CLOUD DEPLOYMENT\n\n3. MedLearn Assistant \u2013 AI-Powered Medical Education Companion\n\nAn agentic RAG system that processes medical textbooks and multi-modal content to deliver accurate, explainable answers for learning and concept clarification.\nTags: GENAI, RAG, MULTI-MODAL, DATABASE, AI SECURITY\n\n4. Autonomous Social Media Content Studio \u2013 Multi-Agent Publishing System\n\nA multi-agent system that transforms a single idea into platform-specific content, using specialized agents, review loops, and coordinated workflows to deliver consistent, publish-ready outputs.\nTag: GENAI, MULTI-AGENT SYSTEMS, AGENT WORKFLOWS, AUTONOMOUS AGENTS, PERFORMANCE OPTIMIZATION\n\n5. Multi-Agent Retail Policy Intelligence System\n\nA crew of agents that interprets retail policies, validates decisions against business rules, and provides consistent, explainable outcomes for policy-driven scenarios across operations.\nTag: GENAI, RAG, DATABASE, AI SECURITY, PERFORMANCE METRICS\n\n6. Multi-Agent Support Resolution System with Human in the Loop\n\nA hierarchical workflow of agents with Support Specialist and Resolution QA roles that diagnose issues using documentation and historical data, escalating unresolved or high-risk cases to human experts.\nTag: GENAI, RAG,DATABASE, AI SECURITY, PERFORMANCE METRICS",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "15",
+        "Section Heading": "Learning Outcomes",
+        "Sub-Section Heading": "Outcome 5 vs Description",
+        "Content": "Build a portfolio of Agentic AI projects such as a compliance agent, job placement assistant, and event planner.\nDevelop advanced AI solutions such as a financial analyst and autonomous software development team.",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace the two split bullets with one bullet: 'Build a portfolio of Agentic AI projects such as a compliance agent team, event planner, financial analyst, and autonomous software development team.'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "16",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "RTBs / Why This Program",
+        "Content": "Not present on page",
+        "Gap / Issue": "The product note lists 6 RTBs (Reasons to Believe) that explain why this program is different \u2014 none are surfaced on the page as a dedicated section. These are the strongest differentiators for the program.",
+        "Fix Suggested": "IF ONE MORE SECTION CAN BE ADDED ON RTB\n\nAdd with below content(if we should add):\n\u2022 Build Production-Ready AI Applications \u2014 Create agentic systems like chatbots, RAG apps, and autonomous agents that meet real performance goals.\n\n\u2022 Seamless Transition from Any Stack \u2014 Gain essential Python and API skills, then move into Agentic AI development.\n\n\u2022 Portfolio That Proves Job-Readiness \u2014 Complete 30+ tasks and 5 projects, including a capstone.\n\n\u2022 Build with and using AI \u2014 Develop AI-powered apps while leveraging AI tools for productivity and quality.\n\n\u2022 Designed for Working Professionals \u2014 Flexible 6-month program you can complete alongside your job.\n\n\u2022 Clear Career Path to AI Engineering \u2014 Transition into an AI-embedded Full-Stack Engineer role.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "17",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Stat - Tools & Frameworks",
+        "Content": "25+ Tools & Framework",
+        "Gap / Issue": "Stat label uses singular 'Framework'; should be plural for grammatical consistency with the rest of the page.",
+        "Fix Suggested": "Replace with: '25+ Tools & Frameworks'",
+        "Status": "Open",
+        "Remarks": ""
+      }
+    ]
+  },
+  {
+    "id": "Front-end_Dev_with_React_and_GenAI_Advanced_Program",
+    "filename": "Front-end_Dev_with_React_and_GenAI_Advanced_Program.xlsx",
+    "name": "Front-end Dev with React & GenAI Advanced Program",
+    "url": "https://beta.niit.com/india/course/front-end-dev-with-react-genai-advanced-program-2",
+    "issues": [
+      {
+        "Sr No": "1",
+        "Section Heading": "Hero",
+        "Sub-Section Heading": "Tagline",
+        "Content": "Master Front-End Web Development with React, Responsive Design, Modern JavaScript, and Generative AI Integration.",
+        "Gap / Issue": "Tagline uses the forbidden verb 'Master' \u2014 overstates the level of skill a learner can be expected to acquire. Also omits the role-specific positioning in the description ('Java & Front-end developer at the entry level').",
+        "Fix Suggested": "Replace with: 'Build entry-level Java & Front-end Developer skills across SQL, Core and Object-Oriented Java, Data Structures and Algorithms, modern JavaScript, HTML5, CSS3, and React \u2014 designed to make you job-ready.'",
+        "Status": "Completed",
+        "Remarks": "Fixed"
+      },
+      {
+        "Sr No": "2",
+        "Section Heading": "Hero",
+        "Sub-Section Heading": "Sub-headline",
+        "Content": "Not present on page",
+        "Gap / Issue": "The product description's program sub-headline 'Outcome Driven; Practitioner Designed' is not surfaced on the page.",
+        "Fix Suggested": "Add: 'Outcome Driven; Practitioner Designed' as a sub-headline below the program name.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "3",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Overview Paragraph",
+        "Content": "The Front-End Development with React & GenAI Advanced Program by NIIT is a future-ready program with placement assistance that equips learners with in-demand skills to design, develop, and deploy responsive, interactive web applications using modern JavaScript, React, and Generative AI tools. Through hands-on projects and industry-aligned training, participants gain practical experience and job-ready expertise for careers in web and AI-driven application development.",
+        "Gap / Issue": "Overview drops the 'Java & Front-end Developer' framing from the description. The description's scope spans 7 courses across SQL, Java OOP, DSA, Streams & Lambdas, Web Pages, React SPAs and Navigable React workflows \u2014 the page reduces this to 'modern JavaScript, React, and Generative AI tools'.",
+        "Fix Suggested": "Replace with: 'This program builds core competencies for entry-level Java and Front-end Developer roles, covering SQL, Java, HTML5, CSS3, JavaScript, and React. Learners develop strong technical foundations alongside essential engineering and professional skills. The curriculum progresses from databases and object-oriented programming to data structures, advanced Java, responsive web development, and React-based applications.'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "4",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Projects",
+        "Content": "3+",
+        "Gap / Issue": "Count is less",
+        "Fix Suggested": "20+",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "5",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Missing Courses 1\u20134 (Java half)",
+        "Content": "Page curriculum lists only 3 courses (Web Dev, React SPAs, Navigable React).",
+        "Gap / Issue": "The description defines a 7-course program. The first four courses \u2014 Managing and Querying Database (RDBMS), Java: Object-Oriented Programming, Data Structures and Algorithms, Apply Advanced Java Concepts \u2013 Streams and Lambdas \u2014 are entirely absent from the page curriculum, even though the description names the program 'Java & Front-end Developer'.",
+        "Fix Suggested": "Add four course entries before the existing three:\n1. Managing and Querying Database (RDBMS) \u2014 Weeks 1\u20134 \u2014 60 Hours\n2. Java: Object-Oriented Programming \u2014 Weeks 4\u20138 \u2014 60 Hours\n3. Data Structures and Algorithms \u2014 Weeks 8\u201311 \u2014 52 Hours\n4. Apply Advanced Java Concepts \u2013 Streams and Lambdas \u2014 Weeks 11\u201314 \u2014 40 Hours\nEach with 2\u20133 bullets following the standard format (sub-heading on its own line, 1\u20132 sentence prose), an Activity, and a course-end Project card.",
+        "Status": "Open",
+        "Remarks": "The content for all 4 courses (MySQL, OOPs, Data Structure and Advance java needs to be taken from - Java Development Certificate Program\nOR\n\nRefer to Row 29-32 for missing course summary details"
+      },
+      {
+        "Sr No": "6",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Title",
+        "Content": "Web Development and UI/UX Essentials",
+        "Gap / Issue": "Course title diverges from the product description ('Building Responsive and Interactive Web Pages'). Page title also drops the 'interactive' framing that the description uses.",
+        "Fix Suggested": "Rename to: 'Building Responsive and Interactive Web Pages'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "7",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Hours / Weeks",
+        "Content": "Weeks 1\u20134 \u2014 60 hours",
+        "Gap / Issue": "If the Java courses are added as the first four courses (as required by the description), this course must be Course 5 with Weeks 14\u201317 \u2014 60 Hours, not Weeks 1\u20134. With sprints numbered continuously across the program, sprints 54\u201368 \u2192 Weeks 14\u201317.",
+        "Fix Suggested": "Update to: 'Course 5: Weeks 14\u201317 \u2014 60 Hours' once the four Java courses are added.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "8",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Summary Bullets",
+        "Content": "\u2022 Practical skills to build responsive web pages \u2014 Learn to structure, style, and prototype responsive web interfaces using HTML5, CSS3, JavaScript, Bootstrap, and UI/UX design principles with Figma.",
+        "Gap / Issue": "Only 1 bullet present; SKILL requires 2\u20133 bullets per course. Sub-heading reads as a sentence (no Title Case standalone heading) and the prose is a comma-separated tool list. Sprint sequence in description (HTML5 \u2192 CSS \u2192 UI/UX \u2192 Bootstrap \u2192 JavaScript fundamentals \u2192 control flow \u2192 arrays \u2192 REST/JSON \u2192 DOM events \u2192 HTTP) is not represented.",
+        "Fix Suggested": "Replace with:\n\u2022 Responsive Web Design & User Experience\nCreate visually appealing and responsive web interfaces by structuring content effectively and applying modern styling practices aligned with UI/UX principles.\n\u2022 Interactive Web Development & API Integration\nBuild dynamic, interactive web applications by handling user interactions and seamlessly connecting front-end interfaces with backend services through APIs.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "9",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Activity Content",
+        "Content": "Activity \u2014 Build a fully responsive, multi-page website applying UI/UX principles, wireframes, layouts, and modern frontend styling techniques.",
+        "Gap / Issue": "Activity label is correct ('Activity', not 'Module Activity'). No fix needed for label, but the activity description is generic \u2014 it does not reflect the description's emphasis on JavaScript, REST APIs, JSON and DOM events that round out this course.",
+        "Fix Suggested": "Replace with: 'Activity \u2014 BookBack \u2013 Local Book Exchange Website, Cookify \u2013 Recipe Sharing Website, SkillSetu \u2013 Local Skills for Hire Website, TableTap \u2013 Online table-booking site'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "10",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 2 \u2014 Title",
+        "Content": "Build Single-Page Applications Using React",
+        "Gap / Issue": "Course title is close but drops the description's article spelling ('Build Single Page Applications Using React' \u2014 note no hyphen between 'Single' and 'Page' in description).",
+        "Fix Suggested": "Rename to: 'Building Single Page Applications Using React'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "11",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 \u2014 Hours / Weeks",
+        "Content": "Weeks 5\u20137 \u2014 45 hours",
+        "Gap / Issue": "Course has 10 learning sprints + 5 Course-End-Project sprints = 15 sprints @ 4 hrs = 60 Hours. Page understates by 15 hours and shortens to 3 weeks. With continuous sprint numbering, sprints 69\u201383 \u2192 Weeks 18\u201321.",
+        "Fix Suggested": "Update to: 'Course 6: Weeks 18\u201321 \u2014 60 Hours'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "12",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 2 \u2014 Summary Bullets",
+        "Content": "\u2022 Develop dynamic applications using React fundamentals \u2014 Create interactive Single Page Applications using React concepts such as components, props, state management, hooks, and declarative rendering.",
+        "Gap / Issue": "Only 1 bullet; SKILL requires 2\u20133 bullets covering description sprint sequence (Modular JavaScript \u2192 JSX components \u2192 TypeScript \u2192 Props \u2192 State/Events \u2192 useEffect \u2192 Custom Hooks \u2192 Styling/CSS Modules \u2192 Material UI \u2192 Testing with Jest/RTL).",
+        "Fix Suggested": "Replace with below:\n\u2022 Component-Based UI Development\nBuild reusable and maintainable user interfaces using JSX, components, and props.\n\n\u2022 State, Interactivity & Data Handling\nCreate dynamic apps by managing state, handling interactions, and integrating APIs with React hooks.\n\n\u2022 Scalable, Styled & Tested Apps\nImprove reliability with TypeScript, design responsive UIs using Material UI, and ensure quality through testing using Jest and RTL.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "13",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 \u2014 Title",
+        "Content": "Building SPA with Navigable Workflows Using React",
+        "Gap / Issue": "Page uses 'Building' (gerund) where description uses 'Build' (imperative). Minor but inconsistent with description.",
+        "Fix Suggested": "Rename to:\"Building SPA with Complex Forms and Navigable Workflows Using React\"",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "14",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 \u2014 Hours / Weeks",
+        "Content": "Weeks 8\u20139 \u2014 30 hours",
+        "Gap / Issue": "Course has 5 learning sprints + 5 Course-End-Project sprints = 10 sprints @ 4 hrs = 40 Hours. Page understates by 10 hours and shortens to 2 weeks. With continuous sprint numbering, sprints 84\u201393 \u2192 Weeks 21\u201324.",
+        "Fix Suggested": "Update to: 'Course 7: Weeks 21\u201324 \u2014 40 Hours'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "15",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 \u2014 Summary Bullets",
+        "Content": "\u2022 Implement scalable navigation and advanced React workflows \u2014 Design structured applications using React Router, form handling, component styling with CSS Modules, and user interaction workflows.",
+        "Gap / Issue": "Only 1 bullet; SKILL requires 2\u20133 bullets covering description sprint sequence (Form building & validation with useState \u2192 React Hook Form \u2192 Routing \u2192 Auth/RBAC with Context \u2192 Reducers/composition/optimisation).",
+        "Fix Suggested": "Replace with below content:\n\u2022 Forms & Navigation in React Applications\nBuild and validate complex forms and enable seamless user journeys through efficient form handling and in-app routing.\n\n\u2022 Authentication, State Management & Performance\nImplement secure access control and manage application state effectively using Context API while optimizing performance for production-ready apps.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "16",
+        "Section Heading": "Tools & Technologies",
+        "Sub-Section Heading": "Section Intro",
+        "Content": "Explore industry-relevant tools through hands-on learning to master practical, in-demand skills.",
+        "Gap / Issue": "Tools section intro uses the forbidden verb 'master' \u2014 overstates the level a learner can be expected to acquire.",
+        "Fix Suggested": "Replace with: 'Explore industry-relevant tools through hands-on learning to build practical, in-demand skills.'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "17",
+        "Section Heading": "Tools & Technologies",
+        "Sub-Section Heading": "Missing Tools",
+        "Content": "Listed on page: HTML5, CSS3, JavaScript, React, OpenAI.",
+        "Gap / Issue": "Tools and technologies surfaced in the description are missing: MySQL, Maven, JUnit, GenAI Tools (Course 1 / Java side), Bootstrap and Figma (Course 5), Vite, TypeScript, Axios, Material UI, Jest and React Testing Library, Styled-Components, CSS Modules (Course 6), React Router, React Hook Form (Course 7).",
+        "Fix Suggested": "Add: 'MySQL, Maven, JUnit, Bootstrap, Figma, Vite, TypeScript, Axios, Material UI, Jest, React Testing Library,  React Hook Form, GenAI Tools'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "18",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Capstone Project Card",
+        "Content": "Capstone Project \u2014 Leverage Generative AI tools to generate React components, debug JavaScript code, create UI documentation, optimize performance, and accelerate development of responsive web applications.",
+        "Gap / Issue": "Program has no Capstone Project course in the product description \u2014 the description shows 7 courses, each with its own Course-End Project. Per SKILL the term 'Capstone' must not appear on the page.",
+        "Fix Suggested": "Add six project cards:\n1. Online Bookstore Database \u2014 Design and implement a MySQL database with ER modelling, normalization, joins, subqueries and stored procedures.\n2. Library Management System \u2014 Build a Core Java application using OOP principles, inheritance, polymorphism and exception handling.\n3. Data Structure Implementation Project \u2014 Implement and benchmark searching, sorting, linked lists, hashing and BSTs to demonstrate problem-solving with DSA.\n4. Cookify \u2013 Recipe Sharing Web Platform \u2014 Design and build a responsive, interactive web application enabling users to explore, share, and organize recipes through a structured and user-friendly interface.\n5. HostelBites Lite \u2013 Smart Mess Manager \u2014 Build a responsive React + TypeScript app using components, state, and hooks to manage meal preferences and demand insights.\n6. MovieMate \u2013 Personal Watchlist \u2014 Build a React SPA to explore, filter, and manage a personalized movie watchlist using routing, forms, global state, and performance optimizations.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "19",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Project Count",
+        "Content": "3+ Projects",
+        "Gap / Issue": "Stat understates portfolio depth. The description has 7 courses, each with its own course-end project. Even with the page's reduced 3-course curriculum, the stat undersells what learners build.",
+        "Fix Suggested": "Update to: '7+ Projects' once all 7 courses are surfaced",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "20",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "LinkedIn Visibility Callout",
+        "Content": "Boost Your Career Visibility \u2014 Showcasing a professional Capstone Project on your LinkedIn increases recruiter interest significantly. Build production-ready work that speaks for itself.",
+        "Gap / Issue": "Callout uses the term 'Capstone Project' which does not exist as a course in this program. SKILL forbids 'Capstone' on pages where the program has no Capstone course.",
+        "Fix Suggested": "Replace with: 'Boost Your Career Visibility \u2014 Showcasing your professional Course-End Projects on your LinkedIn increases recruiter interest significantly. Build production-ready work that speaks for itself.'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "21",
+        "Section Heading": "Learning Outcomes",
+        "Sub-Section Heading": "Coverage vs Description",
+        "Content": "Page outcomes: 1) Design and develop responsive, user-friendly web interfaces\u2026  2) Build dynamic SPAs using React\u2026 3) Implement navigable workflows\u2026 4) Apply UI/UX principles\u2026 5) Utilize Generative AI tools to accelerate coding, debugging, testing, and technical documentation. 6) Develop and deploy industry-ready front-end applications\u2026",
+        "Gap / Issue": "Outcomes cover only the Front-end half of the program. Description scope adds SQL/RDBMS, Core/OOP Java, Data Structures and Algorithms, and Java Streams & Lambdas \u2014 none are reflected in the outcomes.",
+        "Fix Suggested": "Add three outcome bullets:\n\u2022 Design and query relational databases using SQL, ER modelling and normalization techniques to store, retrieve and manipulate data effectively.\n\u2022 Apply data structures and algorithms (arrays, linked lists, stacks, queues, trees, hashing, searching, sorting and recursion) to solve programming problems efficiently.\n\u2022 Write modern Java code using Generics, Collections, Lambdas, Functional Interfaces and the Stream API.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "22",
+        "Section Heading": "Hero",
+        "Sub-Section Heading": "Stat - Salary",
+        "Content": "Avg. Salary \u20b94- \u20b96 LPA",
+        "Gap / Issue": "Spacing inconsistency in the salary range; per SKILL excluded list, social-proof salary stats are not validated, but the formatting issue is worth a quick fix.",
+        "Fix Suggested": "Replace with: 'Avg. Salary \u20b94\u2013\u20b96 LPA'",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "23",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Managing and Querying Database (RDBMS) \u2014 Weeks 1\u20134 \u2014 60 Hours",
+        "Content": "Not present on Page",
+        "Gap / Issue": "Course-1 Summary content missing",
+        "Fix Suggested": "Add with:\n\n\u2022 SQL Querying & Data Operations\nBuild strong hands-on skills to retrieve, analyze, and manipulate data using SQL, enabling you to extract meaningful insights and work effectively with real-world datasets.\n\n\u2022 Database Design, Integrity & Advanced Capabilities\nDesign structured databases using ER diagrams and define robust schemas while ensuring data consistency, and extend functionality through automation and support for modern data formats.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "24",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Java: Object-Oriented Programming \u2014 Weeks 4\u20138 \u2014 60 Hours",
+        "Content": "Not present on Page",
+        "Gap / Issue": "Course-2 summary content missing",
+        "Fix Suggested": "Add with : \n1) Core Java Programming & Problem Solving\nApply Core Java fundamentals\u2014variables, control flow, arrays, strings, recursion, and searching/sorting\u2014to build efficient, program logic.\n\n2) Object-Oriented Application Development\nApply object-oriented concepts and exception handling to design well-structured Java applications.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "25",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Data Structures and Algorithms \u2014 Weeks 8\u201311 \u2014 52 Hours",
+        "Content": "Not present on Page",
+        "Gap / Issue": "Course-3 summary content missing",
+        "Fix Suggested": "Add with :\n\u2022 Data Structures Implementation\nImplement core data structures such as arrays, stacks, queues, linked lists, trees, and hash tables along with searching and sorting algorithms.\n\n\u2022 Algorithm Analysis and Optimization\nAnalyse time and space complexity and apply recursion and suitable data structures to solve performance-critical problems.",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Sr No": "26",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Apply Advanced Java Concepts \u2013 Streams and Lambdas \u2014 Weeks 11\u201314 \u2014 40 Hours",
+        "Content": "Not present on Page",
+        "Gap / Issue": "Course-4 summary content missing",
+        "Fix Suggested": "Add with:\n1. Testing and Collections\nWrite unit tests and manage data using collections and generics for organized, reliable programs.\n\n2. Modern Java Practices\nApply functional programming features to write concise, efficient code for data processing.",
+        "Status": "Open",
+        "Remarks": ""
+      }
+    ]
+  },
+  {
+    "id": "Java_Development_Certificate_Program",
+    "filename": "Java_Development_Certificate_Program.xlsx",
+    "name": "Java Development Certificate Program",
+    "url": "https://beta.niit.com/india/course/java-development-certificate-program",
+    "issues": [
+      {
+        "Sr No": "1",
+        "Section Heading": "Hero",
+        "Sub-Section Heading": "Tagline",
+        "Content": "Master Java Programming, OOP, and SQL to Build Scalable Applications with NIIT's Java Development Certificate Program.",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with: 'Build entry-level Java developer skills across SQL databases, Object-Oriented Programming, Data Structures and Algorithms, and Streams & Lambdas \u2014 designed to make you job-ready for the Java Developer role.'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "2",
+        "Section Heading": "Hero",
+        "Sub-Section Heading": "Sub-headline",
+        "Content": "Outcome Driven; Practitioner Designed (from product description) \u2014 not present on page",
+        "Gap / Issue": "The product description's program sub-headline 'Outcome Driven; Practitioner Designed' is not surfaced anywhere on the page. This is a strong NIIT-wide differentiator that the description leads with.",
+        "Fix Suggested": "Add: 'Outcome Driven; Practitioner Designed' as a sub-headline below the program name.",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "3",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Overview Paragraph",
+        "Content": "The Java Development Certificate Program by NIIT helps learners build a strong foundation in Java programming and application development. The program covers core concepts such as Java fundamentals, object-oriented programming (OOP), exception handling, and database interaction using SQL. Through guided exercises and practical learning, participants develop coding and problem-solving skills while gaining hands-on experience in building basic Java applications.",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with: 'This program develops the core competencies necessary for the Java Developer role at the entry level. Learners build the knowledge and skills required to work effectively with MySQL databases, Java object-oriented programming, Data Structures and Algorithms, and Lambdas and Streams. The program also emphasizes professional best practices and the right mindset for success. Through real-world challenges and hands-on projects, learners gain practical experience that prepares them to smoothly transition into the Java programming role.'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "4",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Projects",
+        "Content": "3+",
+        "Gap / Issue": "Count is less",
+        "Fix Suggested": "Replace with 15+",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "5",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Stat - Practical Exercises",
+        "Content": "10+ Practical Exercises",
+        "Gap / Issue": "",
+        "Fix Suggested": "50+",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "6",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Stat - Learning Hours",
+        "Content": "200+ LEARNING HOURS",
+        "Gap / Issue": "",
+        "Fix Suggested": "Update to: '212 Hours' (or round to '210+ Learning Hours').",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "7",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Title",
+        "Content": "Managing and Querying Database (RDBMS & SQL)",
+        "Gap / Issue": "",
+        "Fix Suggested": "Rename to: 'Managing and Querying Database'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "8",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Hours",
+        "Content": "Weeks 1\u20133 \u2014 48 hours",
+        "Gap / Issue": "Course 1 has 10 learning sprints + 5 Course-End-Project sprints = 15 sprints @ 4 hrs each = 60 hours over 4 weeks. Page understates both hours and weeks.",
+        "Fix Suggested": "Update to: 'Weeks 1\u20134 \u2014 60 Hours'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "9",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Summary Bullets",
+        "Content": "\u2022 Design and manage relational databases using SQL \u2014 Learn database design using ER diagrams and normalization techniques. Model and manage structured data using MySQL and retrieve information through SQL queries for effective data handling.",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with:\n\n\u2022 SQL Querying & Data Operations\nBuild strong hands-on skills to retrieve, analyze, and manipulate data using SQL, enabling you to extract meaningful insights and work effectively with real-world datasets.\n\n\u2022 Database Design, Integrity & Advanced Capabilities\nDesign structured databases using ER Diagrams and define robust schemas while ensuring data consistency, and extend functionality through automation and support for modern data formats.",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "10",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 \u2014 Activity Label",
+        "Content": "Module Activity",
+        "Gap / Issue": "",
+        "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "11",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 1 - Activity options",
+        "Content": "Hands-on Project to Choose: Fitness Tracker Database, Movie Streaming Platform Database, Online Bookstore Database",
+        "Gap / Issue": "Specific project options listed are not enumerated in the product description.",
+        "Fix Suggested": "Hands-on Project to Choose:Hospital Patient Management System, Movie Streaming Platform Database, Recipe Manager Database, Student Attendance & Performance Tracker",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "12",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 2 \u2014 Hours",
+        "Content": "Weeks 4\u20137 \u2014 64 hours",
+        "Gap / Issue": "Course 2 has 10 learning sprints + 5 Course-End-Project sprints = 15 sprints @ 4 hrs each = 60 hours. Page overstates hours by 4 (one extra sprint), and the week range starts a week early \u2014 using continuous sprint numbering, sprints 16\u201330 \u2192 Weeks 4\u20138 (boundary week shared with Course 1).",
+        "Fix Suggested": "Update to: 'Weeks 4\u20138 \u2014 60 Hours'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "13",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 2 \u2014 Summary Bullets",
+        "Content": "\u2022 Develop programming logic using Core Java and object-oriented concepts \u2014 Learn Java programming fundamentals, program structure, and problem-solving techniques. Understand how real-world entities are represented in software and implement object-oriented programs using Java.",
+        "Gap / Issue": "",
+        "Fix Suggested": "1.Core Java Foundations\nBuild programs using Core Java with decision making, loops, arrays, strings, recursion, and basic searching and sorting to solve real problems.\n\n2.Object-Oriented Programming\nDesign applications using object-oriented concepts and exception handling to create structured, real-world solutions.",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "14",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 2 \u2014 Activity Label",
+        "Content": "Module Activity",
+        "Gap / Issue": "",
+        "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "15",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 2 - Activity options",
+        "Content": "Hands-on Project to Choose: GreenPay \u2013 Smart Waste Collection & Reward System, DonateConnect \u2013 Community Donation and Distribution, EcoRide \u2013 Ride Sharing System, FarmConnect \u2013 Farmer-to-Market Supply Chain",
+        "Gap / Issue": "Order incorrect and missing project titles",
+        "Fix Suggested": "Hands-on Project to Choose: DonateConnect \u2013 A Community Donation and Distribution System, EventEase \u2013 Simple Event & Venue Management System, GreenPay \u2013 A Smart Waste Collection & Reward System, PetPal \u2013 Adoption Management for Pet Shelters, SafeNest \u2013 A Women Safety Alert and Response System, SkillMatch \u2013 A Simple Freelance Task Board",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "16",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 \u2014 Hours",
+        "Content": "Weeks 8\u201310 \u2014 48 hours",
+        "Gap / Issue": "Course 3 has 9 learning sprints (including 'DSA Project' sprint) + 5 Course-End-Project sprints = 14 sprints @ 4 hrs = 56 hours. Page understates hours and is one week short of expected (continuous sprint numbering puts C3 at sprints 31\u201343, i.e., Weeks 8\u201311).",
+        "Fix Suggested": "Course Name should be Data Structures and Algorithms Essentials and duration should be 52 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "17",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 \u2014 Summary Bullets",
+        "Content": "\u2022 Build strong problem-solving skills using data structures and algorithms \u2014 Understand key data structures such as arrays, linked lists, stacks, queues, and trees. Implement sorting, searching, and recursion techniques to build efficient and optimized programs.",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with :\n\u2022 Data Structures Implementation\nImplement core data structures such as arrays, stacks, queues, linked lists, trees, and hash tables along with searching and sorting algorithms.\n\n\u2022 Algorithm Analysis and Optimization\nAnalyse time and space complexity and apply recursion and suitable data structures to solve performance-critical problems.",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "18",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 \u2014 Activity Label",
+        "Content": "Module Activity",
+        "Gap / Issue": "",
+        "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "19",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 3 - Activity options",
+        "Content": "Hand-on Project to Choose: BuzzBuildSystem \u2013 A Social Media Hype Manager, Document Tagging & Retrieval System, Online Polling System with Real-Time Analytics, Security Alert Monitor with Real-Time Tracking",
+        "Gap / Issue": "missing few projects",
+        "Fix Suggested": "Hands-on Project to Choose: BuzzBuildSystem \u2013 A Social Media Hype Manager, Document Tagging & Retrieval System, Local Services Search System (Just Dial Simulation), Security Alert Monitor with Real-Time Tracking",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "20",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 4 \u2014 Title",
+        "Content": "Advanced Java \u2013 Streams, Lambdas & Collections",
+        "Gap / Issue": "",
+        "Fix Suggested": "Rename to: 'Apply Advanced Java Concepts \u2013 Streams and Lambdas'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "21",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 4 \u2014 Hours",
+        "Content": "Weeks 11\u201313 \u2014 48 hours",
+        "Gap / Issue": "Course 4 has 5 learning sprints + 5 Course-End-Project sprints = 10 sprints @ 4 hrs = 40 hours. Page overstates hours by 8 and shows the wrong week range \u2014 continuous sprint numbering puts C4 at sprints 44\u201353 \u2192 Weeks 11\u201314.",
+        "Fix Suggested": "Update to: 'Weeks 11\u201314 \u2014 40 Hours'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "22",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 4 \u2014 Summary Bullets",
+        "Content": "\u2022 Write efficient and modern Java code using advanced programming techniques \u2014 Learn Java Collections, unit testing, and object comparison techniques. Implement Lambdas, functional interfaces, and Stream APIs to optimize code and improve performance.",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with\n\n\u2022 Unit Testing and Collections\nWrite unit tests, enforce type safety with generics, and organize data using Java Collections with sorting.\n\n\u2022 Functional Programming and Data Processing\nApply lambdas and functional interfaces, and process data using Streams with null-safe handling.",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "23",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 4 \u2014 Activity Label",
+        "Content": "Module Activity",
+        "Gap / Issue": "",
+        "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "24",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Course 4 - Activity options",
+        "Content": "SkillMatch \u2013 Freelance Task Board, SafeNest \u2013 Women Safety Alert and Response System, PetPal \u2013 Pet Adoption System for Shelters, FarmConnect \u2013 Farmer-to-Market Supply Chain",
+        "Gap / Issue": "Format not matching and few headings missing",
+        "Fix Suggested": "Hands-on Project to Choose: DonateConnect \u2013 A Community Donation and Distribution System, FarmConnect \u2013 A Farmer-to-Market Supply Chain, GreenPay \u2013 A Smart Waste Collection & Reward System, PetPal \u2013 Adoption Management for Pet Shelters, SafeNest \u2013 A Women Safety Alert and Response System, SkillMatch \u2013 A Simple Freelance Task Board",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "25",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "Section Intro",
+        "Content": "Comprehensive curriculum to build in-demand tech skills and real-world expertise. \u2026 'master practical, in-demand skills' (Tools section intro).",
+        "Gap / Issue": "",
+        "Fix Suggested": "Replace with: 'Explore industry-relevant tools through hands-on learning to build practical, in-demand skills.'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "26",
+        "Section Heading": "Tools & Technologies",
+        "Sub-Section Heading": "Missing Tools",
+        "Content": "Listed on page: Java, SQL.",
+        "Gap / Issue": "The list omits tools and technologies surfaced in the product description: MySQL (database engine), Maven (build tool), JUnit (testing), GenAI Tools (referenced in subqueries sprint).",
+        "Fix Suggested": "Add: 'MySQL, Maven, JUnit, GenAI Tools like ChatGPT, Gemini'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "27",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Capstone Project Card",
+        "Content": "Capstone Project \u2014 Develop a functional application using Java that demonstrates core programming concepts and problem-solving skills. The project should incorporate object-oriented programming principles, data handling, and basic database integration to address a real-world scenario.",
+        "Gap / Issue": "Program has no Capstone Project course in the product description \u2014 the description shows 4 courses, each ending with its own Course-End Project. The term 'Capstone' should not appear on the page.",
+        "Fix Suggested": "Replace 'Capstone Project' with 'Project'.",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "28",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Course-End Projects",
+        "Content": "Not present on page",
+        "Gap / Issue": "Each of the four courses has its own Course-End Project in the description's sprint structure (Module Activity items hint at these). The page collapses all four into a single generic 'Capstone Project' card, hiding the per-course portfolio depth.",
+        "Fix Suggested": "Add six project cards:\n1. Fitness Tracker Database - Design a fitness tracker database managing workouts, health data, subscriptions, and personalized progress tracking insights.\n2. Online Bookstore Database \u2014 Create a bookstore database to manage books, orders, payments, inventory, and customer engagement insights.\n3. EcoRide \u2013 Create a Java ride-sharing simulator with role-based menus for drivers and riders including booking and validation.\n4. Online Polling System with Real-Time Analytics \u2013 Build a real-time polling system with vote processing, duplicate prevention, instant analytics, and rollback capabilities.\n5. EventEase \u2013 Develop a Java event management app with venue scheduling, attendee registration, and edge-case handling for bookings.\n6. FarmConnect \u2013 Design a farmer-to-buyer marketplace for listing, ordering, and tracking fresh produce with inventory management.",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "29",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "LinkedIn Visibility Callout",
+        "Content": "Boost Your Career Visibility \u2014 Showcasing a professional Capstone Project on your LinkedIn increases recruiter interest significantly. Build production-ready work that speaks for itself.",
+        "Gap / Issue": "Callout uses the term 'Capstone Project' which does not exist as a course in this program;",
+        "Fix Suggested": "Replace with: 'Boost Your Career Visibility \u2014 Showcasing your professional Course-End Projects on your LinkedIn increases recruiter interest significantly. Build production-ready work that speaks for itself.'",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "30",
+        "Section Heading": "Learning Outcomes",
+        "Sub-Section Heading": "Coverage vs Description",
+        "Content": "Page outcomes: 1) Design and manage relational databases using SQL... 2) Develop Java applications using core programming concepts... 3) Apply data structures and algorithms... 4) Write optimized and maintainable code using Java Collections, Lambdas, and Stream APIs. 5) Test and validate Java programs using unit testing and debugging techniques. 6) Build structured software solutions...",
+        "Gap / Issue": "",
+        "Fix Suggested": "Add a closing outcome bullet: 'Be job-ready for the entry-level Java Developer role by combining technical skills with professional best practices and the right engineering mindset.'",
+        "Remarks": "",
+        "Status": "Open"
+      }
+    ]
+  },
+  {
+    "id": "Java_Object_Oriented_Programming",
+    "filename": "Java_Object_Oriented_Programming.xlsx",
+    "name": "Java: Object-Oriented Programming",
+    "url": "https://beta.niit.com/india/course/java-object-oriented-programming",
+    "issues": [
+      {
+        "Sr No": "1",
+        "Section Heading": "Program Overview",
+        "Sub-Section Heading": "Stat - Practical Exercises",
+        "Content": "10\nHands on assignments",
+        "Gap / Issue": "It Says 10 but there are some sprints that have multiple exercise.",
+        "Fix Suggested": "10+",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "2",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 1- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 1- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "3",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 1- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 1- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "4",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 2- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 1- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "5",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 2- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 1- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "6",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 2- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 2- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "7",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 3- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 2- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "8",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 3- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 2- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "9",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 3- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 2- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "10",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 4- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 3- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "11",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "Weeks 4- 6 hours",
+        "Gap / Issue": "Each sprint is only for 4 hours",
+        "Fix Suggested": "Weeks 3- 4 hours",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "12",
+        "Section Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "",
+        "Gap / Issue": "assessment and project is missing without which we cannot show 4 weeks in the schedule",
+        "Fix Suggested": "Under Curriculum Add:\n\"11. Project \u2013 Build Solution (Week 3) \u2013 8 Hours\nApply all skills to build a complete application\nBuild and refine a Java application by applying core programming concepts such as logic building, methods, and clean coding practices to create a functional solution.\n\nACTIVITY\nProject development using IntelliJ; Version control using Git (commit and push code)\n\n12. Course-End Assessment (Week 4)- 4 Hours\nValidate knowledge and skills gained\nAssess understanding of core Java concepts and the ability to apply them effectively through structured assessment.\n\nACTIVITY\nConcept-based assignments and evaluation\n\n13. Project Presentation (Week 4)-8Hours\nShowcase the final working application\nDemonstrate the completed project by explaining the logic, approach, and key decisions taken during development.\n\nACTIVITY\nPresenting project implementation; Explaining code flow and decisions",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "13",
+        "Section Heading": "Tools & Technologies",
+        "Sub-Section Heading": "Extra tools present",
+        "Content": "Java,SQL,ChatGPT,GIT",
+        "Gap / Issue": "SQL and ChatGPT are not covered but are present in the list",
+        "Fix Suggested": "Display only Java and GIT",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "14",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Capstone Project",
+        "Content": "",
+        "Gap / Issue": "Project Titles are missing can be included with a small discription",
+        "Fix Suggested": "\"Add six project cards:\n1. DonateConnect \u2013 A Community Donation and Distribution System Connect donors with NGOs to redistribute usable items like clothes, books, and electronics to people in need.\n2. EcoRide \u2013 A Simple Ride-Sharing System\tBuild a ride-sharing system connecting drivers and riders with booking, validation, and capacity management features.\n3. EventEase \u2013 Simple Event & Venue Management System\tCreate an event management system for organizing venues, scheduling events, and enabling attendee discovery and registration.\n4. FarmConnect \u2013 A Farmer-to-Market Supply Chain\tDesign a farmer-to-buyer marketplace for listing, ordering, and tracking fresh produce with inventory management.\n5. GreenPay \u2013 A Smart Waste Collection & Reward System\tDevelop a waste collection platform rewarding citizens with cashback for responsible disposal and sustainable waste management.\n6. PetPal \u2013 Adoption Management for Pet Shelters\tBuild a pet shelter system for listing animals, managing adoption applications, and matching pets with adopters.\n\"",
+        "Remarks": "",
+        "Status": "Open"
+      },
+      {
+        "Sr No": "15",
+        "Section Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Capstone Project",
+        "Content": "Java, VSCode, ChatGPT,Gemini and GitLab",
+        "Gap / Issue": "AI Tools needs to be removed",
+        "Fix Suggested": "Replace with Java,VS Code,GitLab",
+        "Remarks": "",
+        "Status": "Open"
+      }
+    ]
+  }
+]
