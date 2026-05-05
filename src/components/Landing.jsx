@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Activity, FileSpreadsheet, AlertTriangle } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, PieChart, Pie } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, PieChart, Pie, Legend } from 'recharts';
 
 const Landing = ({ navigateToProgram, data }) => {
   const totalPrograms = data.length;
@@ -14,24 +14,24 @@ const Landing = ({ navigateToProgram, data }) => {
   const totalFixed = data.reduce((acc, p) => acc + p.issues.filter(isFixed).length, 0);
   const totalOpen = totalIssues - totalFixed;
 
-  // Prepare chart data
-  const chartData = data.map(program => ({
-    name: program.name.length > 30 ? program.name.substring(0, 30) + '...' : program.name,
-    issues: program.issues.length,
-    id: program.id
-  })).sort((a, b) => b.issues - a.issues);
+  // Stacked bar chart: Open + Fixed per program
+  const chartData = data.map(program => {
+    const fixed = program.issues.filter(isFixed).length;
+    const open = program.issues.length - fixed;
+    return {
+      name: program.name.length > 25 ? program.name.substring(0, 25) + '…' : program.name,
+      open,
+      fixed,
+      id: program.id
+    };
+  }).sort((a, b) => (b.open + b.fixed) - (a.open + a.fixed));
 
-  // Prepare Pie Chart data
-  const sectionCounts = {};
-  data.forEach(program => {
-    program.issues.forEach(issue => {
-      const section = issue['Section Heading'] || 'Other';
-      sectionCounts[section] = (sectionCounts[section] || 0) + 1;
-    });
-  });
-  const pieData = Object.entries(sectionCounts)
-    .map(([name, value]) => ({ name, value }))
-    .sort((a, b) => b.value - a.value);
+  // Donut: overall Open vs Fixed
+  const pieData = [
+    { name: 'Open', value: totalOpen },
+    { name: 'Fixed', value: totalFixed },
+  ];
+  const pieColors = ['#fb7185', '#34d399'];
 
   // Modern vibrant colors for the bars and pie slices
   const colors = ['#38bdf8', '#818cf8', '#c084fc', '#f472b6', '#fb7185', '#fbbf24', '#34d399', '#2dd4bf', '#a3e635'];
@@ -100,37 +100,28 @@ const Landing = ({ navigateToProgram, data }) => {
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" horizontal={false} />
-                <XAxis type="number" stroke="var(--text-secondary)" tick={{ fill: 'var(--text-secondary)' }} />
+                <XAxis type="number" stroke="var(--text-secondary)" tick={{ fill: 'var(--text-secondary)' }} allowDecimals={false} />
                 <YAxis 
                   type="category" 
                   dataKey="name" 
                   width={200} 
                   stroke="var(--text-secondary)" 
-                  tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} 
+                  tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} 
                 />
                 <Tooltip 
                   cursor={{ fill: 'rgba(255,255,255,0.05)' }}
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(15, 17, 26, 0.9)', 
-                    border: '1px solid var(--glass-border)',
-                    borderRadius: '8px',
-                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
-                  }}
+                  contentStyle={{ backgroundColor: 'rgba(15,17,26,0.95)', border: '1px solid var(--glass-border)', borderRadius: '8px' }}
                   itemStyle={{ color: 'var(--text-primary)' }}
                 />
-                <Bar 
-                  dataKey="issues" 
-                  name="Total Issues"
-                  radius={[0, 4, 4, 0]}
-                  onClick={(data) => {
-                    if (data && data.id) navigateToProgram(data.id);
-                  }}
+                <Legend wrapperStyle={{ color: 'var(--text-secondary)', fontSize: '0.85rem', paddingTop: '0.5rem' }} />
+                <Bar dataKey="open" name="Open" stackId="a" fill="#fb7185" radius={[0, 0, 0, 0]}
+                  onClick={(d) => { if (d && d.id) navigateToProgram(d.id); }}
                   style={{ cursor: 'pointer' }}
-                >
-                  {chartData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-                  ))}
-                </Bar>
+                />
+                <Bar dataKey="fixed" name="Fixed" stackId="a" fill="#34d399" radius={[0, 4, 4, 0]}
+                  onClick={(d) => { if (d && d.id) navigateToProgram(d.id); }}
+                  style={{ cursor: 'pointer' }}
+                />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -138,10 +129,10 @@ const Landing = ({ navigateToProgram, data }) => {
 
         <div className="glass-panel animate-fade-in delay-400" style={{ padding: '2rem' }}>
           <div style={{ marginBottom: '2rem' }}>
-            <h2 style={{ fontSize: '1.75rem', fontWeight: '700' }}>Issues by Section</h2>
-            <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Distribution across all courses</span>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: '700' }}>Resolution Status</h2>
+            <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Open vs Fixed across all programs</span>
           </div>
-          <div style={{ width: '100%', height: '400px' }}>
+          <div style={{ width: '100%', height: '300px' }}>
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -149,26 +140,32 @@ const Landing = ({ navigateToProgram, data }) => {
                   cx="50%"
                   cy="50%"
                   innerRadius={80}
-                  outerRadius={140}
-                  paddingAngle={5}
+                  outerRadius={130}
+                  paddingAngle={4}
                   dataKey="value"
                   stroke="none"
+                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  labelLine={false}
                 >
                   {pieData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                    <Cell key={`cell-${index}`} fill={pieColors[index]} />
                   ))}
                 </Pie>
                 <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(15, 17, 26, 0.9)', 
-                    border: '1px solid var(--glass-border)',
-                    borderRadius: '8px',
-                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
-                  }}
+                  contentStyle={{ backgroundColor: 'rgba(15,17,26,0.95)', border: '1px solid var(--glass-border)', borderRadius: '8px' }}
                   itemStyle={{ color: 'var(--text-primary)' }}
+                  formatter={(value, name) => [`${value} issues`, name]}
                 />
+                <Legend wrapperStyle={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }} />
               </PieChart>
             </ResponsiveContainer>
+          </div>
+          {/* Summary text */}
+          <div style={{ textAlign: 'center', marginTop: '1rem', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px' }}>
+            <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+              <span style={{ color: '#34d399', fontWeight: '700' }}>{totalFixed}</span> of <span style={{ fontWeight: '700' }}>{totalIssues}</span> issues resolved &nbsp;·&nbsp;
+              <span style={{ color: '#fb7185', fontWeight: '700' }}>{totalOpen}</span> still open
+            </span>
           </div>
         </div>
       </div>
