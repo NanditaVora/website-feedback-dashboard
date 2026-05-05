@@ -9,11 +9,20 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
 
   const getTagColor = (section) => {
     const sec = (section || '').toLowerCase();
-    if (sec.includes('overview') || sec.includes('intro') || sec.includes('hero') || sec.includes('landing')) return 'tag-blue';
-    if (sec.includes('curriculum') || sec.includes('module') || sec.includes('lesson')) return 'tag-purple';
-    if (sec.includes('project') || sec.includes('assignment') || sec.includes('capstone')) return 'tag-pink';
-    if (sec.includes('quiz') || sec.includes('assessment')) return 'tag-orange';
-    if (sec.includes('video') || sec.includes('content') || sec.includes('material')) return 'tag-green';
+    if (sec.includes('overview') || sec.includes('landing')) return 'tag-blue';
+    if (sec.includes('hero')) return 'tag-indigo';
+    if (sec.includes('curriculum')) return 'tag-purple';
+    if (sec.includes('module')) return 'tag-violet';
+    if (sec.includes('lesson')) return 'tag-fuchsia';
+    if (sec.includes('project')) return 'tag-pink';
+    if (sec.includes('assignment')) return 'tag-rose';
+    if (sec.includes('capstone')) return 'tag-red';
+    if (sec.includes('quiz')) return 'tag-orange';
+    if (sec.includes('assessment')) return 'tag-amber';
+    if (sec.includes('video')) return 'tag-emerald';
+    if (sec.includes('content')) return 'tag-green';
+    if (sec.includes('material')) return 'tag-teal';
+    if (sec.includes('intro')) return 'tag-cyan';
     return 'tag-default';
   };
 
