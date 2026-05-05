@@ -74,7 +74,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                 onClick={() => { setSelectedProgramId(program.id); setSearchTerm(''); setSelectedIssue(null); }}
               >
                 <span style={{ lineHeight: '1.2', flex: 1, paddingRight: '0.5rem' }}>{program.name || program.filename}</span>
-                <span className="badge">{program.issues.length}</span>
+                <span className="badge" style={{ flexShrink: 0, marginTop: '2px' }}>{program.issues.length}</span>
               </button>
             ))}
           </div>
