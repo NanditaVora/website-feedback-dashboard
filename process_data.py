@@ -26,21 +26,30 @@ def process_files():
 
             if len(df) > 3:
                 data_df = df.iloc[3:].copy()
-                cols = df.iloc[2].fillna('Unknown').astype(str).tolist()
+                # Clean columns and look for Status/Remarks
+                cols = [str(c).strip() for c in df.iloc[2].fillna('Unknown')]
                 data_df.columns = cols
+                
+                # Standardize column mapping (Case Insensitive)
+                col_map = {c.lower(): c for c in cols}
 
                 for _, row in data_df.iterrows():
-                    content_raw = row.get('Content', None)
-                    gap_raw = row.get('Gap / Issue', None)
-                    fix_raw = row.get('Fix Suggested', None)
-
-                    if pd.isna(content_raw) and pd.isna(gap_raw) and pd.isna(fix_raw):
+                    # Check if row is empty
+                    if pd.isna(row.get('Section Heading')) and pd.isna(row.get('Gap / Issue')):
                         continue
 
                     issue_dict = {}
                     for col in cols:
                         val = row[col]
                         issue_dict[col] = str(val).strip() if pd.notna(val) else ""
+                    
+                    # Ensure 'Status' and 'Remarks' keys always exist for the UI
+                    # (Even if the column is missing in one specific Excel file)
+                    status_key = col_map.get('status', 'Status')
+                    remarks_key = col_map.get('remarks', 'Remarks')
+                    
+                    issue_dict['Status'] = issue_dict.get(status_key, 'Open')
+                    issue_dict['Remarks'] = issue_dict.get(remarks_key, '')
 
                     issues.append(issue_dict)
 
