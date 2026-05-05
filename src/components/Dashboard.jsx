@@ -18,12 +18,11 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const handleIssueClick = (issue, e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     // Use the viewport-relative top position
-    // We want the card to stay near the row but within viewport bounds
-    const cardHeight = 400; // Estimated
-    let top = rect.top - 100; // Offset for better visibility
+    const cardHeight = 450; 
+    let top = rect.top - 100;
     
     const minTop = 20;
-    const maxTop = window.innerHeight - 450;
+    const maxTop = window.innerHeight - cardHeight - 20;
     
     setPanelTop(Math.max(minTop, Math.min(top, maxTop)));
     setSelectedIssue(issue);
@@ -76,8 +75,12 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   };
 
   return (
-    <div className="container animate-fade-in" style={{ padding: '2rem', position: 'relative' }}>
-      <div className="dashboard-layout">
+    <div className="container" style={{ padding: '2rem' }}>
+      {/* 
+        CRITICAL FIX: The floating card MUST be a direct child of a container 
+        WITHOUT any transform/animation to ensure position: fixed works relative to viewport.
+      */}
+      <div className="dashboard-layout animate-fade-in">
         {/* Sidebar */}
         <div className={`sidebar-container ${isSidebarOpen ? '' : 'collapsed'}`} style={{ 
           width: isSidebarOpen ? '280px' : '0px', 
@@ -220,84 +223,85 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
         </div>
       </div>
 
-      {/* Floating Side Card */}
+      {/* Floating Side Card - PLACED OUTSIDE ANIMATED DIV */}
       {selectedIssue && (
-        <>
+        <div 
+          style={{ 
+            position: 'fixed', 
+            top: `${panelTop}px`, 
+            right: '2rem', 
+            width: '100%', 
+            maxWidth: '500px', 
+            zIndex: 1000, 
+            pointerEvents: 'auto'
+          }}
+        >
           <div 
-            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.2)', zIndex: 40 }} 
-            onClick={() => setSelectedIssue(null)}
-          />
-          <div 
-            className="animate-fade-in"
+            ref={panelRef}
+            className="glass animate-fade-in"
             style={{ 
-              position: 'fixed', 
-              top: `${panelTop}px`, 
-              right: '2rem', 
-              width: '100%', 
-              maxWidth: '500px', 
-              zIndex: 50, 
-              pointerEvents: 'auto'
+              borderRadius: '20px',
+              padding: '2rem', 
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              background: 'rgba(15, 23, 42, 0.98)',
+              maxHeight: '80vh',
+              overflowY: 'auto'
             }}
           >
-            <div 
-              ref={panelRef}
-              className="glass"
-              style={{ 
-                borderRadius: '20px',
-                padding: '2rem', 
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                background: 'rgba(15, 23, 42, 0.98)',
-                maxHeight: '80vh',
-                overflowY: 'auto'
-              }}
+            <button 
+              style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', background: 'rgba(255,255,255,0.05)', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.4rem', borderRadius: '50%', display: 'flex' }}
+              onClick={() => setSelectedIssue(null)}
             >
-              <button 
-                style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', background: 'rgba(255,255,255,0.05)', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.4rem', borderRadius: '50%', display: 'flex' }}
-                onClick={() => setSelectedIssue(null)}
-              >
-                <X size={20} />
-              </button>
-              
-              <div style={{ marginBottom: '1.5rem' }}>
-                <span className={`section-tag ${getTagColor(selectedIssue['Section Heading'])}`} style={{ marginBottom: '0.5rem' }}>
-                  {selectedIssue['Section Heading']}
-                </span>
-                <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.5rem', color: '#ffffff' }}>Issue Details</h2>
+              <X size={20} />
+            </button>
+            
+            <div style={{ marginBottom: '1.5rem' }}>
+              <span className={`section-tag ${getTagColor(selectedIssue['Section Heading'])}`} style={{ marginBottom: '0.5rem' }}>
+                {selectedIssue['Section Heading']}
+              </span>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.5rem', color: '#ffffff' }}>Issue Details</h2>
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              <div>
+                <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem' }}>Sub-Section</h4>
+                <p style={{ fontSize: '1.1rem', fontWeight: '500', color: '#f1f5f9' }}>{selectedIssue['Sub-Section Heading']}</p>
               </div>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div>
-                  <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem' }}>Sub-Section</h4>
-                  <p style={{ fontSize: '1.1rem', fontWeight: '500', color: '#f1f5f9' }}>{selectedIssue['Sub-Section Heading']}</p>
+
+              {selectedIssue['Content'] && (
+                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Content Reference</h4>
+                  <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: '#cbd5e1' }}>{selectedIssue['Content']}</p>
                 </div>
+              )}
 
-                {selectedIssue['Content'] && (
-                  <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>Content Reference</h4>
-                    <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.95rem', lineHeight: '1.6', color: '#cbd5e1' }}>{selectedIssue['Content']}</p>
-                  </div>
-                )}
+              {selectedIssue['Gap / Issue'] && (
+                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.05)', borderColor: 'rgba(239, 68, 68, 0.2)' }}>
+                  <h4 style={{ color: 'var(--danger)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <AlertCircle size={14} /> Gap / Issue
+                  </h4>
+                  <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: '#fca5a5' }}>{selectedIssue['Gap / Issue']}</p>
+                </div>
+              )}
 
-                {selectedIssue['Gap / Issue'] && (
-                  <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(239, 68, 68, 0.05)', borderColor: 'rgba(239, 68, 68, 0.2)' }}>
-                    <h4 style={{ color: 'var(--danger)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <AlertCircle size={14} /> Gap / Issue
-                    </h4>
-                    <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.95rem', lineHeight: '1.6', color: '#fca5a5' }}>{selectedIssue['Gap / Issue']}</p>
-                  </div>
-                )}
-
-                {selectedIssue['Fix Suggested'] && (
-                  <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(16, 185, 129, 0.05)', borderColor: 'rgba(16, 185, 129, 0.2)' }}>
-                    <h4 style={{ color: 'var(--success)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>Suggested Fix</h4>
-                    <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.95rem', lineHeight: '1.6', color: '#6ee7b7' }}>{selectedIssue['Fix Suggested']}</p>
-                  </div>
-                )}
-              </div>
+              {selectedIssue['Fix Suggested'] && (
+                <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(16, 185, 129, 0.05)', borderColor: 'rgba(16, 185, 129, 0.2)' }}>
+                  <h4 style={{ color: 'var(--success)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Suggested Fix</h4>
+                  <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: '#6ee7b7' }}>{selectedIssue['Fix Suggested']}</p>
+                </div>
+              )}
             </div>
           </div>
-        </>
+        </div>
+      )}
+
+      {/* Backdrop */}
+      {selectedIssue && (
+        <div 
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.2)', zIndex: 999 }} 
+          onClick={() => setSelectedIssue(null)}
+        />
       )}
     </div>
   );
