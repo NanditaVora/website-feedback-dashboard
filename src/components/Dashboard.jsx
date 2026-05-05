@@ -62,7 +62,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
           opacity: isSidebarOpen ? 1 : 0,
           marginRight: isSidebarOpen ? '2rem' : '0px'
         }}>
-          <div className="glass-panel" style={{ height: 'fit-content', whiteSpace: 'nowrap' }}>
+          <div className="glass-panel" style={{ height: 'fit-content' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Programs</h2>
             </div>
