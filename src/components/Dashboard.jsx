@@ -77,8 +77,9 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     acc.total += s.total;
     acc.fixed += s.fixed;
     acc.open += s.open;
+    acc.cannot += s.cannot;
     return acc;
-  }, { total: 0, fixed: 0, open: 0 });
+  }, { total: 0, fixed: 0, open: 0, cannot: 0 });
 
   const filteredIssues = selectedProgram ? selectedProgram.issues.filter(issue => {
     const searchLower = searchTerm.toLowerCase();
@@ -123,18 +124,22 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
             </div>
 
             {/* Combined Stats */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.5rem', marginBottom: '1.25rem', padding: '0.75rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.4rem', marginBottom: '1.25rem', padding: '0.6rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
               <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--text-primary)' }}>{globalStats.total}</div>
-                <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Total</div>
+                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-primary)' }}>{globalStats.total}</div>
+                <div style={{ fontSize: '0.6rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>All</div>
               </div>
-              <div style={{ textAlign: 'center', borderLeft: '1px solid rgba(255,255,255,0.08)', borderRight: '1px solid rgba(255,255,255,0.08)' }}>
-                <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--danger)' }}>{globalStats.open}</div>
-                <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Open</div>
+              <div style={{ textAlign: 'center', borderLeft: '1px solid rgba(255,255,255,0.08)' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--danger)' }}>{globalStats.open}</div>
+                <div style={{ fontSize: '0.6rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Open</div>
               </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--success)' }}>{globalStats.fixed}</div>
-                <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Fixed</div>
+              <div style={{ textAlign: 'center', borderLeft: '1px solid rgba(255,255,255,0.08)' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--success)' }}>{globalStats.fixed}</div>
+                <div style={{ fontSize: '0.6rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Fix</div>
+              </div>
+              <div style={{ textAlign: 'center', borderLeft: '1px solid rgba(255,255,255,0.08)' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: '#a78bfa' }}>{globalStats.cannot}</div>
+                <div style={{ fontSize: '0.6rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Skip</div>
               </div>
             </div>
 
@@ -149,9 +154,10 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
               >
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ lineHeight: '1.2', paddingRight: '0.5rem', marginBottom: '0.35rem' }}>{program.name || program.filename}</div>
-                  <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center', flexWrap: 'wrap' }}>
                     <span className="stat-pill stat-pill-open">{ps.open} open</span>
                     <span className="stat-pill stat-pill-fixed">{ps.fixed} fixed</span>
+                    {ps.cannot > 0 && <span className="stat-pill stat-pill-cannot" style={{ background: 'rgba(139, 92, 246, 0.15)', color: 'var(--text-primary)', border: '1px solid rgba(139, 92, 246, 0.3)' }}>{ps.cannot} skip</span>}
                   </div>
                 </div>
                 <span className="badge" style={{ flexShrink: 0, marginTop: '2px' }}>{ps.total}</span>
@@ -207,6 +213,10 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                       <div className="glass-panel" style={{ padding: '0.75rem 1.25rem', textAlign: 'center', minWidth: '80px', background: 'rgba(16,185,129,0.07)', borderColor: 'rgba(16,185,129,0.2)' }}>
                         <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--success)' }}>{ps.fixed}</div>
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Fixed</div>
+                      </div>
+                      <div className="glass-panel" style={{ padding: '0.75rem 1.25rem', textAlign: 'center', minWidth: '80px', background: 'rgba(139, 92, 246, 0.07)', borderColor: 'rgba(139, 92, 246, 0.2)' }}>
+                        <div style={{ fontSize: '1.5rem', fontWeight: '700', color: '#a78bfa' }}>{ps.cannot}</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Skip</div>
                       </div>
                     </div>
                   );
@@ -388,9 +398,9 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
               <div className="glass-panel" style={{ padding: '1rem', background: 'rgba(56, 189, 248, 0.08)', borderColor: 'rgba(56, 189, 248, 0.3)' }}>
                 <h4 style={{ color: 'var(--accent-color)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Developer Remarks</h4>
                 <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--text-primary)' }}>
-                  {selectedIssue['Remarks'] && selectedIssue['Remarks'] !== 'nan' 
+                  {selectedIssue['Remarks'] && selectedIssue['Remarks'] !== 'nan' && selectedIssue['Remarks'].trim() !== ''
                     ? selectedIssue['Remarks'] 
-                    : "No remarks added yet. Add a 'Remarks' column to your Excel to show progress notes here."}
+                    : "No remarks."}
                 </p>
               </div>
             </div>
