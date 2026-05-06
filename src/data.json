@@ -655,9 +655,9 @@
         "Content": "Module Activity",
         "Gap / Issue": "",
         "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
-        "Status (Fixed / WIP / Cannot Fix)": "Cannot Fix",
-        "Remarks": "as per standards",
-        "Status": "Cannot Fix"
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "18",
