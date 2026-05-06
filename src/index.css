@@ -236,6 +236,17 @@ body {
   box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
+:root[data-theme='dark'] .nav-item.active {
+  font-weight: 500 !important;
+  box-shadow: none; /* Remove glow which makes it look thick */
+  color: #e2e8f0 !important; /* Soft off-white to reduce bleeding */
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme='dark'] .nav-item.active * {
+  font-weight: 500 !important;
+}
+
 .nav-item.active .badge {
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
