@@ -1084,9 +1084,9 @@
         "Content": "Order on page: SmartClinic, ShopSmart, ResumeGenie, StayEase, HomeEase, MediReach.",
         "Gap / Issue": "",
         "Fix Suggested": "Reorder cards to: HomeEase, MediReach, ResumeGenie, ShopSmart, SmartClinic, StayEase (alphabetical, matching description).",
-        "Status (Fixed / WIP / Cannot Fix)": "Cannot Fix",
-        "Remarks": "Not Required",
-        "Status": "Cannot Fix"
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "57",
