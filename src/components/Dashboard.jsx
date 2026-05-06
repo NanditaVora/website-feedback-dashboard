@@ -138,7 +138,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                 <div style={{ fontSize: '0.6rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Fix</div>
               </div>
               <div style={{ textAlign: 'center', borderLeft: '1px solid rgba(255,255,255,0.08)' }}>
-                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: '#a78bfa' }}>{globalStats.cannot}</div>
+                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: '#f59e0b' }}>{globalStats.cannot}</div>
                 <div style={{ fontSize: '0.6rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Skip</div>
               </div>
             </div>
@@ -157,7 +157,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                   <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center', flexWrap: 'wrap' }}>
                     <span className="stat-pill stat-pill-open">{ps.open} open</span>
                     <span className="stat-pill stat-pill-fixed">{ps.fixed} fixed</span>
-                    {ps.cannot > 0 && <span className="stat-pill stat-pill-cannot" style={{ background: 'rgba(139, 92, 246, 0.15)', color: 'var(--text-primary)', border: '1px solid rgba(139, 92, 246, 0.3)' }}>{ps.cannot} skip</span>}
+                    {ps.cannot > 0 && <span className="stat-pill stat-pill-cannot" style={{ background: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: '1px solid rgba(245, 158, 11, 0.3)' }}>{ps.cannot} skip</span>}
                   </div>
                 </div>
                 <span className="badge" style={{ flexShrink: 0, marginTop: '2px' }}>{ps.total}</span>
@@ -214,8 +214,8 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                         <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--success)' }}>{ps.fixed}</div>
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Fixed</div>
                       </div>
-                      <div className="glass-panel" style={{ padding: '0.75rem 1.25rem', textAlign: 'center', minWidth: '80px', background: 'rgba(139, 92, 246, 0.07)', borderColor: 'rgba(139, 92, 246, 0.2)' }}>
-                        <div style={{ fontSize: '1.5rem', fontWeight: '700', color: '#a78bfa' }}>{ps.cannot}</div>
+                      <div className="glass-panel" style={{ padding: '0.75rem 1.25rem', textAlign: 'center', minWidth: '80px', background: 'rgba(245, 158, 11, 0.07)', borderColor: 'rgba(245, 158, 11, 0.2)' }}>
+                        <div style={{ fontSize: '1.5rem', fontWeight: '700', color: '#f59e0b' }}>{ps.cannot}</div>
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Skip</div>
                       </div>
                     </div>

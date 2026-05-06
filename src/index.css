@@ -365,15 +365,15 @@ tbody tr.active-row td {
 }
 
 .status-cannot {
-  background: rgba(139, 92, 246, 0.1);
-  color: #a78bfa;
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 :root[data-theme='light'] .status-cannot {
-  background: #f5f3ff; /* Light purple bg */
-  color: #5b21b6;      /* Deep purple text */
-  border: 1.5px solid #8b5cf6; /* Solid purple border */
+  background: #fffbeb; /* Light amber bg */
+  color: #92400e;      /* Deep burnt amber text */
+  border: 1.5px solid #d97706; /* Solid amber-orange border */
   font-weight: 800;
 }
 
