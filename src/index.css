@@ -364,6 +364,19 @@ tbody tr.active-row td {
   font-weight: 800;
 }
 
+.status-cannot {
+  background: rgba(139, 92, 246, 0.1);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+:root[data-theme='light'] .status-cannot {
+  background: #f5f3ff; /* Light purple bg */
+  color: #5b21b6;      /* Deep purple text */
+  border: 1.5px solid #8b5cf6; /* Solid purple border */
+  font-weight: 800;
+}
+
 .row-completed {
   background: rgba(16, 185, 129, 0.02); /* Very subtle green tint */
 }

@@ -46,25 +46,30 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   };
 
   const getStatusBadge = (status) => {
-    const s = (status || 'Open').toLowerCase();
-    if (s.includes('complete') || s.includes('done') || s.includes('fixed')) {
+    const s = (status || '').toLowerCase();
+    if (s.includes('cannot')) {
+      return <span className="status-badge status-cannot"><X size={12} /> Cannot Fix</span>;
+    }
+    if (s.includes('fixed')) {
       return <span className="status-badge status-completed"><CheckCircle size={12} /> Fixed</span>;
     }
-    if (s.includes('progress')) {
-      return <span className="status-badge status-progress"><Clock size={12} /> In Progress</span>;
+    if (s.includes('wip') || s.includes('progress')) {
+      return <span className="status-badge status-progress"><Clock size={12} /> WIP</span>;
     }
     return <span className="status-badge status-open"><AlertTriangle size={12} /> Open</span>;
   };
 
   const isFixed = (issue) => {
     const s = (issue['Status'] || '').toLowerCase();
-    return s.includes('complete') || s.includes('done') || s.includes('fixed');
+    // Only 'fixed' counts as green/completed for the stats
+    return s.includes('fixed');
   };
 
   const getProgStats = (program) => {
     const total = program.issues.length;
     const fixed = program.issues.filter(isFixed).length;
-    return { total, fixed, open: total - fixed };
+    const cannot = program.issues.filter(i => (i['Status'] || '').toLowerCase().includes('cannot')).length;
+    return { total, fixed, cannot, open: total - fixed - cannot };
   };
 
   const globalStats = data.reduce((acc, p) => {

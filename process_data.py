@@ -69,7 +69,12 @@ def process_files(input_dir=None):
                 cols = [str(c).strip() for c in df.iloc[header_idx].fillna('Unknown')]
                 data_df = df.iloc[header_idx+1:].copy()
                 data_df.columns = cols
-                col_map = {c.lower(): c for c in cols}
+                col_map = {}
+                for c in cols:
+                    low_c = str(c).lower()
+                    if "status" in low_c: col_map['status'] = c
+                    elif "remarks" in low_c or "dev remarks" in low_c: col_map['remarks'] = c
+                    else: col_map[low_c] = c
 
                 for _, row in data_df.iterrows():
                     # Skip truly empty rows
