@@ -365,11 +365,15 @@ tbody tr.active-row td {
 }
 
 .row-completed {
-  opacity: 0.5;
+  background: rgba(16, 185, 129, 0.02); /* Very subtle green tint */
+}
+
+.row-completed td:not(:first-child) {
+  color: var(--text-secondary); /* Mute the other columns slightly */
 }
 
 .row-completed:hover {
-  opacity: 1;
+  background: rgba(16, 185, 129, 0.08);
 }
 
 /* Stat Pills in Sidebar */
