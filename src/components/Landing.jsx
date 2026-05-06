@@ -8,27 +8,30 @@ const Landing = ({ navigateToProgram, data }) => {
 
   const isFixed = (issue) => {
     const s = (issue['Status'] || '').toLowerCase();
-    return s.includes('complete') || s.includes('done') || s.includes('fixed');
+    return s.includes('fixed');
   };
 
   const totalFixed = data.reduce((acc, p) => acc + p.issues.filter(isFixed).length, 0);
-  const totalOpen = totalIssues - totalFixed;
+  const totalCannot = data.reduce((acc, p) => acc + p.issues.filter(i => (i['Status'] || '').toLowerCase().includes('cannot')).length, 0);
+  const totalOpen = totalIssues - totalFixed - totalCannot;
 
   // Colors for programs and sections
   const colors = ['#38bdf8', '#818cf8', '#c084fc', '#f472b6', '#fb7185', '#fbbf24', '#34d399', '#2dd4bf', '#a3e635'];
 
-  // Bar chart: unique color per program for Open, green for Fixed
+  // Bar chart: unique color per program for Open, green for Fixed, amber for Skip
   const chartData = data.map((program, index) => {
     const fixed = program.issues.filter(isFixed).length;
-    const open = program.issues.length - fixed;
+    const skipped = program.issues.filter(i => (i['Status'] || '').toLowerCase().includes('cannot')).length;
+    const open = program.issues.length - fixed - skipped;
     return {
       name: program.name.length > 25 ? program.name.substring(0, 25) + '…' : program.name,
       open,
       fixed,
+      skipped,
       id: program.id,
       color: colors[index % colors.length]
     };
-  }).sort((a, b) => (b.open + b.fixed) - (a.open + a.fixed));
+  }).sort((a, b) => (b.open + b.fixed + b.skipped) - (a.open + a.fixed + b.skipped));
 
   // Pie chart: issues by section with unique colors per section
   const sectionCounts = {};
@@ -90,6 +93,14 @@ const Landing = ({ navigateToProgram, data }) => {
           <h3 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.25rem', color: 'var(--success)' }}>{totalFixed}</h3>
           <p style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>Fixed</p>
         </div>
+
+        <div className="glass-panel animate-fade-in delay-500" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: 'rgba(245,158,11,0.05)', borderColor: 'rgba(245,158,11,0.2)' }}>
+          <div style={{ background: 'rgba(245, 158, 11, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
+            <Activity size={32} color="#f59e0b" />
+          </div>
+          <h3 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.25rem', color: '#f59e0b' }}>{totalCannot}</h3>
+          <p style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>Skipped</p>
+        </div>
       </div>
 
       {/* Interactive Graphical Dashboard */}
@@ -130,8 +141,11 @@ const Landing = ({ navigateToProgram, data }) => {
                     <Cell key={`open-${index}`} fill={entry.color} />
                   ))}
                 </Bar>
-                {/* Fixed bar: consistent green */}
-                <Bar dataKey="fixed" name="Fixed" stackId="a" fill="#34d399" radius={[0, 4, 4, 0]}
+                <Bar dataKey="fixed" name="Fixed" stackId="a" fill="#34d399" radius={[0, 0, 0, 0]}
+                  onClick={(d) => { if (d && d.id) navigateToProgram(d.id); }}
+                  style={{ cursor: 'pointer' }}
+                />
+                <Bar dataKey="skipped" name="Skipped" stackId="a" fill="#f59e0b" radius={[0, 4, 4, 0]}
                   onClick={(d) => { if (d && d.id) navigateToProgram(d.id); }}
                   style={{ cursor: 'pointer' }}
                 />
