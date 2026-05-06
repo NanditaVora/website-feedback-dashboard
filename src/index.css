@@ -332,9 +332,10 @@ tbody tr.active-row td {
 }
 
 :root[data-theme='light'] .status-completed {
-  background: rgba(16, 185, 129, 0.15);
-  color: #047857; /* Sharper, darker green for Light Mode */
-  border: 1px solid rgba(16, 185, 129, 0.4);
+  background: #ecfdf5; /* Very light green background */
+  color: #065f46;      /* Deep, rich emerald green */
+  border: 1.5px solid #10b981; /* Solid vibrant emerald border */
+  font-weight: 800;    /* Extra bold for clarity */
 }
 
 .status-open {
@@ -344,9 +345,10 @@ tbody tr.active-row td {
 }
 
 :root[data-theme='light'] .status-open {
-  background: rgba(239, 68, 68, 0.1);
-  color: #b91c1c; /* Sharper red */
-  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: #fef2f2; /* Light red bg */
+  color: #991b1b;      /* Deep red text */
+  border: 1.5px solid #ef4444; /* Solid red border */
+  font-weight: 800;
 }
 
 .status-progress {
@@ -356,9 +358,10 @@ tbody tr.active-row td {
 }
 
 :root[data-theme='light'] .status-progress {
-  background: rgba(245, 158, 11, 0.1);
-  color: #b45309; /* Sharper orange */
-  border: 1px solid rgba(245, 158, 11, 0.4);
+  background: #fffbeb; /* Light amber bg */
+  color: #92400e;      /* Deep amber text */
+  border: 1.5px solid #f59e0b; /* Solid amber border */
+  font-weight: 800;
 }
 
 .row-completed {
