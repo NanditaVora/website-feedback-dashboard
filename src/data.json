@@ -1026,8 +1026,9 @@
         "Content": "Master Java Programming, OOP, and SQL to Build Scalable Applications with NIIT's Java Development Certificate Program.",
         "Gap / Issue": "",
         "Fix Suggested": "Replace with: 'Build entry-level Java developer skills across SQL databases, Object-Oriented Programming, Data Structures and Algorithms, and Streams & Lambdas \u2014 designed to make you job-ready for the Java Developer role.'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "2",
@@ -1036,8 +1037,9 @@
         "Content": "Outcome Driven; Practitioner Designed (from product description) \u2014 not present on page",
         "Gap / Issue": "The product description's program sub-headline 'Outcome Driven; Practitioner Designed' is not surfaced anywhere on the page. This is a strong NIIT-wide differentiator that the description leads with.",
         "Fix Suggested": "Add: 'Outcome Driven; Practitioner Designed' as a sub-headline below the program name.",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "3",
@@ -1046,8 +1048,9 @@
         "Content": "The Java Development Certificate Program by NIIT helps learners build a strong foundation in Java programming and application development. The program covers core concepts such as Java fundamentals, object-oriented programming (OOP), exception handling, and database interaction using SQL. Through guided exercises and practical learning, participants develop coding and problem-solving skills while gaining hands-on experience in building basic Java applications.",
         "Gap / Issue": "",
         "Fix Suggested": "Replace with: 'This program develops the core competencies necessary for the Java Developer role at the entry level. Learners build the knowledge and skills required to work effectively with MySQL databases, Java object-oriented programming, Data Structures and Algorithms, and Lambdas and Streams. The program also emphasizes professional best practices and the right mindset for success. Through real-world challenges and hands-on projects, learners gain practical experience that prepares them to smoothly transition into the Java programming role.'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "4",
@@ -1056,8 +1059,9 @@
         "Content": "3+",
         "Gap / Issue": "Count is less",
         "Fix Suggested": "Replace with 15+",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "5",
@@ -1066,8 +1070,9 @@
         "Content": "10+ Practical Exercises",
         "Gap / Issue": "",
         "Fix Suggested": "50+",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "6",
@@ -1076,8 +1081,9 @@
         "Content": "200+ LEARNING HOURS",
         "Gap / Issue": "",
         "Fix Suggested": "Update to: '212 Hours' (or round to '210+ Learning Hours').",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "7",
@@ -1086,8 +1092,9 @@
         "Content": "Managing and Querying Database (RDBMS & SQL)",
         "Gap / Issue": "",
         "Fix Suggested": "Rename to: 'Managing and Querying Database'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "8",
@@ -1096,8 +1103,9 @@
         "Content": "Weeks 1\u20133 \u2014 48 hours",
         "Gap / Issue": "Course 1 has 10 learning sprints + 5 Course-End-Project sprints = 15 sprints @ 4 hrs each = 60 hours over 4 weeks. Page understates both hours and weeks.",
         "Fix Suggested": "Update to: 'Weeks 1\u20134 \u2014 60 Hours'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "9",
@@ -1106,8 +1114,9 @@
         "Content": "\u2022 Design and manage relational databases using SQL \u2014 Learn database design using ER diagrams and normalization techniques. Model and manage structured data using MySQL and retrieve information through SQL queries for effective data handling.",
         "Gap / Issue": "",
         "Fix Suggested": "Replace with:\n\n\u2022 SQL Querying & Data Operations\nBuild strong hands-on skills to retrieve, analyze, and manipulate data using SQL, enabling you to extract meaningful insights and work effectively with real-world datasets.\n\n\u2022 Database Design, Integrity & Advanced Capabilities\nDesign structured databases using ER Diagrams and define robust schemas while ensuring data consistency, and extend functionality through automation and support for modern data formats.",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "10",
@@ -1116,8 +1125,9 @@
         "Content": "Module Activity",
         "Gap / Issue": "",
         "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "11",
@@ -1126,8 +1136,9 @@
         "Content": "Hands-on Project to Choose: Fitness Tracker Database, Movie Streaming Platform Database, Online Bookstore Database",
         "Gap / Issue": "Specific project options listed are not enumerated in the product description.",
         "Fix Suggested": "Hands-on Project to Choose:Hospital Patient Management System, Movie Streaming Platform Database, Recipe Manager Database, Student Attendance & Performance Tracker",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "12",
@@ -1136,8 +1147,9 @@
         "Content": "Weeks 4\u20137 \u2014 64 hours",
         "Gap / Issue": "Course 2 has 10 learning sprints + 5 Course-End-Project sprints = 15 sprints @ 4 hrs each = 60 hours. Page overstates hours by 4 (one extra sprint), and the week range starts a week early \u2014 using continuous sprint numbering, sprints 16\u201330 \u2192 Weeks 4\u20138 (boundary week shared with Course 1).",
         "Fix Suggested": "Update to: 'Weeks 4\u20138 \u2014 60 Hours'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "13",
@@ -1146,8 +1158,9 @@
         "Content": "\u2022 Develop programming logic using Core Java and object-oriented concepts \u2014 Learn Java programming fundamentals, program structure, and problem-solving techniques. Understand how real-world entities are represented in software and implement object-oriented programs using Java.",
         "Gap / Issue": "",
         "Fix Suggested": "1.Core Java Foundations\nBuild programs using Core Java with decision making, loops, arrays, strings, recursion, and basic searching and sorting to solve real problems.\n\n2.Object-Oriented Programming\nDesign applications using object-oriented concepts and exception handling to create structured, real-world solutions.",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "14",
@@ -1156,8 +1169,9 @@
         "Content": "Module Activity",
         "Gap / Issue": "",
         "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "15",
@@ -1166,8 +1180,9 @@
         "Content": "Hands-on Project to Choose: GreenPay \u2013 Smart Waste Collection & Reward System, DonateConnect \u2013 Community Donation and Distribution, EcoRide \u2013 Ride Sharing System, FarmConnect \u2013 Farmer-to-Market Supply Chain",
         "Gap / Issue": "Order incorrect and missing project titles",
         "Fix Suggested": "Hands-on Project to Choose: DonateConnect \u2013 A Community Donation and Distribution System, EventEase \u2013 Simple Event & Venue Management System, GreenPay \u2013 A Smart Waste Collection & Reward System, PetPal \u2013 Adoption Management for Pet Shelters, SafeNest \u2013 A Women Safety Alert and Response System, SkillMatch \u2013 A Simple Freelance Task Board",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "16",
@@ -1176,8 +1191,9 @@
         "Content": "Weeks 8\u201310 \u2014 48 hours",
         "Gap / Issue": "Course 3 has 9 learning sprints (including 'DSA Project' sprint) + 5 Course-End-Project sprints = 14 sprints @ 4 hrs = 56 hours. Page understates hours and is one week short of expected (continuous sprint numbering puts C3 at sprints 31\u201343, i.e., Weeks 8\u201311).",
         "Fix Suggested": "Course Name should be Data Structures and Algorithms Essentials and duration should be 52 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "17",
@@ -1186,8 +1202,9 @@
         "Content": "\u2022 Build strong problem-solving skills using data structures and algorithms \u2014 Understand key data structures such as arrays, linked lists, stacks, queues, and trees. Implement sorting, searching, and recursion techniques to build efficient and optimized programs.",
         "Gap / Issue": "",
         "Fix Suggested": "Replace with :\n\u2022 Data Structures Implementation\nImplement core data structures such as arrays, stacks, queues, linked lists, trees, and hash tables along with searching and sorting algorithms.\n\n\u2022 Algorithm Analysis and Optimization\nAnalyse time and space complexity and apply recursion and suitable data structures to solve performance-critical problems.",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "18",
@@ -1196,8 +1213,9 @@
         "Content": "Module Activity",
         "Gap / Issue": "",
         "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "19",
@@ -1206,8 +1224,9 @@
         "Content": "Hand-on Project to Choose: BuzzBuildSystem \u2013 A Social Media Hype Manager, Document Tagging & Retrieval System, Online Polling System with Real-Time Analytics, Security Alert Monitor with Real-Time Tracking",
         "Gap / Issue": "missing few projects",
         "Fix Suggested": "Hands-on Project to Choose: BuzzBuildSystem \u2013 A Social Media Hype Manager, Document Tagging & Retrieval System, Local Services Search System (Just Dial Simulation), Security Alert Monitor with Real-Time Tracking",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "20",
@@ -1216,8 +1235,9 @@
         "Content": "Advanced Java \u2013 Streams, Lambdas & Collections",
         "Gap / Issue": "",
         "Fix Suggested": "Rename to: 'Apply Advanced Java Concepts \u2013 Streams and Lambdas'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "21",
@@ -1226,8 +1246,9 @@
         "Content": "Weeks 11\u201313 \u2014 48 hours",
         "Gap / Issue": "Course 4 has 5 learning sprints + 5 Course-End-Project sprints = 10 sprints @ 4 hrs = 40 hours. Page overstates hours by 8 and shows the wrong week range \u2014 continuous sprint numbering puts C4 at sprints 44\u201353 \u2192 Weeks 11\u201314.",
         "Fix Suggested": "Update to: 'Weeks 11\u201314 \u2014 40 Hours'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "22",
@@ -1236,8 +1257,9 @@
         "Content": "\u2022 Write efficient and modern Java code using advanced programming techniques \u2014 Learn Java Collections, unit testing, and object comparison techniques. Implement Lambdas, functional interfaces, and Stream APIs to optimize code and improve performance.",
         "Gap / Issue": "",
         "Fix Suggested": "Replace with\n\n\u2022 Unit Testing and Collections\nWrite unit tests, enforce type safety with generics, and organize data using Java Collections with sorting.\n\n\u2022 Functional Programming and Data Processing\nApply lambdas and functional interfaces, and process data using Streams with null-safe handling.",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "23",
@@ -1246,8 +1268,9 @@
         "Content": "Module Activity",
         "Gap / Issue": "",
         "Fix Suggested": "Change label from 'Module Activity' to 'Activity'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "24",
@@ -1256,8 +1279,9 @@
         "Content": "SkillMatch \u2013 Freelance Task Board, SafeNest \u2013 Women Safety Alert and Response System, PetPal \u2013 Pet Adoption System for Shelters, FarmConnect \u2013 Farmer-to-Market Supply Chain",
         "Gap / Issue": "Format not matching and few headings missing",
         "Fix Suggested": "Hands-on Project to Choose: DonateConnect \u2013 A Community Donation and Distribution System, FarmConnect \u2013 A Farmer-to-Market Supply Chain, GreenPay \u2013 A Smart Waste Collection & Reward System, PetPal \u2013 Adoption Management for Pet Shelters, SafeNest \u2013 A Women Safety Alert and Response System, SkillMatch \u2013 A Simple Freelance Task Board",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "25",
@@ -1266,8 +1290,9 @@
         "Content": "Comprehensive curriculum to build in-demand tech skills and real-world expertise. \u2026 'master practical, in-demand skills' (Tools section intro).",
         "Gap / Issue": "",
         "Fix Suggested": "Replace with: 'Explore industry-relevant tools through hands-on learning to build practical, in-demand skills.'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "26",
@@ -1276,8 +1301,9 @@
         "Content": "Listed on page: Java, SQL.",
         "Gap / Issue": "The list omits tools and technologies surfaced in the product description: MySQL (database engine), Maven (build tool), JUnit (testing), GenAI Tools (referenced in subqueries sprint).",
         "Fix Suggested": "Add: 'MySQL, Maven, JUnit, GenAI Tools like ChatGPT, Gemini'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "27",
@@ -1286,8 +1312,9 @@
         "Content": "Capstone Project \u2014 Develop a functional application using Java that demonstrates core programming concepts and problem-solving skills. The project should incorporate object-oriented programming principles, data handling, and basic database integration to address a real-world scenario.",
         "Gap / Issue": "Program has no Capstone Project course in the product description \u2014 the description shows 4 courses, each ending with its own Course-End Project. The term 'Capstone' should not appear on the page.",
         "Fix Suggested": "Replace 'Capstone Project' with 'Project'.",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "28",
@@ -1296,8 +1323,9 @@
         "Content": "Not present on page",
         "Gap / Issue": "Each of the four courses has its own Course-End Project in the description's sprint structure (Module Activity items hint at these). The page collapses all four into a single generic 'Capstone Project' card, hiding the per-course portfolio depth.",
         "Fix Suggested": "Add six project cards:\n1. Fitness Tracker Database - Design a fitness tracker database managing workouts, health data, subscriptions, and personalized progress tracking insights.\n2. Online Bookstore Database \u2014 Create a bookstore database to manage books, orders, payments, inventory, and customer engagement insights.\n3. EcoRide \u2013 Create a Java ride-sharing simulator with role-based menus for drivers and riders including booking and validation.\n4. Online Polling System with Real-Time Analytics \u2013 Build a real-time polling system with vote processing, duplicate prevention, instant analytics, and rollback capabilities.\n5. EventEase \u2013 Develop a Java event management app with venue scheduling, attendee registration, and edge-case handling for bookings.\n6. FarmConnect \u2013 Design a farmer-to-buyer marketplace for listing, ordering, and tracking fresh produce with inventory management.",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "29",
@@ -1306,8 +1334,9 @@
         "Content": "Boost Your Career Visibility \u2014 Showcasing a professional Capstone Project on your LinkedIn increases recruiter interest significantly. Build production-ready work that speaks for itself.",
         "Gap / Issue": "Callout uses the term 'Capstone Project' which does not exist as a course in this program;",
         "Fix Suggested": "Replace with: 'Boost Your Career Visibility \u2014 Showcasing your professional Course-End Projects on your LinkedIn increases recruiter interest significantly. Build production-ready work that speaks for itself.'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "30",
@@ -1316,8 +1345,9 @@
         "Content": "Page outcomes: 1) Design and manage relational databases using SQL... 2) Develop Java applications using core programming concepts... 3) Apply data structures and algorithms... 4) Write optimized and maintainable code using Java Collections, Lambdas, and Stream APIs. 5) Test and validate Java programs using unit testing and debugging techniques. 6) Build structured software solutions...",
         "Gap / Issue": "",
         "Fix Suggested": "Add a closing outcome bullet: 'Be job-ready for the entry-level Java Developer role by combining technical skills with professional best practices and the right engineering mindset.'",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       }
     ]
   },
@@ -1334,8 +1364,9 @@
         "Content": "10\nHands on assignments",
         "Gap / Issue": "It Says 10 but there are some sprints that have multiple exercise.",
         "Fix Suggested": "10+",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "2",
@@ -1344,8 +1375,9 @@
         "Content": "Weeks 1- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 1- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "3",
@@ -1354,8 +1386,9 @@
         "Content": "Weeks 1- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 1- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "4",
@@ -1364,8 +1397,9 @@
         "Content": "Weeks 2- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 1- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "5",
@@ -1374,8 +1408,9 @@
         "Content": "Weeks 2- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 1- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "6",
@@ -1384,8 +1419,9 @@
         "Content": "Weeks 2- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 2- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "7",
@@ -1394,8 +1430,9 @@
         "Content": "Weeks 3- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 2- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "8",
@@ -1404,8 +1441,9 @@
         "Content": "Weeks 3- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 2- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "9",
@@ -1414,8 +1452,9 @@
         "Content": "Weeks 3- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 2- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "10",
@@ -1424,8 +1463,9 @@
         "Content": "Weeks 4- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 3- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "11",
@@ -1434,8 +1474,9 @@
         "Content": "Weeks 4- 6 hours",
         "Gap / Issue": "Each sprint is only for 4 hours",
         "Fix Suggested": "Weeks 3- 4 hours",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "12",
@@ -1444,8 +1485,9 @@
         "Content": "",
         "Gap / Issue": "assessment and project is missing without which we cannot show 4 weeks in the schedule",
         "Fix Suggested": "Under Curriculum Add:\n\"11. Project \u2013 Build Solution (Week 3) \u2013 8 Hours\nApply all skills to build a complete application\nBuild and refine a Java application by applying core programming concepts such as logic building, methods, and clean coding practices to create a functional solution.\n\nACTIVITY\nProject development using IntelliJ; Version control using Git (commit and push code)\n\n12. Course-End Assessment (Week 4)- 4 Hours\nValidate knowledge and skills gained\nAssess understanding of core Java concepts and the ability to apply them effectively through structured assessment.\n\nACTIVITY\nConcept-based assignments and evaluation\n\n13. Project Presentation (Week 4)-8Hours\nShowcase the final working application\nDemonstrate the completed project by explaining the logic, approach, and key decisions taken during development.\n\nACTIVITY\nPresenting project implementation; Explaining code flow and decisions",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "13",
@@ -1454,8 +1496,9 @@
         "Content": "Java,SQL,ChatGPT,GIT",
         "Gap / Issue": "SQL and ChatGPT are not covered but are present in the list",
         "Fix Suggested": "Display only Java and GIT",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "14",
@@ -1464,8 +1507,9 @@
         "Content": "",
         "Gap / Issue": "Project Titles are missing can be included with a small discription",
         "Fix Suggested": "\"Add six project cards:\n1. DonateConnect \u2013 A Community Donation and Distribution System Connect donors with NGOs to redistribute usable items like clothes, books, and electronics to people in need.\n2. EcoRide \u2013 A Simple Ride-Sharing System\tBuild a ride-sharing system connecting drivers and riders with booking, validation, and capacity management features.\n3. EventEase \u2013 Simple Event & Venue Management System\tCreate an event management system for organizing venues, scheduling events, and enabling attendee discovery and registration.\n4. FarmConnect \u2013 A Farmer-to-Market Supply Chain\tDesign a farmer-to-buyer marketplace for listing, ordering, and tracking fresh produce with inventory management.\n5. GreenPay \u2013 A Smart Waste Collection & Reward System\tDevelop a waste collection platform rewarding citizens with cashback for responsible disposal and sustainable waste management.\n6. PetPal \u2013 Adoption Management for Pet Shelters\tBuild a pet shelter system for listing animals, managing adoption applications, and matching pets with adopters.\n\"",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       },
       {
         "Sr No": "15",
@@ -1474,8 +1518,9 @@
         "Content": "Java, VSCode, ChatGPT,Gemini and GitLab",
         "Gap / Issue": "AI Tools needs to be removed",
         "Fix Suggested": "Replace with Java,VS Code,GitLab",
-        "Status": "Open",
-        "Remarks": ""
+        "Status (Fixed / WIP / Cannot Fix)": "",
+        "Remarks": "",
+        "Status": "Open"
       }
     ]
   }
