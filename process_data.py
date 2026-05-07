@@ -35,25 +35,38 @@ def process_files(input_dir=None):
             # Default to filename if we can't find a name inside
             program_name = os.path.basename(f).replace('.xlsx', '').replace('_', ' ')
             program_url = ""
-            
-            if len(df) > 0:
-                # Try to find "Program Name:" label in the first 20 rows
-                for r in range(min(20, len(df))):
-                    row_vals = [str(v).lower() for v in df.iloc[r]]
-                    if any("program name" in v for v in row_vals):
-                        for c in range(len(df.columns)-1):
-                            if "program name" in str(df.iloc[r, c]).lower():
-                                val = str(df.iloc[r, c+1]).strip()
-                                if val.lower() != 'nan' and val:
-                                    program_name = val
-                                break
-                    if any("program url" in v for v in row_vals):
-                        for c in range(len(df.columns)-1):
-                            if "program url" in str(df.iloc[r, c]).lower():
-                                val = str(df.iloc[r, c+1]).strip()
-                                if val.lower() != 'nan' and val:
-                                    program_url = val
-                                break
+            program_sheet_url = ""
+            # Search for Program Name, URL, and Sheet Link in the first 10 rows
+            for r in range(min(10, len(df))):
+                row_vals = [str(v).lower() for v in df.iloc[r]]
+                
+                # Program Name search
+                if any("program name" in v for v in row_vals):
+                    for c in range(len(df.columns)-1):
+                        if "program name" in str(df.iloc[r, c]).lower():
+                            val = str(df.iloc[r, c+1]).strip()
+                            if val.lower() != 'nan' and val:
+                                program_name = val
+                            break
+                
+                # Program URL search
+                if any("program url" in v for v in row_vals):
+                    for c in range(len(df.columns)-1):
+                        if "program url" in str(df.iloc[r, c]).lower():
+                            val = str(df.iloc[r, c+1]).strip()
+                            if val.lower() != 'nan' and val:
+                                program_url = val
+                            break
+                
+                # Feedback Sheet URL search
+                if any("feedback sheet" in v for v in row_vals) or any("sheet link" in v for v in row_vals):
+                    for c in range(len(df.columns)-1):
+                        low_val = str(df.iloc[r, c]).lower()
+                        if "feedback sheet" in low_val or "sheet link" in low_val:
+                            val = str(df.iloc[r, c+1]).strip()
+                            if val.lower() != 'nan' and val:
+                                program_sheet_url = val
+                            break
 
             issues = []
 
@@ -111,6 +124,7 @@ def process_files(input_dir=None):
                 "filename": os.path.basename(f),
                 "name": program_name,
                 "url": program_url,
+                "sheet_url": program_sheet_url,
                 "issues": issues
             })
 

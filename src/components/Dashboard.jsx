@@ -190,11 +190,18 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                   </button>
                   <div style={{ minWidth: 0 }}>
                     <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem', wordBreak: 'break-word' }}>{selectedProgram.name}</h1>
-                  {selectedProgram.url && (
-                    <a href={selectedProgram.url} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none' }}>
-                      View Product Page <ExternalLink size={16} />
-                    </a>
-                  )}
+                    <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+                      {selectedProgram.url && (
+                        <a href={selectedProgram.url} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none', fontWeight: '500' }}>
+                          View Product Page <ExternalLink size={16} />
+                        </a>
+                      )}
+                      {selectedProgram.sheet_url && (
+                        <a href={selectedProgram.sheet_url} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--success)', textDecoration: 'none', fontWeight: '500' }}>
+                          Edit Feedback Sheet <FileSpreadsheet size={16} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
                 {/* Program-level stat pills */}
