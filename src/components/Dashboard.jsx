@@ -66,9 +66,11 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   };
 
   const getProgStats = (program) => {
-    const total = program.issues.length;
-    const fixed = program.issues.filter(isFixed).length;
-    const cannot = program.issues.filter(i => (i['Status'] || '').toLowerCase().includes('cannot')).length;
+    if (!program || !program.issues) return { total: 0, fixed: 0, open: 0, cannot: 0 };
+    const issues = program.issues || [];
+    const total = issues.length;
+    const fixed = issues.filter(isFixed).length;
+    const cannot = issues.filter(i => String(i['Status'] || '').toLowerCase().includes('cannot')).length;
     return { total, fixed, cannot, open: total - fixed - cannot };
   };
 
@@ -84,13 +86,13 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const filteredIssues = selectedProgram ? selectedProgram.issues.filter(issue => {
     const searchLower = searchTerm.toLowerCase();
     return (
-      (issue['Content'] || '').toLowerCase().includes(searchLower) ||
-      (issue['Gap / Issue'] || '').toLowerCase().includes(searchLower) ||
-      (issue['Section Heading'] || '').toLowerCase().includes(searchLower) ||
-      (issue['Sub-Section Heading'] || '').toLowerCase().includes(searchLower) ||
-      (issue['Fix Suggested'] || '').toLowerCase().includes(searchLower) ||
-      (issue['Status'] || '').toLowerCase().includes(searchLower) ||
-      (issue['Remarks'] || '').toLowerCase().includes(searchLower)
+      String(issue['Content'] || '').toLowerCase().includes(searchLower) ||
+      String(issue['Gap / Issue'] || '').toLowerCase().includes(searchLower) ||
+      String(issue['Section Heading'] || '').toLowerCase().includes(searchLower) ||
+      String(issue['Sub-Section Heading'] || '').toLowerCase().includes(searchLower) ||
+      String(issue['Fix Suggested'] || '').toLowerCase().includes(searchLower) ||
+      String(issue['Status'] || '').toLowerCase().includes(searchLower) ||
+      String(issue['Remarks'] || '').toLowerCase().includes(searchLower)
     );
   }) : [];
 
