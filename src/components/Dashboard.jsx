@@ -60,7 +60,8 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   };
 
   const isFixed = (issue) => {
-    const s = (issue['Status'] || '').toLowerCase();
+    if (!issue) return false;
+    const s = String(issue['Status'] || '').toLowerCase();
     // Only 'fixed' counts as green/completed for the stats
     return s.includes('fixed');
   };
