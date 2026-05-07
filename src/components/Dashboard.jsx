@@ -191,14 +191,16 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                     {isSidebarOpen ? <ChevronLeft size={20} /> : <Menu size={20} />}
                   </button>
                   <div style={{ minWidth: 0 }}>
-                    <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem', wordBreak: 'break-word' }}>{selectedProgram.name}</h1>
+                    <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem', wordBreak: 'break-word' }}>
+                      {selectedProgram ? selectedProgram.name : 'Loading...'}
+                    </h1>
                     <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                      {selectedProgram.url && (
+                      {selectedProgram?.url && (
                         <a href={selectedProgram.url} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none', fontWeight: '500' }}>
                           View Product Page <ExternalLink size={16} />
                         </a>
                       )}
-                      {selectedProgram.sheet_url && (
+                      {selectedProgram?.sheet_url && (
                         <a href={selectedProgram.sheet_url} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--success)', textDecoration: 'none', fontWeight: '500' }}>
                           Edit Feedback Sheet <FileSpreadsheet size={16} />
                         </a>
@@ -207,7 +209,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                   </div>
                 </div>
                 {/* Program-level stat pills */}
-                {(() => {
+                {selectedProgram && (() => {
                   const ps = getProgStats(selectedProgram);
                   return (
                     <div style={{ display: 'flex', gap: '0.75rem', flexShrink: 0, alignSelf: 'flex-start', flexWrap: 'wrap' }}>
