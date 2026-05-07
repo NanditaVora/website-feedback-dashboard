@@ -277,33 +277,32 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
                   </thead>
                   <tbody>
                     {filteredIssues.map((issue, idx) => {
-                      const isCompleted = (issue['Status'] || '').toLowerCase().includes('complete') || (issue['Status'] || '').toLowerCase().includes('fixed');
                       return (
                         <tr 
-                          key={`${issue['Section Heading']}-${issue['Sub-Section Heading']}-${idx}`}
+                          key={`issue-${idx}`}
                           onClick={(e) => handleIssueClick(issue, e)}
                           style={{ cursor: 'pointer' }}
-                          className={`clickable-row ${selectedIssue === issue ? 'active-row' : ''} ${isCompleted ? 'row-completed' : ''}`}
+                          className={`clickable-row ${selectedIssue === issue ? 'active-row' : ''} ${isFixed(issue) ? 'row-completed' : ''}`}
                         >
                           <td>{getStatusBadge(issue['Status'])}</td>
                           <td>
                             <div style={{ marginBottom: '0.5rem' }}>
                               <span className={`section-tag ${getTagColor(issue['Section Heading'])}`}>
-                                {issue['Section Heading'] || 'General'}
+                                {String(issue['Section Heading'] || 'General')}
                               </span>
                             </div>
-                            <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '500' }}>{issue['Sub-Section Heading']}</div>
+                            <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '500' }}>{String(issue['Sub-Section Heading'] || '')}</div>
                           </td>
-                          <td className="text-preview">{issue['Content'] ? (issue['Content'].length > 40 ? issue['Content'].substring(0, 40) + '...' : issue['Content']) : '-'}</td>
+                          <td className="text-preview">{issue['Content'] ? (String(issue['Content']).length > 40 ? String(issue['Content']).substring(0, 40) + '...' : String(issue['Content'])) : '-'}</td>
                           <td className="text-preview">
                             {issue['Gap / Issue'] ? (
                                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
-                                 <AlertCircle size={14} color="var(--warning)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                                 <span>{issue['Gap / Issue'].length > 40 ? issue['Gap / Issue'].substring(0, 40) + '...' : issue['Gap / Issue']}</span>
+                                 <AlertTriangle size={14} style={{ color: 'var(--danger)', marginTop: '2px', flexShrink: 0 }} />
+                                 <span>{String(issue['Gap / Issue']).length > 60 ? String(issue['Gap / Issue']).substring(0, 60) + '...' : String(issue['Gap / Issue'])}</span>
                                </div>
                             ) : '-'}
                           </td>
-                          <td className="text-preview">{issue['Fix Suggested'] ? (issue['Fix Suggested'].length > 40 ? issue['Fix Suggested'].substring(0, 40) + '...' : issue['Fix Suggested']) : '-'}</td>
+                          <td className="text-preview">{issue['Fix Suggested'] ? (String(issue['Fix Suggested']).length > 40 ? String(issue['Fix Suggested']).substring(0, 40) + '...' : String(issue['Fix Suggested'])) : '-'}</td>
                         </tr>
                       );
                     })}
