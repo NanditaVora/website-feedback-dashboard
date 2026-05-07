@@ -83,7 +83,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     return acc;
   }, { total: 0, fixed: 0, open: 0, cannot: 0 });
 
-  const filteredIssues = selectedProgram ? selectedProgram.issues.filter(issue => {
+  const filteredIssues = (selectedProgram && selectedProgram.issues) ? selectedProgram.issues.filter(issue => {
     const searchLower = searchTerm.toLowerCase();
     return (
       String(issue['Content'] || '').toLowerCase().includes(searchLower) ||
