@@ -23,8 +23,9 @@ const Landing = ({ navigateToProgram, data }) => {
     const fixed = program.issues.filter(isFixed).length;
     const skipped = program.issues.filter(i => (i['Status'] || '').toLowerCase().includes('cannot')).length;
     const open = program.issues.length - fixed - skipped;
+    const name = program.name || program.filename || 'Unnamed Program';
     return {
-      name: program.name.length > 25 ? program.name.substring(0, 25) + '…' : program.name,
+      name: name.length > 25 ? name.substring(0, 25) + '…' : name,
       open,
       fixed,
       skipped,
