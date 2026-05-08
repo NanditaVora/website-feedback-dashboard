@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ExternalLink, AlertCircle, Search, Download, X, ChevronLeft, Menu, CheckCircle, Clock, AlertTriangle } from 'lucide-react';
+import { ExternalLink, AlertCircle, Search, Download, X, ChevronLeft, Menu, CheckCircle, Clock, AlertTriangle, FileSpreadsheet } from 'lucide-react';
 
 const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const selectedProgram = data.find(p => p.id === selectedProgramId);
