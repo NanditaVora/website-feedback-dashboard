@@ -59,12 +59,13 @@ def process_files(input_dir=None):
                             break
                 
                 # Feedback Sheet URL search
-                if any("feedback sheet" in v for v in row_vals) or any("sheet link" in v for v in row_vals):
+                search_terms = ["feedback sheet", "sheet link", "sheet title", "excel link"]
+                if any(term in v for v in row_vals for term in search_terms):
                     for c in range(len(df.columns)-1):
                         low_val = str(df.iloc[r, c]).lower()
-                        if "feedback sheet" in low_val or "sheet link" in low_val:
+                        if any(term in low_val for term in search_terms):
                             val = str(df.iloc[r, c+1]).strip()
-                            if val.lower() != 'nan' and val:
+                            if val.lower() != 'nan' and val and (val.startswith('http') or 'sharepoint' in val):
                                 program_sheet_url = val
                             break
 
