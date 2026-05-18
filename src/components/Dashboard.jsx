@@ -50,7 +50,7 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
     if (s.includes('cannot')) {
       return <span className="status-badge status-cannot"><X size={12} /> Cannot Fix</span>;
     }
-    if (s.includes('fixed')) {
+    if (s.includes('fixed') || s.includes('complete')) {
       return <span className="status-badge status-completed"><CheckCircle size={12} /> Fixed</span>;
     }
     if (s.includes('wip') || s.includes('progress')) {
@@ -62,8 +62,8 @@ const Dashboard = ({ data, selectedProgramId, setSelectedProgramId }) => {
   const isFixed = (issue) => {
     if (!issue) return false;
     const s = String(issue['Status'] || '').toLowerCase();
-    // Only 'fixed' counts as green/completed for the stats
-    return s.includes('fixed');
+    // Only 'fixed' or 'completed' counts as green/completed for the stats
+    return s.includes('fixed') || s.includes('complete');
   };
 
   const getProgStats = (program) => {

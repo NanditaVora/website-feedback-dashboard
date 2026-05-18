@@ -7,8 +7,8 @@ const Landing = ({ navigateToProgram, data }) => {
   const totalIssues = data.reduce((acc, curr) => acc + curr.issues.length, 0);
 
   const isFixed = (issue) => {
-    const s = (issue['Status'] || '').toLowerCase();
-    return s.includes('fixed');
+    const s = String(issue['Status'] || '').toLowerCase();
+    return s.includes('fixed') || s.includes('complete');
   };
 
   const totalFixed = data.reduce((acc, p) => acc + p.issues.filter(isFixed).length, 0);
