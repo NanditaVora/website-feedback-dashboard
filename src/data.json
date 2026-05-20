@@ -1,5 +1,13 @@
 [
   {
+    "id": "Advanced Data Visualization and BI with Power BI",
+    "filename": "Advanced Data Visualization and BI with Power BI.xlsx",
+    "name": "Advanced Data Visualization and BI with Power BI",
+    "url": "",
+    "sheet_url": "",
+    "issues": []
+  },
+  {
     "id": "Building_Agentic_AI_Systems",
     "filename": "Building_Agentic_AI_Systems.xlsx",
     "name": "Building Agentic AI Systems",
@@ -1627,7 +1635,190 @@
     "name": "The Agentic AI Developer Accelerator Website Feedback",
     "url": "",
     "sheet_url": "",
-    "issues": []
+    "issues": [
+      {
+        "Unknown": "",
+        "Sr. No.": "1",
+        "Heading": "Program Overview",
+        "Sub-Section Heading": "",
+        "Content": "The Agentic AI Developer Accelerator Program by NIIT is a sprint-based professional program designed to build job-ready skills in Agentic AI, RAG, and AI-powered application development.",
+        "Screenshot": "",
+        "Gap / Issue": "Powered is not the right term for this program overview since we are teaching how to building agentic AI systems",
+        "Fix Suggested": "The Agentic AI Developer Accelerator Program by NIIT is a sprint-based professional program designed to build job-ready skills in Agentic AI, RAG, and AI-native application development.",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "2",
+        "Heading": "Program Overview",
+        "Sub-Section Heading": "",
+        "Content": "",
+        "Screenshot": "",
+        "Gap / Issue": "No Issue, but suggesting alternatives for consideration",
+        "Fix Suggested": "Mentorship --> Mentor-Led\nHands-On --> No Change\nStackFlow --> AgentStack\nRAGWorks --> No Change\nFlowChain --> AgentFlow\nAgentSync --> No Change\nProjectEdge --> BuildProof\nSLOProof --> No Change\nSecureTrace --> No Change",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed\n\nMentorship --> Mentor-Led is not acepted as the same has been use once, we wanted to give imprtance in the overview section hence used an alternative term and which is common for all program. Rest all accepted, hence close this point",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "2",
+        "Heading": "Curriculum",
+        "Sub-Section Heading": "1 Build and Deploy Intelligent Conversational Agents",
+        "Content": "Monitor, Optimize, and Deploy AI Systems\n\nImplement observability with LangFuse to monitor traces, evaluate latency and token usage, and deploy conversational agents on the cloud.",
+        "Screenshot": "",
+        "Gap / Issue": "Deployment not covered",
+        "Fix Suggested": "Replace with:\nMonitor and Optimize AI Systems\n\nImplement observability with LangFuse to monitor traces, evaluate latency and token usage.",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "3",
+        "Heading": "Curriculum",
+        "Sub-Section Heading": "1. Build and Deploy Intelligent Conversational Agents / Activity",
+        "Content": "Cloud Deployment.",
+        "Screenshot": "",
+        "Gap / Issue": "",
+        "Fix Suggested": "Remove Cloud Deployment.",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "4",
+        "Heading": "Curriculum",
+        "Sub-Section Heading": "3 Build Autonomous Multi-Agent Systems",
+        "Content": "Optimize, Monitor, and Scale Agentic Systems\n\nImplement observability, tracing, guardrails, and evaluation frameworks while optimizing agentic systems for latency, quality, resilience, and cost efficiency.",
+        "Screenshot": "",
+        "Gap / Issue": "",
+        "Fix Suggested": "Remove guardrails",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "5",
+        "Heading": "Curriculum",
+        "Sub-Section Heading": "3 Build Autonomous Multi-Agent Systems",
+        "Content": "Activity\nGain hands-on experience with LangGraph, CrewAI, LangChain, LlamaIndex, Langfuse, Guardrails AI, MCP, PostgreSQL, pgvector, ReAct, Reflection, State Machines, Multi-Agent Workflows, Observability, RAG Integration.",
+        "Screenshot": "",
+        "Gap / Issue": "The highlighted topics are covered in Course 2",
+        "Fix Suggested": "Activity\nGain hands-on experience with LangGraph, CrewAI, ReAct, Reflection, State Machines, Multi-Agent Workflows.",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "6",
+        "Heading": "Curriculum",
+        "Sub-Section Heading": "3 Build Autonomous Multi-Agent Systems",
+        "Content": "Optimize, Monitor, and Scale Agentic Systems\n\nImplement observability, tracing, guardrails, and evaluation frameworks while optimizing agentic systems for latency, quality, resilience, and cost efficiency.\n\nDeliver Production-Ready AI Solutions\n\nDesign complete AI system architectures, integrate MCP workflows and external tools, define SLOs, and showcase production-ready agentic applications through live demos and runbooks.",
+        "Screenshot": "",
+        "Gap / Issue": "These topics are for Capstone Project",
+        "Fix Suggested": "Remove it completely, this is largely done in Capstone Project",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed \n\nI belive you wanted me to delete only below but mentoned two points\n\nDeliver Production-Ready AI Solutions\n\nDesign complete AI system architectures, integrate MCP workflows and external tools, define SLOs, and showcase production-ready agentic applications through live demos and runbooks.",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "7",
+        "Heading": "Tools & Technologies",
+        "Sub-Section Heading": "REST API Logo",
+        "Content": "It is not correct. If you browse web it shows different logos with gear like icon",
+        "Screenshot": "",
+        "Gap / Issue": "",
+        "Fix Suggested": "Please remove and replace with Ollama logo",
+        "Status (Fixed / WIP / Cannot Fix)": "WIP",
+        "Remarks": "Need tech Development- will take time, till the time, removing this logo of Rest API",
+        "Status": "WIP"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "8",
+        "Heading": "Projects You'll Build",
+        "Sub-Section Heading": "",
+        "Content": "Course Assignment: Car Purchase Advisor Agent",
+        "Screenshot": "",
+        "Gap / Issue": "",
+        "Fix Suggested": "Revise it to \"Course Assignment: Smart Auto Advisor Assistant\"",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "9",
+        "Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Course Assignment: Trip Planner Agent",
+        "Content": "LangChain\nCrewAI\nFastAPI\nReact\nMCP",
+        "Screenshot": "",
+        "Gap / Issue": "",
+        "Fix Suggested": "Remove CrewAI and MCP as they are not used",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "10",
+        "Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Course Assignment: Personalized Job Placement Agent",
+        "Content": "LangChain\nRAG\nPostgreSQL\nReact\nFastAPI",
+        "Screenshot": "",
+        "Gap / Issue": "",
+        "Fix Suggested": "Remove RAG and PostgreSQL",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "11",
+        "Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Capstone Project: Multi-Agent Retail Policy Intelligence System",
+        "Content": "CrewAI\nLangGraph\nLangChain\nGuardrails AI\nPostgreSQL",
+        "Screenshot": "",
+        "Gap / Issue": "",
+        "Fix Suggested": "Add RAG and MCP",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "12",
+        "Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Capstone Project: Enterprise Software Support & Resolution",
+        "Content": "CrewAI\nLangChain\nLangfuse\nRAG\nPostgreSQL\nMCP",
+        "Screenshot": "",
+        "Gap / Issue": "",
+        "Fix Suggested": "Add LangGraph and GuardRails AI",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "13",
+        "Heading": "Projects You'll Build",
+        "Sub-Section Heading": "Capstone Project: Financial Risk & Investment Decision Intelligence",
+        "Content": "LangGraph\nCrewAI\nGuardrails AI\nPostgreSQL\nRAG",
+        "Screenshot": "",
+        "Gap / Issue": "",
+        "Fix Suggested": "Add Langfuse, GuardRails AI and MCP",
+        "Status (Fixed / WIP / Cannot Fix)": "Fixed",
+        "Remarks": "Closed",
+        "Status": "Fixed"
+      }
+    ]
   },
   {
     "id": "Website Feedback_Cybersecurity with GenAI Advanced Program",
@@ -1747,6 +1938,30 @@
         "Fix Suggested": "Please add like Python, Docker, AWS, S3 Bucket , Ansible, GNS, VirtualBox, Vagrant",
         "Status": "WIP",
         "Remarks": "Many icons are not listed, given to tech team"
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "1",
+        "Heading": "Curriculum",
+        "Sub-Section Heading": "",
+        "Content": "",
+        "Screenshot": "",
+        "Gap / Issue": "Still the hours are not correct. Please correct it based on the Fix Suggestion",
+        "Fix Suggested": "",
+        "Status": "Open",
+        "Remarks": ""
+      },
+      {
+        "Unknown": "",
+        "Sr. No.": "2",
+        "Heading": "Tools and Technologies",
+        "Sub-Section Heading": "",
+        "Content": "",
+        "Screenshot": "",
+        "Gap / Issue": "Previous Comments Given Please fix it",
+        "Fix Suggested": "",
+        "Status": "Open",
+        "Remarks": ""
       }
     ]
   },
